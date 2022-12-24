@@ -1,0 +1,3613 @@
+<!DOCTYPE html>
+<html><head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, minimal-ui">
+	<link rel="stylesheet" href="/phpbin/course-search/interface/css/style.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cloud.typography.com/6127692/660644/css/fonts.css">
+	<script type="text/javascript" src="https://www.bu.edu/cdn/scripts/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="/phpbin/course-search/interface/dev/js/scripts.js"></script>
+
+  <script type="text/javascript">
+    function go_to_page( page ) {
+    $('#page').val(page);
+    $('form.coursearch-searchfields-form').submit();
+    };
+  </script>
+
+  <style type="text/css" title="defaultStyle">
+
+  </style>
+
+
+
+
+</head>
+<body id="body-tag" class="">
+  
+  
+  
+  
+  
+  
+  
+
+	<header class="coursearch-masthead">
+		<div class="coursearch-masthead-branding">
+			<a href="/phpbin/course-search/">Boston University <span>Course Search</span></a>
+		</div>
+	</header>
+
+	<main class="coursearch-main">
+        		<header class="coursearch-header">
+			<p>Search our database of over 7,000 courses.</p>
+		</header>
+
+		<p>Perform a basic search by entering keywords you would expect to find in the course description or by entering a full course number (example: CAS XX 123).  If you would like to see expected course offerings for a particular semester, select that semester in the drop-down box. If you would like to see all courses expected to be offered in the future, select “Future Semesters.”</p>
+		<p>To perform a more targeted search, select Additional Search Options</p>
+	
+		<form class="coursearch-searchfields-form" method="get" action="search.php">
+		<div class="coursearch-searchfields">
+        <input type="hidden" name="page" id="page" value="w0">
+        <input type="hidden" name="pagesize" id="pagesize" value="10">
+        <input type="hidden" name="adv" id="adv" value="1">
+        <input type="hidden" name="nolog" id="nolog" value="">
+
+				<label class="coursearch-searchfields-keyword-label has-tooltip">
+					Keyword or Full Course Number (example: CAS XX 123)
+
+<!--					<span class="tooltip">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut</span> -->
+
+					<input class="coursearch-searchfields-keyword-field" type="search" name="search_adv_all" value="">
+				</label>
+
+
+				<label class="coursearch-searchfields-semester-label dropdown">
+					Semester
+
+					<select class="coursearch-searchfields-semester-select" name="yearsem_adv">
+            
+            <option value="2023-SPRG" selected="selected">Spring 2023</option>
+            
+            <option value="*">Future Semesters</option>
+            
+					</select>
+				</label>
+
+				<span>
+					<button id="search-submit" type="submit" class="coursearch-searchfields-submit">Search</button>
+				</span>
+		</div>
+
+		<div class="coursearch-options">
+			<button class="coursearch-options-expand" type="button" data-selection-count="">Additional Search Options</button>
+
+			<div class="coursearch-options-content">
+				<div class="coursearch-options-section row">
+					<div class="coursearch-options-section coursearch-options-section-schools">
+						<h3 class="coursearch-options-heading">Schools/Colleges/Programs</h3>
+
+						<p class="coursearch-options-descriptor">Select all of the schools/colleges/programs you’re interested in searching. If all options are unchecked, all schools/colleges/programs will be searched by default.</p>
+
+						<ul class="coursearch-options-group">
+              
+              
+							<li class="coursearch-options-item coursearch-options-item-CAS">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="CAS" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									CAS
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-CDS">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="CDS" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									CDS
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-CFA">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="CFA" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									CFA
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-CGS">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="CGS" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									CGS
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-COM">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="COM" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									COM
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-ENG">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="ENG" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									ENG
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-EOP">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="EOP" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									EOP
+								</label>
+							</li>
+              
+              
+              
+							<li class="coursearch-options-item coursearch-options-item-GMS">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="GMS" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									GMS
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-GRS">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="GRS" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									GRS
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-HUB">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="HUB" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									HUB
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-KHC">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="KHC" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									KHC
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-LAW">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="LAW" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									LAW
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-MED">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="MED" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									MED
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-MET">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="MET" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									MET
+								</label>
+							</li>
+              
+              
+              
+							<li class="coursearch-options-item coursearch-options-item-OTP">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="OTP" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									OTP
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-PDP">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="PDP" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									PDP
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-QST">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="QST" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									QST
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-SAR">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="SAR" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									SAR
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-SDM">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="SDM" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									SDM
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-SED">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="SED" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									SED
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-SHA">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="SHA" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									SHA
+								</label>
+							</li>
+              
+              
+              
+							<li class="coursearch-options-item coursearch-options-item-SPH">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="SPH" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									SPH
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-SSW">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="SSW" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									SSW
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-STH">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="STH" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									STH
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-XRG">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="XRG" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									XRG
+								</label>
+							</li>
+              
+              
+						</ul>
+						<p class="coursearch-smallprint">* Course offerings with the HUB code include the Cross-College Challenge (XCC), Hub cocurriculars, and select Hub Study Abroad experiences only.</p>
+            <a class="coursearch-options-section-link" href="#">Abbreviation Glossary</a>
+					</div>
+
+					<div class="coursearch-options-section coursearch-options-section-credits">
+						<h3 class="coursearch-options-heading">Credits</h3>
+						<label class="dropdown">
+							<select class="coursearch-searchfields-semeter-select" name="credits">
+                
+                <option value="*" selected="selected">Any</option>
+                
+                <option value="0_1">0-1 credits</option>
+                
+                <option value="2">2 credits</option>
+                
+                <option value="3">3 credits</option>
+                
+                <option value="4">4 credits</option>
+                
+                <option value="5plus">5+ credits</option>
+                
+                <option value="var">Variable credits</option>
+                
+							</select>
+						</label>
+					</div>
+				</div>
+
+				<div class="coursearch-options-section">
+					<h3 class="coursearch-options-hub-area-title">BU Hub Pathways</h3>
+
+					<p class="coursearch-options-section-hub-match">
+						Display courses in the following Hub Pathway:
+
+						<label class=" dropdown dropdown-inline">
+							<select name="pathway" class="coursearch-searchfields-semeter-select">
+								<option value="">(No Hub Pathway)</option>
+								<option value="social">Social &amp; Racial Justice</option>
+								<option value="environment">Environment &amp; Society</option>
+							</select>
+						</label>
+
+					</p>
+
+					<p><a class="" target="_blank" href="https://www.bu.edu/hub/hub-courses/bu-hub-pathways/">About BU Hub Pathways</a></p>
+        </div>
+
+				<div class="coursearch-options-section coursearch-options-section-hub" style="padding-bottom: 1.5em;">
+					<h3 class="coursearch-options-hub-area-title">BU Hub Areas</h3>
+
+					<p class="coursearch-options-section-hub-match">
+						Courses that match 
+
+						<label class=" dropdown dropdown-inline">
+							<select name="hub_match" class="coursearch-searchfields-semeter-select">
+								<option value="all" selected="selected">All</option>
+								<option value="any">Any</option>
+							</select>
+						</label>
+
+						of the Hub areas selected will be displayed.
+					</p>
+
+					<div class="coursearch-options-hub-areas">
+						<div class="coursearch-options-hub-area">
+							<h4 class="coursearch-options-hub-area-title">Philosophical, Aesthetic, and Historical Interpretation</h4>
+
+							<ul class="coursearch-options-hub-area-list">
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="A">
+
+										<span class="checkmark"></span>
+										Philosophical Inquiry and Life's Meanings (PLM)
+									</label>
+								</li>
+
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="B">
+
+										<span class="checkmark"></span>
+										Aesthetic Exploration (AEX)
+									</label>
+								</li>
+
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="C">
+
+										<span class="checkmark"></span>
+										Historical Consciousness (HCO)
+									</label>
+								</li>
+							</ul>
+						</div>
+
+						<div class="coursearch-options-hub-area">
+							<h4 class="coursearch-options-hub-area-title">Scientific and Social Inquiry</h4>
+
+							<ul class="coursearch-options-hub-area-list">
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="D">
+
+										<span class="checkmark"></span>
+										Scientific Inquiry I (SI1)
+									</label>
+								</li>
+
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="F">
+
+										<span class="checkmark"></span>
+										Scientific Inquiry II (SI2)
+									</label>
+								</li>
+
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="E">
+
+										<span class="checkmark"></span>
+										Social Inquiry I (SO1)
+									</label>
+								</li>
+
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="P">
+
+										<span class="checkmark"></span>
+										Social Inquiry II (SO2)
+									</label>
+								</li>
+							</ul>
+						</div>
+
+						<div class="coursearch-options-hub-area">
+							<h4 class="coursearch-options-hub-area-title">Quantitative Reasoning</h4>
+
+							<ul class="coursearch-options-hub-area-list">
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="G">
+
+										<span class="checkmark"></span>
+										Quantitative Reasoning I (QR1)
+									</label>
+								</li>
+
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="H">
+
+										<span class="checkmark"></span>
+										Quantitative Reasoning II (QR2)
+									</label>
+								</li>
+							</ul>
+						</div>
+
+						<div class="coursearch-options-hub-area">
+							<h4 class="coursearch-options-hub-area-title">Diversity, Civic Engagement, and Global Citizenship</h4>
+
+							<ul class="coursearch-options-hub-area-list">
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="I">
+
+										<span class="checkmark"></span>
+										The Individual in Community (IIC)
+									</label>
+								</li>
+
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="J">
+										<span class="checkmark"></span>
+										Global Citizenship and Intercultural Literacy (GCI)
+									</label>
+								</li>
+
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="K">
+
+										<span class="checkmark"></span>
+										Ethical Reasoning (ETR)
+									</label>
+								</li>
+							</ul>
+						</div>
+
+						<div class="coursearch-options-hub-area">
+							<h4 class="coursearch-options-hub-area-title">Communication</h4>
+
+							<ul class="coursearch-options-hub-area-list">
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="L">
+
+										<span class="checkmark"></span>
+										First-Year Writing Seminar (FYW)
+									</label>
+								</li>
+
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="M">
+
+										<span class="checkmark"></span>
+										Writing, Research, and Inquiry (WRI)
+									</label>
+								</li>
+
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="6">
+
+										<span class="checkmark"></span>
+										Writing-Intensive Course (WIN)
+
+									</label>
+								</li>
+
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="N">
+
+										<span class="checkmark"></span>
+										Oral and/or Signed Communication (OSC)
+									</label>
+								</li>
+
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="O">
+
+										<span class="checkmark"></span>
+										Digital/Multimedia Expression (DME)
+									</label>
+								</li>
+							</ul>
+						</div>
+
+						<div class="coursearch-options-hub-area">
+							<h4 class="coursearch-options-hub-area-title">Intellectual Toolkit</h4>
+
+							<ul class="coursearch-options-hub-area-list">
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="1">
+
+										<span class="checkmark"></span>
+										Critical Thinking (CRT)
+									</label>
+								</li>
+
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="2">
+
+										<span class="checkmark"></span>
+										Research and Information Literacy (RIL)
+									</label>
+								</li>
+
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="3">
+
+										<span class="checkmark"></span>
+										Teamwork/Collaboration (TWC)
+									</label>
+								</li>
+
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="4">
+
+										<span class="checkmark"></span>
+										Creativity/Innovation (CRI)
+									</label>
+								</li>
+							</ul>
+						</div>
+
+					</div>
+
+					<a class="" target="_blank" href="https://www.bu.edu/hub/hub-courses/">All Hub Courses</a>
+				</div>
+      </div>
+		</div>
+
+
+<!-- BEGIN show_results_box -->
+		<div id="results-start"></div>
+		<div class="coursearch-error-note" style="display: none">
+      <h4>No results?</h4>
+      <ul>
+      	<li>Confirm spelling, full course number (example: CAS XX 123), and be sure that the search box has been populated.</li>
+      	<li>Confirm that you have selected the semester you wish to search or have selected “Future Semesters” to see all courses expected to be offered at some point in the future.</li>
+      	<li>Revise keywords for broader results.</li>
+      	<li>For more information on how to use the BU Course Search tool, please visit the <a href="http://www.bu.edu/advising/planning-tools/course-search/">Undergraduate Advising</a> website.</li>
+      </ul>
+      <p>Search using Additional Search Options:</p>
+      <ul>
+        <li>If you select schools/colleges/programs, you will see courses offered by <strong>all</strong> schools/colleges/programs selected.</li>
+        <li>If you select HUB as the code, you will only see the Cross-College Challenge (XCC), Hub cocurriculars, and select Hub Study Abroad experiences.</li>
+        <li>If you search by Hub area and select “All,” you will only see courses containing <strong>all, not some,</strong> of your selected Hub areas. (Example: Using “All,” and selecting Social Inquiry I and Ethical Reasoning will only show courses having both of these BU Hub areas.)</li>
+        <li>If you search by Hub area and select “Any,” you will see courses with<strong> any possible combination</strong> of your selected Hub areas. (Example: Using “Any,” and selecting Social Inquiry I and Ethical Reasoning will return courses having either or both of these BU Hub areas.)</li>
+        <li>Note: You can also visit the <a target="_blank" href="http://www.bu.edu/hub/hub-courses/">Hub Courses</a> page of the BU Hub website to search for courses by Hub area.</li>
+      </ul>
+		</div>
+
+		<div class="coursearch-results-note">
+      Searching for <strong></strong> returned <strong>4084</strong> classes
+		</div>
+
+		<div class="coursearch-results-section">
+			<header class="coursearch-results-section-header">
+				<label class="coursearch-results-display-dropdown-label dropdown dropdown-inline">
+          Displaying 1-10 of 4084
+					<select class="coursearch-results-display-dropdown-select" name="pagesize">
+            
+            <option value="5">5 per page</option>
+            
+            <option value="10" selected="selected">10 per page</option>
+            
+            <option value="25">25 per page</option>
+            
+            <option value="50">50 per page</option>
+            
+            <option value="-1">ALL</option>
+            
+					</select>
+				</label>
+
+				<div class="coursearch-results-pagination">
+          
+          
+          
+					<ul class="coursearch-results-pagination-pages">
+            
+            <li><a href="#" onclick="go_to_page(0); return false;">1</a></li>
+            
+            <li><a href="#" onclick="go_to_page(1); return false;">2</a></li>
+            
+            <li><a href="#" onclick="go_to_page(2); return false;">3</a></li>
+            
+            <li><a href="#" onclick="go_to_page(3); return false;">4</a></li>
+            
+            <li><a href="#" onclick="go_to_page(4); return false;">5</a></li>
+            
+          </ul>
+          <a href="#" class="coursearch-results-pagination-next" onclick="go_to_page(1); return false;"></a>
+          <a href="#" class="coursearch-results-pagination-last" onclick="go_to_page(408); return false;"></a>
+          
+				</div>
+			</header>
+
+			<ul class="coursearch-results">
+         
+				<li class="coursearch-result coursearch-result-expanded" id="coursearch-result-CASAA103">
+					<div class="coursearch-result-content">
+						<div class="coursearch-result-heading">
+							<h6>CAS AA 103</h6>
+							<h2>Introduction to African American Literature</h2>
+						</div>
+
+						<div class="coursearch-result-content-description">
+              
+              <p>Prereq: First-Year Writing Seminar (WR 120 or equivalent)<br></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+
+              <p>What is the African American literary tradition? In this course, we will read   poetry, slave narratives, essays, speeches, tales, short stories, and novels and   consider how culture, politics, and history shape African American literature.   Carries humanities divisional credit in CAS.  Effective Fall 2018,  this course fulfills a  single unit in each of the  following BU Hub areas: Aesthetic  Exploration,  Global Citizenship and  Intercultural Literacy. Effective Fall 2019, this   course fulfills a single unit in each of the  following BU Hub areas: Aesthetic   Exploration, Global Citizenship and  Intercultural Literacy, Critical Thinking. Effective Fall 2022, this course  fulfills a single unit in each of the following BU Hub areas: Writing-Intensive  Course, Global Citizenship and Intercultural Literacy, Critical Thinking.</p>
+              <p>[  4 cr.]</p>
+              
+            </div>
+					</div>
+
+            <ul class="coursearch-result-hub-list"><li>Global Citizenship and Intercultural Literacy</li><li>Critical Thinking</li><li>Writing-Intensive Course</li><li style="border-top: 1px solid #aaa; padding-top: 6px;"><strong>BU Hub Pathway:</strong><br>&nbsp;&nbsp;Social &amp; Racial Justice</li></ul>
+
+            <!-- Relevance score: <b>CASAA103</b> -->
+            <a class="coursearch-result-sections-link" href="/phpbin/course-search/section/?t=casaa103&amp;semester=2023-SPRG&amp;return=%2Fphpbin%2Fcourse-search%2Fsearch.php%3Fpage%3Dw0%26pagesize%3D-1%26adv%3D1%26nolog%3D%26search_adv_all%3D%26yearsem_adv%3D2023-SPRG%26credits%3D%2A%26pathway%3D%26hub_match%3Dall%26pagesize%3D10">1 section scheduled for Spring 2023</a><br>
+				</li>
+ 
+				<li class="coursearch-result" id="coursearch-result-CASAA112">
+					<div class="coursearch-result-content">
+						<div class="coursearch-result-heading">
+							<h6>CAS AA 112</h6>
+							<h2>Black Power in the Classroom: The History of Black Studies</h2>
+						</div>
+
+						<div class="coursearch-result-content-description">
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+
+              <p>Centers Black experiences, cultures, knowledge production and identity   formation in the United States and in the African Diaspora across time and   space. Examines and traces the genealogies of Black Studies as a discipline:   its political, ideological, and practical foundations on college campuses  and  in communities. Also explores earlier traditions and contemporary work  in Black  radical thought and activism that lay the groundwork for and build  on the  founding principles of Black Studies by mobilizing an intersectional  and  diasporic lens.  Effective Fall 2020, this course fulfills a single  unit in each of the following BU Hub areas: Historical Consciousness, Social  Inquiry I, Research and Information Literacy.</p>
+              <p>[  4 cr.]</p>
+              
+            </div>
+					</div>
+
+            <ul class="coursearch-result-hub-list"><li>Historical Consciousness</li><li>Social Inquiry I</li><li>Research and Information Literacy</li><li style="border-top: 1px solid #aaa; padding-top: 6px;"><strong>BU Hub Pathway:</strong><br>&nbsp;&nbsp;Social &amp; Racial Justice</li></ul>
+
+            <!-- Relevance score: <b>CASAA112</b> -->
+            <a class="coursearch-result-sections-link" href="/phpbin/course-search/section/?t=casaa112&amp;semester=2023-SPRG&amp;return=%2Fphpbin%2Fcourse-search%2Fsearch.php%3Fpage%3Dw0%26pagesize%3D-1%26adv%3D1%26nolog%3D%26search_adv_all%3D%26yearsem_adv%3D2023-SPRG%26credits%3D%2A%26pathway%3D%26hub_match%3Dall%26pagesize%3D10">1 section scheduled for Spring 2023</a><br>
+				</li>
+ 
+				<li class="coursearch-result" id="coursearch-result-CASAA207">
+					<div class="coursearch-result-content">
+						<div class="coursearch-result-heading">
+							<h6>CAS AA 207</h6>
+							<h2>Sociology of Race and Ethnicity</h2>
+						</div>
+
+						<div class="coursearch-result-content-description">
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+
+              <p>Examines the fundamental theoretical and empirical approaches regarding  race/ethnicity and the current state of race relations in the U.S. that explore  both contemporary social problems. Effective Fall 2019,  this  course  fulfills a  single unit in each of the following BU Hub areas:   Historical  Consciousness,  The Individual in Community, Research and  Information  Literacy. </p>
+              <p>[  4 cr.]</p>
+              
+            </div>
+					</div>
+
+            <ul class="coursearch-result-hub-list"><li>Historical Consciousness</li><li>The Individual in Community</li><li>Research and Information Literacy</li><li style="border-top: 1px solid #aaa; padding-top: 6px;"><strong>BU Hub Pathway:</strong><br>&nbsp;&nbsp;Social &amp; Racial Justice</li></ul>
+
+            <!-- Relevance score: <b>CASAA207</b> -->
+            <a class="coursearch-result-sections-link" href="/phpbin/course-search/section/?t=casaa207&amp;semester=2023-SPRG&amp;return=%2Fphpbin%2Fcourse-search%2Fsearch.php%3Fpage%3Dw0%26pagesize%3D-1%26adv%3D1%26nolog%3D%26search_adv_all%3D%26yearsem_adv%3D2023-SPRG%26credits%3D%2A%26pathway%3D%26hub_match%3Dall%26pagesize%3D10">4 sections scheduled for Spring 2023</a><br>
+				</li>
+ 
+				<li class="coursearch-result" id="coursearch-result-CASAA215">
+					<div class="coursearch-result-content">
+						<div class="coursearch-result-heading">
+							<h6>CAS AA 215</h6>
+							<h2>Arts of Africa and Its Diaspora</h2>
+						</div>
+
+						<div class="coursearch-result-content-description">
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+
+              <p>Exploration of a diversity of visual and performing arts from Africa,    including  royal regalia,  masquerades, and contemporary painting. Examines    how the  dispersal of Africans, due to the  transatlantic slave trade and    immigration,  contributed to the cultural richness of the Americas. Effective  Fall 2019, this   course  fulfills a single unit in each of the following BU Hub  areas:   Aesthetic   Exploration, Global Citizenship and Intercultural Literacy,   Critical  Thinking. </p>
+              <p>[  4 cr.]</p>
+              
+            </div>
+					</div>
+
+            <ul class="coursearch-result-hub-list"><li>Aesthetic Exploration</li><li>Global Citizenship and Intercultural Literacy</li><li>Critical Thinking</li><li style="border-top: 1px solid #aaa; padding-top: 6px;"><strong>BU Hub Pathway:</strong><br>&nbsp;&nbsp;Social &amp; Racial Justice</li></ul>
+
+            <!-- Relevance score: <b>CASAA215</b> -->
+            <a class="coursearch-result-sections-link" href="/phpbin/course-search/section/?t=casaa215&amp;semester=2023-SPRG&amp;return=%2Fphpbin%2Fcourse-search%2Fsearch.php%3Fpage%3Dw0%26pagesize%3D-1%26adv%3D1%26nolog%3D%26search_adv_all%3D%26yearsem_adv%3D2023-SPRG%26credits%3D%2A%26pathway%3D%26hub_match%3Dall%26pagesize%3D10">1 section scheduled for Spring 2023</a><br>
+				</li>
+ 
+				<li class="coursearch-result" id="coursearch-result-CASAA234">
+					<div class="coursearch-result-content">
+						<div class="coursearch-result-heading">
+							<h6>CAS AA 234</h6>
+							<h2>African Americans in Global Perspective: Slavery and the Creation of Race</h2>
+						</div>
+
+						<div class="coursearch-result-content-description">
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+
+              <p>A study of how chattel slavery in the Americas led to racialization as a  primary  tool in the creation of American society and New World capitalism.   Effective Fall 2020, this course fulfills a single unit in each of the  following BU Hub areas: Ethical Reasoning, Global Citizenship and  Intercultural Literacy, Critical Thinking.</p>
+              <p>[  4 cr.]</p>
+              
+            </div>
+					</div>
+
+            <ul class="coursearch-result-hub-list"><li>Global Citizenship and Intercultural Literacy</li><li>Ethical Reasoning</li><li>Critical Thinking</li><li style="border-top: 1px solid #aaa; padding-top: 6px;"><strong>BU Hub Pathway:</strong><br>&nbsp;&nbsp;Social &amp; Racial Justice</li></ul>
+
+            <!-- Relevance score: <b>CASAA234</b> -->
+            <a class="coursearch-result-sections-link" href="/phpbin/course-search/section/?t=casaa234&amp;semester=2023-SPRG&amp;return=%2Fphpbin%2Fcourse-search%2Fsearch.php%3Fpage%3Dw0%26pagesize%3D-1%26adv%3D1%26nolog%3D%26search_adv_all%3D%26yearsem_adv%3D2023-SPRG%26credits%3D%2A%26pathway%3D%26hub_match%3Dall%26pagesize%3D10">1 section scheduled for Spring 2023</a><br>
+				</li>
+ 
+				<li class="coursearch-result" id="coursearch-result-CASAA296">
+					<div class="coursearch-result-content">
+						<div class="coursearch-result-heading">
+							<h6>CAS AA 296</h6>
+							<h2>Religion and Hip Hop</h2>
+						</div>
+
+						<div class="coursearch-result-content-description">
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+
+              <p>Uses digital media studies to explore diverse religious expressions in hip  hop  culture. Through critical reading, community field trips, and hands-on   technology usage, students consider an often overlooked element in the study   of hip hop culture: religion. Effective Fall 2020, this course fulfills a  single unit in each of the following BU Hub areas: Digital/Multimedia  Expression, Aesthetic Exploration, Creativity/Innovation.</p>
+              <p>[  4 cr.]</p>
+              
+            </div>
+					</div>
+
+            <ul class="coursearch-result-hub-list"><li>Aesthetic Exploration</li><li>Digital/Multimedia Expression</li><li>Creativity/Innovation</li><li style="border-top: 1px solid #aaa; padding-top: 6px;"><strong>BU Hub Pathway:</strong><br>&nbsp;&nbsp;Social &amp; Racial Justice</li></ul>
+
+            <!-- Relevance score: <b>CASAA296</b> -->
+            <a class="coursearch-result-sections-link" href="/phpbin/course-search/section/?t=casaa296&amp;semester=2023-SPRG&amp;return=%2Fphpbin%2Fcourse-search%2Fsearch.php%3Fpage%3Dw0%26pagesize%3D-1%26adv%3D1%26nolog%3D%26search_adv_all%3D%26yearsem_adv%3D2023-SPRG%26credits%3D%2A%26pathway%3D%26hub_match%3Dall%26pagesize%3D10">1 section scheduled for Spring 2023</a><br>
+				</li>
+ 
+				<li class="coursearch-result" id="coursearch-result-CASAA308">
+					<div class="coursearch-result-content">
+						<div class="coursearch-result-heading">
+							<h6>CAS AA 308</h6>
+							<h2>Race and Politics</h2>
+						</div>
+
+						<div class="coursearch-result-content-description">
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+
+              <p>Combining research from history, political science, sociology, and economics,  this course examines the role of race and ethnicity in shaping American  politics and policy. Effective Fall 2019, this course fulfills a single unit  in each of the following BU Hub areas: Social Inquiry II, Ethical Reasoning,  Critical Thinking.</p>
+              <p>[  4 cr.]</p>
+              
+            </div>
+					</div>
+
+            <ul class="coursearch-result-hub-list"><li>Ethical Reasoning</li><li>Social Inquiry II</li><li>Critical Thinking</li><li style="border-top: 1px solid #aaa; padding-top: 6px;"><strong>BU Hub Pathway:</strong><br>&nbsp;&nbsp;Social &amp; Racial Justice</li></ul>
+
+            <!-- Relevance score: <b>CASAA308</b> -->
+            <a class="coursearch-result-sections-link" href="/phpbin/course-search/section/?t=casaa308&amp;semester=2023-SPRG&amp;return=%2Fphpbin%2Fcourse-search%2Fsearch.php%3Fpage%3Dw0%26pagesize%3D-1%26adv%3D1%26nolog%3D%26search_adv_all%3D%26yearsem_adv%3D2023-SPRG%26credits%3D%2A%26pathway%3D%26hub_match%3Dall%26pagesize%3D10">1 section scheduled for Spring 2023</a><br>
+				</li>
+ 
+				<li class="coursearch-result" id="coursearch-result-CASAA310">
+					<div class="coursearch-result-content">
+						<div class="coursearch-result-heading">
+							<h6>CAS AA 310</h6>
+							<h2>Civil Rights History</h2>
+						</div>
+
+						<div class="coursearch-result-content-description">
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+
+              <p>This course examines the U.S. Civil Rights and the struggle for black  freedom movements. From the late nineteenth century through the twenty-first  century, we consider events, organizations, "leaders" and organizers, legal  campaigns, and political protests to answer the questions: What were the  race, class, and gender dynamics within the movements? What were the  changing definitions of freedom? The course treats the movement's roots,  goals, ideologies, and cultures, and includes a comparison of the struggles  for equal rights of Mexican Americans, Native Americans, LGBT folks, and  other groups.  Effective Spring 2021, this course fulfills a single unit in  each of the following BU Hub areas: The Individual in Community, Historical  Consciousness, Teamwork/Collaboration.</p>
+              <p>[  4 cr.]</p>
+              
+            </div>
+					</div>
+
+            <ul class="coursearch-result-hub-list"><li>Historical Consciousness</li><li>The Individual in Community</li><li>Teamwork/Collaboration</li><li style="border-top: 1px solid #aaa; padding-top: 6px;"><strong>BU Hub Pathway:</strong><br>&nbsp;&nbsp;Social &amp; Racial Justice</li></ul>
+
+            <!-- Relevance score: <b>CASAA310</b> -->
+            <a class="coursearch-result-sections-link" href="/phpbin/course-search/section/?t=casaa310&amp;semester=2023-SPRG&amp;return=%2Fphpbin%2Fcourse-search%2Fsearch.php%3Fpage%3Dw0%26pagesize%3D-1%26adv%3D1%26nolog%3D%26search_adv_all%3D%26yearsem_adv%3D2023-SPRG%26credits%3D%2A%26pathway%3D%26hub_match%3Dall%26pagesize%3D10">1 section scheduled for Spring 2023</a><br>
+				</li>
+ 
+				<li class="coursearch-result" id="coursearch-result-CASAA335">
+					<div class="coursearch-result-content">
+						<div class="coursearch-result-heading">
+							<h6>CAS AA 335</h6>
+							<h2>Sociology of Race, Class &amp; Gender</h2>
+						</div>
+
+						<div class="coursearch-result-content-description">
+              
+              <p>Prereq: At least one prior 100- or 200-level sociology course, or <a href="search.php?search=CASWS101&amp;yearsem=*&amp;college=">CAS WS 101</a>/102.<br></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+
+              <p>No one of us is one thing, one identity, nor motivated by one singular interest,  nor privileged or subjugated by one singular form of power, but how do those  multiple forms of ourselves affect how we are advantaged, disadvantaged, viewed,  and understood by the social world? Our social world, is, by default, a vast web  of social intersections between and across groups with shared, overlapping, and  conflicting identities. Race, class and gender affect nearly all of our lived  experiences and greatly complicate and nuance concepts of diversity and  difference. Effective Fall 2020, this course   fulfills a single unit in each of  the following BU Hub areas:   Digital/Multimedia Expression , The Individual in  Community, Historical   Consciousness.</p>
+              <p>[  4 cr.]</p>
+              
+            </div>
+					</div>
+
+            <ul class="coursearch-result-hub-list"><li>Historical Consciousness</li><li>The Individual in Community</li><li>Digital/Multimedia Expression</li><li style="border-top: 1px solid #aaa; padding-top: 6px;"><strong>BU Hub Pathway:</strong><br>&nbsp;&nbsp;Social &amp; Racial Justice</li></ul>
+
+            <!-- Relevance score: <b>CASAA335</b> -->
+            <a class="coursearch-result-sections-link" href="/phpbin/course-search/section/?t=casaa335&amp;semester=2023-SPRG&amp;return=%2Fphpbin%2Fcourse-search%2Fsearch.php%3Fpage%3Dw0%26pagesize%3D-1%26adv%3D1%26nolog%3D%26search_adv_all%3D%26yearsem_adv%3D2023-SPRG%26credits%3D%2A%26pathway%3D%26hub_match%3Dall%26pagesize%3D10">1 section scheduled for Spring 2023</a><br>
+				</li>
+ 
+				<li class="coursearch-result" id="coursearch-result-CASAA356">
+					<div class="coursearch-result-content">
+						<div class="coursearch-result-heading">
+							<h6>CAS AA 356</h6>
+							<h2>Religion in the Digital Age</h2>
+						</div>
+
+						<div class="coursearch-result-content-description">
+              
+              <p>Prereq: First-Year Writing Seminar (<a href="search.php?search=CASWR120&amp;yearsem=*&amp;college=">CAS WR 120</a> or equivalent)<br></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+
+              <p>How has technology impacted religion? This hands-on course explores how digital  technologies like the Internet, social media, gaming, and artificial intelligence  have changed the way that people think about religion.  Effective Spring 2022,  this course fulfills a single unit in each of the following BU Hub areas:  Digital/Multimedia Expression, Writing-Intensive Course, Creativity/Innovation.</p>
+              <p>[  4 cr.]</p>
+              
+            </div>
+					</div>
+
+            <ul class="coursearch-result-hub-list"><li>Digital/Multimedia Expression</li><li>Creativity/Innovation</li><li>Writing-Intensive Course</li></ul>
+
+            <!-- Relevance score: <b>CASAA356</b> -->
+            <a class="coursearch-result-sections-link" href="/phpbin/course-search/section/?t=casaa356&amp;semester=2023-SPRG&amp;return=%2Fphpbin%2Fcourse-search%2Fsearch.php%3Fpage%3Dw0%26pagesize%3D-1%26adv%3D1%26nolog%3D%26search_adv_all%3D%26yearsem_adv%3D2023-SPRG%26credits%3D%2A%26pathway%3D%26hub_match%3Dall%26pagesize%3D10">1 section scheduled for Spring 2023</a><br>
+				</li>
+
+		
+			</ul>
+
+			<footer class="coursearch-results-section-footer">
+				<div class="coursearch-results-section-footer-link">
+					<a href="">Return to Top</a>
+				</div>		
+
+				<div class="coursearch-results-pagination">
+          
+          
+          
+					<ul class="coursearch-results-pagination-pages">
+            
+            <li><a href="#" onclick="go_to_page(0); return false;">1</a></li>
+            
+            <li><a href="#" onclick="go_to_page(1); return false;">2</a></li>
+            
+            <li><a href="#" onclick="go_to_page(2); return false;">3</a></li>
+            
+            <li><a href="#" onclick="go_to_page(3); return false;">4</a></li>
+            
+            <li><a href="#" onclick="go_to_page(4); return false;">5</a></li>
+            
+          </ul>
+          <a href="#" class="coursearch-results-pagination-next" onclick="go_to_page(1); return false;"></a>
+          <a href="#" class="coursearch-results-pagination-last" onclick="go_to_page(408); return false;"></a>
+          
+				</div>
+			</footer>
+		</div>
+
+<!-- END show_results_box -->
+
+
+
+
+
+
+
+
+
+
+
+
+			</form>
+
+	</main>
+
+	<div class="coursearch-modal-container">
+		<div class="coursearch-modal">
+			<button class="coursearch-modal-close">Close</button>
+
+			<h2>Abbreviation Glossary</h2>
+
+			<div class="coursearch-modal-section">
+				<div class="table-wrapper">
+					<table>
+						<tbody><tr>
+							<th>Abbreviation</th>
+							<th>Name</th>
+						</tr>
+						<tr>
+							<td>CAS</td>
+							<td>College of Arts &amp; Sciences</td>
+						</tr>
+						<tr>
+							<td>CFA</td>
+							<td>College of Fine Arts</td>
+						</tr>
+						<tr>
+							<td>CGS</td>
+							<td>College of General Studies</td>
+						</tr>
+						<tr>
+							<td>COM</td>
+							<td>College of Communication</td>
+						</tr>
+						<tr>
+							<td>EGS</td>
+							<td>College of Engineering and Graduate School of Arts &amp; Sciences</td>
+						</tr>
+						<tr>
+							<td>ENG</td>
+							<td>College of Engineering</td>
+						</tr>
+						<tr>
+							<td>EOP</td>
+							<td>Center for English Language &amp; Orientation Programs (CELOP)</td>
+						</tr>
+						<tr>
+							<td>GMS</td>
+							<td>Graduate Medical Sciences</td>
+						</tr>
+						<tr>
+							<td>GRS</td>
+							<td>Graduate School of Arts &amp; Sciences</td>
+						</tr>
+						<tr>
+							<td>HUB</td>
+							<td>BU Hub general education program</td>
+						</tr>
+						<tr>
+							<td>KHC</td>
+							<td>Questrom School of Business</td>
+						</tr>
+						<tr>
+							<td>LAW</td>
+							<td>School of Law</td>
+						</tr>
+						<tr>
+							<td>MED</td>
+							<td>School of Medicine</td>
+						</tr>
+						<tr>
+							<td>OTP</td>
+							<td>Officer Training Program</td>
+						</tr>
+						<tr>
+							<td>PDP</td>
+							<td>Physical Education Recreation and Dance</td>
+						</tr>
+						<tr>
+							<td>QST</td>
+							<td>Questrom School of Business</td>
+						</tr>
+						<tr>
+							<td>SAR</td>
+							<td>Sargent College</td>
+						</tr>
+						<tr>
+							<td>SDM</td>
+							<td>Henry M. Goldman School of Dental Medicine</td>
+						</tr>
+						<tr>
+							<td>SED</td>
+							<td>Wheelock College of Education &amp; Human Development</td>
+						</tr>
+						<tr>
+							<td>SHA</td>
+							<td>School of Hospitality Administration</td>
+						</tr>
+						<tr>
+							<td>SPH</td>
+							<td>School of Public Health</td>
+						</tr>
+						<tr>
+							<td>SSW</td>
+							<td>School of Social Work</td>
+						</tr>
+						<tr>
+							<td>STH</td>
+							<td>School of Theology</td>
+						</tr>
+						<tr>
+							<td>XRG</td>
+							<td>Cross Registration</td>
+						</tr>
+					</tbody></table>
+				</div>
+			</div>
+
+				
+		</div>
+	</div>
+
+	<footer class="coursearch-footer">
+		<ul class="coursearch-footer-links">
+			<li><a href="https://www.bu.edu/academics/bulletin/">Bulletin</a></li>
+
+			<li><a href="https://www.bu.edu/link/bin/uiscgi_studentlink.pl/uismpl/?ModuleName=menu.pl&amp;NewMenu=Home">Student Link</a></li>
+
+			<li><a href="http://www.bu.edu/help/tech/">Contact</a></li>
+
+			<li><a href="https://www.bu.edu/advising/">Undergraduate Advising</a></li>
+		</ul>
+
+		<div class="coursearch-footer-copyright">
+			<p>© 2020 Trustees of Boston University</p>
+		</div>
+
+		<div class="coursearch-footer-branding">
+			<a class="coursearch-footer-masterplate" href="https://www.bu.edu">
+				<img src="/phpbin/course-search/interface/css/images/bu.gif">
+			</a>
+		</div>
+	</footer>
+
+
+</body></html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, minimal-ui">
+	<link rel="stylesheet" href="/phpbin/course-search/interface/css/style.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cloud.typography.com/6127692/660644/css/fonts.css">
+	<script type="text/javascript" src="https://www.bu.edu/cdn/scripts/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="/phpbin/course-search/interface/dev/js/scripts.js"></script>
+
+  <script type="text/javascript">
+    function go_to_page( page ) {
+    $('#page').val(page);
+    $('form.coursearch-searchfields-form').submit();
+    };
+  </script>
+
+  <style type="text/css" title="defaultStyle">
+
+  </style>
+
+
+
+
+</head>
+<body id="body-tag" class="">
+  
+  
+  
+  
+  
+  
+  
+
+	<header class="coursearch-masthead">
+		<div class="coursearch-masthead-branding">
+			<a href="/phpbin/course-search/">Boston University <span>Course Search</span></a>
+		</div>
+	</header>
+
+	<main class="coursearch-main">
+        		<header class="coursearch-header">
+			<p>Search our database of over 7,000 courses.</p>
+		</header>
+
+		<p>Perform a basic search by entering keywords you would expect to find in the course description or by entering a full course number (example: CAS XX 123).  If you would like to see expected course offerings for a particular semester, select that semester in the drop-down box. If you would like to see all courses expected to be offered in the future, select “Future Semesters.”</p>
+		<p>To perform a more targeted search, select Additional Search Options</p>
+	
+		<form class="coursearch-searchfields-form" method="get" action="search.php">
+		<div class="coursearch-searchfields">
+        <input type="hidden" name="page" id="page" value="w0">
+        <input type="hidden" name="pagesize" id="pagesize" value="10">
+        <input type="hidden" name="adv" id="adv" value="1">
+        <input type="hidden" name="nolog" id="nolog" value="">
+
+				<label class="coursearch-searchfields-keyword-label has-tooltip">
+					Keyword or Full Course Number (example: CAS XX 123)
+
+<!--					<span class="tooltip">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut</span> -->
+
+					<input class="coursearch-searchfields-keyword-field" type="search" name="search_adv_all" value="">
+				</label>
+
+
+				<label class="coursearch-searchfields-semester-label dropdown">
+					Semester
+
+					<select class="coursearch-searchfields-semester-select" name="yearsem_adv">
+            
+            <option value="2023-SPRG" selected="selected">Spring 2023</option>
+            
+            <option value="*">Future Semesters</option>
+            
+					</select>
+				</label>
+
+				<span>
+					<button id="search-submit" type="submit" class="coursearch-searchfields-submit">Search</button>
+				</span>
+		</div>
+
+		<div class="coursearch-options">
+			<button class="coursearch-options-expand" type="button" data-selection-count="">Additional Search Options</button>
+
+			<div class="coursearch-options-content">
+				<div class="coursearch-options-section row">
+					<div class="coursearch-options-section coursearch-options-section-schools">
+						<h3 class="coursearch-options-heading">Schools/Colleges/Programs</h3>
+
+						<p class="coursearch-options-descriptor">Select all of the schools/colleges/programs you’re interested in searching. If all options are unchecked, all schools/colleges/programs will be searched by default.</p>
+
+						<ul class="coursearch-options-group">
+              
+              
+							<li class="coursearch-options-item coursearch-options-item-CAS">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="CAS" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									CAS
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-CDS">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="CDS" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									CDS
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-CFA">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="CFA" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									CFA
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-CGS">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="CGS" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									CGS
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-COM">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="COM" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									COM
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-ENG">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="ENG" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									ENG
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-EOP">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="EOP" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									EOP
+								</label>
+							</li>
+              
+              
+              
+							<li class="coursearch-options-item coursearch-options-item-GMS">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="GMS" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									GMS
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-GRS">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="GRS" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									GRS
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-HUB">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="HUB" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									HUB
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-KHC">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="KHC" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									KHC
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-LAW">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="LAW" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									LAW
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-MED">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="MED" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									MED
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-MET">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="MET" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									MET
+								</label>
+							</li>
+              
+              
+              
+							<li class="coursearch-options-item coursearch-options-item-OTP">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="OTP" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									OTP
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-PDP">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="PDP" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									PDP
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-QST">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="QST" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									QST
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-SAR">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="SAR" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									SAR
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-SDM">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="SDM" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									SDM
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-SED">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="SED" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									SED
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-SHA">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="SHA" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									SHA
+								</label>
+							</li>
+              
+              
+              
+							<li class="coursearch-options-item coursearch-options-item-SPH">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="SPH" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									SPH
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-SSW">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="SSW" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									SSW
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-STH">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="STH" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									STH
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-XRG">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="XRG" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									XRG
+								</label>
+							</li>
+              
+              
+						</ul>
+						<p class="coursearch-smallprint">* Course offerings with the HUB code include the Cross-College Challenge (XCC), Hub cocurriculars, and select Hub Study Abroad experiences only.</p>
+            <a class="coursearch-options-section-link" href="#">Abbreviation Glossary</a>
+					</div>
+
+					<div class="coursearch-options-section coursearch-options-section-credits">
+						<h3 class="coursearch-options-heading">Credits</h3>
+						<label class="dropdown">
+							<select class="coursearch-searchfields-semeter-select" name="credits">
+                
+                <option value="*" selected="selected">Any</option>
+                
+                <option value="0_1">0-1 credits</option>
+                
+                <option value="2">2 credits</option>
+                
+                <option value="3">3 credits</option>
+                
+                <option value="4">4 credits</option>
+                
+                <option value="5plus">5+ credits</option>
+                
+                <option value="var">Variable credits</option>
+                
+							</select>
+						</label>
+					</div>
+				</div>
+
+				<div class="coursearch-options-section">
+					<h3 class="coursearch-options-hub-area-title">BU Hub Pathways</h3>
+
+					<p class="coursearch-options-section-hub-match">
+						Display courses in the following Hub Pathway:
+
+						<label class=" dropdown dropdown-inline">
+							<select name="pathway" class="coursearch-searchfields-semeter-select">
+								<option value="">(No Hub Pathway)</option>
+								<option value="social">Social &amp; Racial Justice</option>
+								<option value="environment">Environment &amp; Society</option>
+							</select>
+						</label>
+
+					</p>
+
+					<p><a class="" target="_blank" href="https://www.bu.edu/hub/hub-courses/bu-hub-pathways/">About BU Hub Pathways</a></p>
+        </div>
+
+				<div class="coursearch-options-section coursearch-options-section-hub" style="padding-bottom: 1.5em;">
+					<h3 class="coursearch-options-hub-area-title">BU Hub Areas</h3>
+
+					<p class="coursearch-options-section-hub-match">
+						Courses that match 
+
+						<label class=" dropdown dropdown-inline">
+							<select name="hub_match" class="coursearch-searchfields-semeter-select">
+								<option value="all" selected="selected">All</option>
+								<option value="any">Any</option>
+							</select>
+						</label>
+
+						of the Hub areas selected will be displayed.
+					</p>
+
+					<div class="coursearch-options-hub-areas">
+						<div class="coursearch-options-hub-area">
+							<h4 class="coursearch-options-hub-area-title">Philosophical, Aesthetic, and Historical Interpretation</h4>
+
+							<ul class="coursearch-options-hub-area-list">
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="A">
+
+										<span class="checkmark"></span>
+										Philosophical Inquiry and Life's Meanings (PLM)
+									</label>
+								</li>
+
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="B">
+
+										<span class="checkmark"></span>
+										Aesthetic Exploration (AEX)
+									</label>
+								</li>
+
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="C">
+
+										<span class="checkmark"></span>
+										Historical Consciousness (HCO)
+									</label>
+								</li>
+							</ul>
+						</div>
+
+						<div class="coursearch-options-hub-area">
+							<h4 class="coursearch-options-hub-area-title">Scientific and Social Inquiry</h4>
+
+							<ul class="coursearch-options-hub-area-list">
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="D">
+
+										<span class="checkmark"></span>
+										Scientific Inquiry I (SI1)
+									</label>
+								</li>
+
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="F">
+
+										<span class="checkmark"></span>
+										Scientific Inquiry II (SI2)
+									</label>
+								</li>
+
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="E">
+
+										<span class="checkmark"></span>
+										Social Inquiry I (SO1)
+									</label>
+								</li>
+
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="P">
+
+										<span class="checkmark"></span>
+										Social Inquiry II (SO2)
+									</label>
+								</li>
+							</ul>
+						</div>
+
+						<div class="coursearch-options-hub-area">
+							<h4 class="coursearch-options-hub-area-title">Quantitative Reasoning</h4>
+
+							<ul class="coursearch-options-hub-area-list">
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="G">
+
+										<span class="checkmark"></span>
+										Quantitative Reasoning I (QR1)
+									</label>
+								</li>
+
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="H">
+
+										<span class="checkmark"></span>
+										Quantitative Reasoning II (QR2)
+									</label>
+								</li>
+							</ul>
+						</div>
+
+						<div class="coursearch-options-hub-area">
+							<h4 class="coursearch-options-hub-area-title">Diversity, Civic Engagement, and Global Citizenship</h4>
+
+							<ul class="coursearch-options-hub-area-list">
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="I">
+
+										<span class="checkmark"></span>
+										The Individual in Community (IIC)
+									</label>
+								</li>
+
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="J">
+										<span class="checkmark"></span>
+										Global Citizenship and Intercultural Literacy (GCI)
+									</label>
+								</li>
+
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="K">
+
+										<span class="checkmark"></span>
+										Ethical Reasoning (ETR)
+									</label>
+								</li>
+							</ul>
+						</div>
+
+						<div class="coursearch-options-hub-area">
+							<h4 class="coursearch-options-hub-area-title">Communication</h4>
+
+							<ul class="coursearch-options-hub-area-list">
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="L">
+
+										<span class="checkmark"></span>
+										First-Year Writing Seminar (FYW)
+									</label>
+								</li>
+
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="M">
+
+										<span class="checkmark"></span>
+										Writing, Research, and Inquiry (WRI)
+									</label>
+								</li>
+
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="6">
+
+										<span class="checkmark"></span>
+										Writing-Intensive Course (WIN)
+
+									</label>
+								</li>
+
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="N">
+
+										<span class="checkmark"></span>
+										Oral and/or Signed Communication (OSC)
+									</label>
+								</li>
+
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="O">
+
+										<span class="checkmark"></span>
+										Digital/Multimedia Expression (DME)
+									</label>
+								</li>
+							</ul>
+						</div>
+
+						<div class="coursearch-options-hub-area">
+							<h4 class="coursearch-options-hub-area-title">Intellectual Toolkit</h4>
+
+							<ul class="coursearch-options-hub-area-list">
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="1">
+
+										<span class="checkmark"></span>
+										Critical Thinking (CRT)
+									</label>
+								</li>
+
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="2">
+
+										<span class="checkmark"></span>
+										Research and Information Literacy (RIL)
+									</label>
+								</li>
+
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="3">
+
+										<span class="checkmark"></span>
+										Teamwork/Collaboration (TWC)
+									</label>
+								</li>
+
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="4">
+
+										<span class="checkmark"></span>
+										Creativity/Innovation (CRI)
+									</label>
+								</li>
+							</ul>
+						</div>
+
+					</div>
+
+					<a class="" target="_blank" href="https://www.bu.edu/hub/hub-courses/">All Hub Courses</a>
+				</div>
+      </div>
+		</div>
+
+
+<!-- BEGIN show_results_box -->
+		<div id="results-start"></div>
+		<div class="coursearch-error-note" style="display: none">
+      <h4>No results?</h4>
+      <ul>
+      	<li>Confirm spelling, full course number (example: CAS XX 123), and be sure that the search box has been populated.</li>
+      	<li>Confirm that you have selected the semester you wish to search or have selected “Future Semesters” to see all courses expected to be offered at some point in the future.</li>
+      	<li>Revise keywords for broader results.</li>
+      	<li>For more information on how to use the BU Course Search tool, please visit the <a href="http://www.bu.edu/advising/planning-tools/course-search/">Undergraduate Advising</a> website.</li>
+      </ul>
+      <p>Search using Additional Search Options:</p>
+      <ul>
+        <li>If you select schools/colleges/programs, you will see courses offered by <strong>all</strong> schools/colleges/programs selected.</li>
+        <li>If you select HUB as the code, you will only see the Cross-College Challenge (XCC), Hub cocurriculars, and select Hub Study Abroad experiences.</li>
+        <li>If you search by Hub area and select “All,” you will only see courses containing <strong>all, not some,</strong> of your selected Hub areas. (Example: Using “All,” and selecting Social Inquiry I and Ethical Reasoning will only show courses having both of these BU Hub areas.)</li>
+        <li>If you search by Hub area and select “Any,” you will see courses with<strong> any possible combination</strong> of your selected Hub areas. (Example: Using “Any,” and selecting Social Inquiry I and Ethical Reasoning will return courses having either or both of these BU Hub areas.)</li>
+        <li>Note: You can also visit the <a target="_blank" href="http://www.bu.edu/hub/hub-courses/">Hub Courses</a> page of the BU Hub website to search for courses by Hub area.</li>
+      </ul>
+		</div>
+
+		<div class="coursearch-results-note">
+      Searching for <strong></strong> returned <strong>4084</strong> classes
+		</div>
+
+		<div class="coursearch-results-section">
+			<header class="coursearch-results-section-header">
+				<label class="coursearch-results-display-dropdown-label dropdown dropdown-inline">
+          Displaying 1-10 of 4084
+					<select class="coursearch-results-display-dropdown-select" name="pagesize">
+            
+            <option value="5">5 per page</option>
+            
+            <option value="10" selected="selected">10 per page</option>
+            
+            <option value="25">25 per page</option>
+            
+            <option value="50">50 per page</option>
+            
+            <option value="-1">ALL</option>
+            
+					</select>
+				</label>
+
+				<div class="coursearch-results-pagination">
+          
+          
+          
+					<ul class="coursearch-results-pagination-pages">
+            
+            <li><a href="#" onclick="go_to_page(0); return false;">1</a></li>
+            
+            <li><a href="#" onclick="go_to_page(1); return false;">2</a></li>
+            
+            <li><a href="#" onclick="go_to_page(2); return false;">3</a></li>
+            
+            <li><a href="#" onclick="go_to_page(3); return false;">4</a></li>
+            
+            <li><a href="#" onclick="go_to_page(4); return false;">5</a></li>
+            
+          </ul>
+          <a href="#" class="coursearch-results-pagination-next" onclick="go_to_page(1); return false;"></a>
+          <a href="#" class="coursearch-results-pagination-last" onclick="go_to_page(408); return false;"></a>
+          
+				</div>
+			</header>
+
+			<ul class="coursearch-results">
+         
+				<li class="coursearch-result coursearch-result-expanded" id="coursearch-result-CASAA103">
+					<div class="coursearch-result-content">
+						<div class="coursearch-result-heading">
+							<h6>CAS AA 103</h6>
+							<h2>Introduction to African American Literature</h2>
+						</div>
+
+						<div class="coursearch-result-content-description">
+              
+              <p>Prereq: First-Year Writing Seminar (WR 120 or equivalent)<br></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+
+              <p>What is the African American literary tradition? In this course, we will read   poetry, slave narratives, essays, speeches, tales, short stories, and novels and   consider how culture, politics, and history shape African American literature.   Carries humanities divisional credit in CAS.  Effective Fall 2018,  this course fulfills a  single unit in each of the  following BU Hub areas: Aesthetic  Exploration,  Global Citizenship and  Intercultural Literacy. Effective Fall 2019, this   course fulfills a single unit in each of the  following BU Hub areas: Aesthetic   Exploration, Global Citizenship and  Intercultural Literacy, Critical Thinking. Effective Fall 2022, this course  fulfills a single unit in each of the following BU Hub areas: Writing-Intensive  Course, Global Citizenship and Intercultural Literacy, Critical Thinking.</p>
+              <p>[  4 cr.]</p>
+              
+            </div>
+					</div>
+
+            <ul class="coursearch-result-hub-list"><li>Global Citizenship and Intercultural Literacy</li><li>Critical Thinking</li><li>Writing-Intensive Course</li><li style="border-top: 1px solid #aaa; padding-top: 6px;"><strong>BU Hub Pathway:</strong><br>&nbsp;&nbsp;Social &amp; Racial Justice</li></ul>
+
+            <!-- Relevance score: <b>CASAA103</b> -->
+            <a class="coursearch-result-sections-link" href="/phpbin/course-search/section/?t=casaa103&amp;semester=2023-SPRG&amp;return=%2Fphpbin%2Fcourse-search%2Fsearch.php%3Fpage%3Dw0%26pagesize%3D-1%26adv%3D1%26nolog%3D%26search_adv_all%3D%26yearsem_adv%3D2023-SPRG%26credits%3D%2A%26pathway%3D%26hub_match%3Dall%26pagesize%3D10">1 section scheduled for Spring 2023</a><br>
+				</li>
+ 
+				<li class="coursearch-result" id="coursearch-result-CASAA112">
+					<div class="coursearch-result-content">
+						<div class="coursearch-result-heading">
+							<h6>CAS AA 112</h6>
+							<h2>Black Power in the Classroom: The History of Black Studies</h2>
+						</div>
+
+						<div class="coursearch-result-content-description">
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+
+              <p>Centers Black experiences, cultures, knowledge production and identity   formation in the United States and in the African Diaspora across time and   space. Examines and traces the genealogies of Black Studies as a discipline:   its political, ideological, and practical foundations on college campuses  and  in communities. Also explores earlier traditions and contemporary work  in Black  radical thought and activism that lay the groundwork for and build  on the  founding principles of Black Studies by mobilizing an intersectional  and  diasporic lens.  Effective Fall 2020, this course fulfills a single  unit in each of the following BU Hub areas: Historical Consciousness, Social  Inquiry I, Research and Information Literacy.</p>
+              <p>[  4 cr.]</p>
+              
+            </div>
+					</div>
+
+            <ul class="coursearch-result-hub-list"><li>Historical Consciousness</li><li>Social Inquiry I</li><li>Research and Information Literacy</li><li style="border-top: 1px solid #aaa; padding-top: 6px;"><strong>BU Hub Pathway:</strong><br>&nbsp;&nbsp;Social &amp; Racial Justice</li></ul>
+
+            <!-- Relevance score: <b>CASAA112</b> -->
+            <a class="coursearch-result-sections-link" href="/phpbin/course-search/section/?t=casaa112&amp;semester=2023-SPRG&amp;return=%2Fphpbin%2Fcourse-search%2Fsearch.php%3Fpage%3Dw0%26pagesize%3D-1%26adv%3D1%26nolog%3D%26search_adv_all%3D%26yearsem_adv%3D2023-SPRG%26credits%3D%2A%26pathway%3D%26hub_match%3Dall%26pagesize%3D10">1 section scheduled for Spring 2023</a><br>
+				</li>
+ 
+				<li class="coursearch-result" id="coursearch-result-CASAA207">
+					<div class="coursearch-result-content">
+						<div class="coursearch-result-heading">
+							<h6>CAS AA 207</h6>
+							<h2>Sociology of Race and Ethnicity</h2>
+						</div>
+
+						<div class="coursearch-result-content-description">
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+
+              <p>Examines the fundamental theoretical and empirical approaches regarding  race/ethnicity and the current state of race relations in the U.S. that explore  both contemporary social problems. Effective Fall 2019,  this  course  fulfills a  single unit in each of the following BU Hub areas:   Historical  Consciousness,  The Individual in Community, Research and  Information  Literacy. </p>
+              <p>[  4 cr.]</p>
+              
+            </div>
+					</div>
+
+            <ul class="coursearch-result-hub-list"><li>Historical Consciousness</li><li>The Individual in Community</li><li>Research and Information Literacy</li><li style="border-top: 1px solid #aaa; padding-top: 6px;"><strong>BU Hub Pathway:</strong><br>&nbsp;&nbsp;Social &amp; Racial Justice</li></ul>
+
+            <!-- Relevance score: <b>CASAA207</b> -->
+            <a class="coursearch-result-sections-link" href="/phpbin/course-search/section/?t=casaa207&amp;semester=2023-SPRG&amp;return=%2Fphpbin%2Fcourse-search%2Fsearch.php%3Fpage%3Dw0%26pagesize%3D-1%26adv%3D1%26nolog%3D%26search_adv_all%3D%26yearsem_adv%3D2023-SPRG%26credits%3D%2A%26pathway%3D%26hub_match%3Dall%26pagesize%3D10">4 sections scheduled for Spring 2023</a><br>
+				</li>
+ 
+				<li class="coursearch-result" id="coursearch-result-CASAA215">
+					<div class="coursearch-result-content">
+						<div class="coursearch-result-heading">
+							<h6>CAS AA 215</h6>
+							<h2>Arts of Africa and Its Diaspora</h2>
+						</div>
+
+						<div class="coursearch-result-content-description">
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+
+              <p>Exploration of a diversity of visual and performing arts from Africa,    including  royal regalia,  masquerades, and contemporary painting. Examines    how the  dispersal of Africans, due to the  transatlantic slave trade and    immigration,  contributed to the cultural richness of the Americas. Effective  Fall 2019, this   course  fulfills a single unit in each of the following BU Hub  areas:   Aesthetic   Exploration, Global Citizenship and Intercultural Literacy,   Critical  Thinking. </p>
+              <p>[  4 cr.]</p>
+              
+            </div>
+					</div>
+
+            <ul class="coursearch-result-hub-list"><li>Aesthetic Exploration</li><li>Global Citizenship and Intercultural Literacy</li><li>Critical Thinking</li><li style="border-top: 1px solid #aaa; padding-top: 6px;"><strong>BU Hub Pathway:</strong><br>&nbsp;&nbsp;Social &amp; Racial Justice</li></ul>
+
+            <!-- Relevance score: <b>CASAA215</b> -->
+            <a class="coursearch-result-sections-link" href="/phpbin/course-search/section/?t=casaa215&amp;semester=2023-SPRG&amp;return=%2Fphpbin%2Fcourse-search%2Fsearch.php%3Fpage%3Dw0%26pagesize%3D-1%26adv%3D1%26nolog%3D%26search_adv_all%3D%26yearsem_adv%3D2023-SPRG%26credits%3D%2A%26pathway%3D%26hub_match%3Dall%26pagesize%3D10">1 section scheduled for Spring 2023</a><br>
+				</li>
+ 
+				<li class="coursearch-result" id="coursearch-result-CASAA234">
+					<div class="coursearch-result-content">
+						<div class="coursearch-result-heading">
+							<h6>CAS AA 234</h6>
+							<h2>African Americans in Global Perspective: Slavery and the Creation of Race</h2>
+						</div>
+
+						<div class="coursearch-result-content-description">
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+
+              <p>A study of how chattel slavery in the Americas led to racialization as a  primary  tool in the creation of American society and New World capitalism.   Effective Fall 2020, this course fulfills a single unit in each of the  following BU Hub areas: Ethical Reasoning, Global Citizenship and  Intercultural Literacy, Critical Thinking.</p>
+              <p>[  4 cr.]</p>
+              
+            </div>
+					</div>
+
+            <ul class="coursearch-result-hub-list"><li>Global Citizenship and Intercultural Literacy</li><li>Ethical Reasoning</li><li>Critical Thinking</li><li style="border-top: 1px solid #aaa; padding-top: 6px;"><strong>BU Hub Pathway:</strong><br>&nbsp;&nbsp;Social &amp; Racial Justice</li></ul>
+
+            <!-- Relevance score: <b>CASAA234</b> -->
+            <a class="coursearch-result-sections-link" href="/phpbin/course-search/section/?t=casaa234&amp;semester=2023-SPRG&amp;return=%2Fphpbin%2Fcourse-search%2Fsearch.php%3Fpage%3Dw0%26pagesize%3D-1%26adv%3D1%26nolog%3D%26search_adv_all%3D%26yearsem_adv%3D2023-SPRG%26credits%3D%2A%26pathway%3D%26hub_match%3Dall%26pagesize%3D10">1 section scheduled for Spring 2023</a><br>
+				</li>
+ 
+				<li class="coursearch-result" id="coursearch-result-CASAA296">
+					<div class="coursearch-result-content">
+						<div class="coursearch-result-heading">
+							<h6>CAS AA 296</h6>
+							<h2>Religion and Hip Hop</h2>
+						</div>
+
+						<div class="coursearch-result-content-description">
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+
+              <p>Uses digital media studies to explore diverse religious expressions in hip  hop  culture. Through critical reading, community field trips, and hands-on   technology usage, students consider an often overlooked element in the study   of hip hop culture: religion. Effective Fall 2020, this course fulfills a  single unit in each of the following BU Hub areas: Digital/Multimedia  Expression, Aesthetic Exploration, Creativity/Innovation.</p>
+              <p>[  4 cr.]</p>
+              
+            </div>
+					</div>
+
+            <ul class="coursearch-result-hub-list"><li>Aesthetic Exploration</li><li>Digital/Multimedia Expression</li><li>Creativity/Innovation</li><li style="border-top: 1px solid #aaa; padding-top: 6px;"><strong>BU Hub Pathway:</strong><br>&nbsp;&nbsp;Social &amp; Racial Justice</li></ul>
+
+            <!-- Relevance score: <b>CASAA296</b> -->
+            <a class="coursearch-result-sections-link" href="/phpbin/course-search/section/?t=casaa296&amp;semester=2023-SPRG&amp;return=%2Fphpbin%2Fcourse-search%2Fsearch.php%3Fpage%3Dw0%26pagesize%3D-1%26adv%3D1%26nolog%3D%26search_adv_all%3D%26yearsem_adv%3D2023-SPRG%26credits%3D%2A%26pathway%3D%26hub_match%3Dall%26pagesize%3D10">1 section scheduled for Spring 2023</a><br>
+				</li>
+ 
+				<li class="coursearch-result" id="coursearch-result-CASAA308">
+					<div class="coursearch-result-content">
+						<div class="coursearch-result-heading">
+							<h6>CAS AA 308</h6>
+							<h2>Race and Politics</h2>
+						</div>
+
+						<div class="coursearch-result-content-description">
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+
+              <p>Combining research from history, political science, sociology, and economics,  this course examines the role of race and ethnicity in shaping American  politics and policy. Effective Fall 2019, this course fulfills a single unit  in each of the following BU Hub areas: Social Inquiry II, Ethical Reasoning,  Critical Thinking.</p>
+              <p>[  4 cr.]</p>
+              
+            </div>
+					</div>
+
+            <ul class="coursearch-result-hub-list"><li>Ethical Reasoning</li><li>Social Inquiry II</li><li>Critical Thinking</li><li style="border-top: 1px solid #aaa; padding-top: 6px;"><strong>BU Hub Pathway:</strong><br>&nbsp;&nbsp;Social &amp; Racial Justice</li></ul>
+
+            <!-- Relevance score: <b>CASAA308</b> -->
+            <a class="coursearch-result-sections-link" href="/phpbin/course-search/section/?t=casaa308&amp;semester=2023-SPRG&amp;return=%2Fphpbin%2Fcourse-search%2Fsearch.php%3Fpage%3Dw0%26pagesize%3D-1%26adv%3D1%26nolog%3D%26search_adv_all%3D%26yearsem_adv%3D2023-SPRG%26credits%3D%2A%26pathway%3D%26hub_match%3Dall%26pagesize%3D10">1 section scheduled for Spring 2023</a><br>
+				</li>
+ 
+				<li class="coursearch-result" id="coursearch-result-CASAA310">
+					<div class="coursearch-result-content">
+						<div class="coursearch-result-heading">
+							<h6>CAS AA 310</h6>
+							<h2>Civil Rights History</h2>
+						</div>
+
+						<div class="coursearch-result-content-description">
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+
+              <p>This course examines the U.S. Civil Rights and the struggle for black  freedom movements. From the late nineteenth century through the twenty-first  century, we consider events, organizations, "leaders" and organizers, legal  campaigns, and political protests to answer the questions: What were the  race, class, and gender dynamics within the movements? What were the  changing definitions of freedom? The course treats the movement's roots,  goals, ideologies, and cultures, and includes a comparison of the struggles  for equal rights of Mexican Americans, Native Americans, LGBT folks, and  other groups.  Effective Spring 2021, this course fulfills a single unit in  each of the following BU Hub areas: The Individual in Community, Historical  Consciousness, Teamwork/Collaboration.</p>
+              <p>[  4 cr.]</p>
+              
+            </div>
+					</div>
+
+            <ul class="coursearch-result-hub-list"><li>Historical Consciousness</li><li>The Individual in Community</li><li>Teamwork/Collaboration</li><li style="border-top: 1px solid #aaa; padding-top: 6px;"><strong>BU Hub Pathway:</strong><br>&nbsp;&nbsp;Social &amp; Racial Justice</li></ul>
+
+            <!-- Relevance score: <b>CASAA310</b> -->
+            <a class="coursearch-result-sections-link" href="/phpbin/course-search/section/?t=casaa310&amp;semester=2023-SPRG&amp;return=%2Fphpbin%2Fcourse-search%2Fsearch.php%3Fpage%3Dw0%26pagesize%3D-1%26adv%3D1%26nolog%3D%26search_adv_all%3D%26yearsem_adv%3D2023-SPRG%26credits%3D%2A%26pathway%3D%26hub_match%3Dall%26pagesize%3D10">1 section scheduled for Spring 2023</a><br>
+				</li>
+ 
+				<li class="coursearch-result" id="coursearch-result-CASAA335">
+					<div class="coursearch-result-content">
+						<div class="coursearch-result-heading">
+							<h6>CAS AA 335</h6>
+							<h2>Sociology of Race, Class &amp; Gender</h2>
+						</div>
+
+						<div class="coursearch-result-content-description">
+              
+              <p>Prereq: At least one prior 100- or 200-level sociology course, or <a href="search.php?search=CASWS101&amp;yearsem=*&amp;college=">CAS WS 101</a>/102.<br></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+
+              <p>No one of us is one thing, one identity, nor motivated by one singular interest,  nor privileged or subjugated by one singular form of power, but how do those  multiple forms of ourselves affect how we are advantaged, disadvantaged, viewed,  and understood by the social world? Our social world, is, by default, a vast web  of social intersections between and across groups with shared, overlapping, and  conflicting identities. Race, class and gender affect nearly all of our lived  experiences and greatly complicate and nuance concepts of diversity and  difference. Effective Fall 2020, this course   fulfills a single unit in each of  the following BU Hub areas:   Digital/Multimedia Expression , The Individual in  Community, Historical   Consciousness.</p>
+              <p>[  4 cr.]</p>
+              
+            </div>
+					</div>
+
+            <ul class="coursearch-result-hub-list"><li>Historical Consciousness</li><li>The Individual in Community</li><li>Digital/Multimedia Expression</li><li style="border-top: 1px solid #aaa; padding-top: 6px;"><strong>BU Hub Pathway:</strong><br>&nbsp;&nbsp;Social &amp; Racial Justice</li></ul>
+
+            <!-- Relevance score: <b>CASAA335</b> -->
+            <a class="coursearch-result-sections-link" href="/phpbin/course-search/section/?t=casaa335&amp;semester=2023-SPRG&amp;return=%2Fphpbin%2Fcourse-search%2Fsearch.php%3Fpage%3Dw0%26pagesize%3D-1%26adv%3D1%26nolog%3D%26search_adv_all%3D%26yearsem_adv%3D2023-SPRG%26credits%3D%2A%26pathway%3D%26hub_match%3Dall%26pagesize%3D10">1 section scheduled for Spring 2023</a><br>
+				</li>
+ 
+				<li class="coursearch-result" id="coursearch-result-CASAA356">
+					<div class="coursearch-result-content">
+						<div class="coursearch-result-heading">
+							<h6>CAS AA 356</h6>
+							<h2>Religion in the Digital Age</h2>
+						</div>
+
+						<div class="coursearch-result-content-description">
+              
+              <p>Prereq: First-Year Writing Seminar (<a href="search.php?search=CASWR120&amp;yearsem=*&amp;college=">CAS WR 120</a> or equivalent)<br></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+
+              <p>How has technology impacted religion? This hands-on course explores how digital  technologies like the Internet, social media, gaming, and artificial intelligence  have changed the way that people think about religion.  Effective Spring 2022,  this course fulfills a single unit in each of the following BU Hub areas:  Digital/Multimedia Expression, Writing-Intensive Course, Creativity/Innovation.</p>
+              <p>[  4 cr.]</p>
+              
+            </div>
+					</div>
+
+            <ul class="coursearch-result-hub-list"><li>Digital/Multimedia Expression</li><li>Creativity/Innovation</li><li>Writing-Intensive Course</li></ul>
+
+            <!-- Relevance score: <b>CASAA356</b> -->
+            <a class="coursearch-result-sections-link" href="/phpbin/course-search/section/?t=casaa356&amp;semester=2023-SPRG&amp;return=%2Fphpbin%2Fcourse-search%2Fsearch.php%3Fpage%3Dw0%26pagesize%3D-1%26adv%3D1%26nolog%3D%26search_adv_all%3D%26yearsem_adv%3D2023-SPRG%26credits%3D%2A%26pathway%3D%26hub_match%3Dall%26pagesize%3D10">1 section scheduled for Spring 2023</a><br>
+				</li>
+
+		
+			</ul>
+
+			<footer class="coursearch-results-section-footer">
+				<div class="coursearch-results-section-footer-link">
+					<a href="">Return to Top</a>
+				</div>		
+
+				<div class="coursearch-results-pagination">
+          
+          
+          
+					<ul class="coursearch-results-pagination-pages">
+            
+            <li><a href="#" onclick="go_to_page(0); return false;">1</a></li>
+            
+            <li><a href="#" onclick="go_to_page(1); return false;">2</a></li>
+            
+            <li><a href="#" onclick="go_to_page(2); return false;">3</a></li>
+            
+            <li><a href="#" onclick="go_to_page(3); return false;">4</a></li>
+            
+            <li><a href="#" onclick="go_to_page(4); return false;">5</a></li>
+            
+          </ul>
+          <a href="#" class="coursearch-results-pagination-next" onclick="go_to_page(1); return false;"></a>
+          <a href="#" class="coursearch-results-pagination-last" onclick="go_to_page(408); return false;"></a>
+          
+				</div>
+			</footer>
+		</div>
+
+<!-- END show_results_box -->
+
+
+
+
+
+
+
+
+
+
+
+
+			</form>
+
+	</main>
+
+	<div class="coursearch-modal-container">
+		<div class="coursearch-modal">
+			<button class="coursearch-modal-close">Close</button>
+
+			<h2>Abbreviation Glossary</h2>
+
+			<div class="coursearch-modal-section">
+				<div class="table-wrapper">
+					<table>
+						<tbody><tr>
+							<th>Abbreviation</th>
+							<th>Name</th>
+						</tr>
+						<tr>
+							<td>CAS</td>
+							<td>College of Arts &amp; Sciences</td>
+						</tr>
+						<tr>
+							<td>CFA</td>
+							<td>College of Fine Arts</td>
+						</tr>
+						<tr>
+							<td>CGS</td>
+							<td>College of General Studies</td>
+						</tr>
+						<tr>
+							<td>COM</td>
+							<td>College of Communication</td>
+						</tr>
+						<tr>
+							<td>EGS</td>
+							<td>College of Engineering and Graduate School of Arts &amp; Sciences</td>
+						</tr>
+						<tr>
+							<td>ENG</td>
+							<td>College of Engineering</td>
+						</tr>
+						<tr>
+							<td>EOP</td>
+							<td>Center for English Language &amp; Orientation Programs (CELOP)</td>
+						</tr>
+						<tr>
+							<td>GMS</td>
+							<td>Graduate Medical Sciences</td>
+						</tr>
+						<tr>
+							<td>GRS</td>
+							<td>Graduate School of Arts &amp; Sciences</td>
+						</tr>
+						<tr>
+							<td>HUB</td>
+							<td>BU Hub general education program</td>
+						</tr>
+						<tr>
+							<td>KHC</td>
+							<td>Questrom School of Business</td>
+						</tr>
+						<tr>
+							<td>LAW</td>
+							<td>School of Law</td>
+						</tr>
+						<tr>
+							<td>MED</td>
+							<td>School of Medicine</td>
+						</tr>
+						<tr>
+							<td>OTP</td>
+							<td>Officer Training Program</td>
+						</tr>
+						<tr>
+							<td>PDP</td>
+							<td>Physical Education Recreation and Dance</td>
+						</tr>
+						<tr>
+							<td>QST</td>
+							<td>Questrom School of Business</td>
+						</tr>
+						<tr>
+							<td>SAR</td>
+							<td>Sargent College</td>
+						</tr>
+						<tr>
+							<td>SDM</td>
+							<td>Henry M. Goldman School of Dental Medicine</td>
+						</tr>
+						<tr>
+							<td>SED</td>
+							<td>Wheelock College of Education &amp; Human Development</td>
+						</tr>
+						<tr>
+							<td>SHA</td>
+							<td>School of Hospitality Administration</td>
+						</tr>
+						<tr>
+							<td>SPH</td>
+							<td>School of Public Health</td>
+						</tr>
+						<tr>
+							<td>SSW</td>
+							<td>School of Social Work</td>
+						</tr>
+						<tr>
+							<td>STH</td>
+							<td>School of Theology</td>
+						</tr>
+						<tr>
+							<td>XRG</td>
+							<td>Cross Registration</td>
+						</tr>
+					</tbody></table>
+				</div>
+			</div>
+
+				
+		</div>
+	</div>
+
+	<footer class="coursearch-footer">
+		<ul class="coursearch-footer-links">
+			<li><a href="https://www.bu.edu/academics/bulletin/">Bulletin</a></li>
+
+			<li><a href="https://www.bu.edu/link/bin/uiscgi_studentlink.pl/uismpl/?ModuleName=menu.pl&amp;NewMenu=Home">Student Link</a></li>
+
+			<li><a href="http://www.bu.edu/help/tech/">Contact</a></li>
+
+			<li><a href="https://www.bu.edu/advising/">Undergraduate Advising</a></li>
+		</ul>
+
+		<div class="coursearch-footer-copyright">
+			<p>© 2020 Trustees of Boston University</p>
+		</div>
+
+		<div class="coursearch-footer-branding">
+			<a class="coursearch-footer-masterplate" href="https://www.bu.edu">
+				<img src="/phpbin/course-search/interface/css/images/bu.gif">
+			</a>
+		</div>
+	</footer>
+
+
+</body>
+<html><head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, minimal-ui">
+	<link rel="stylesheet" href="/phpbin/course-search/interface/css/style.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cloud.typography.com/6127692/660644/css/fonts.css">
+	<script type="text/javascript" src="https://www.bu.edu/cdn/scripts/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="/phpbin/course-search/interface/dev/js/scripts.js"></script>
+
+  <script type="text/javascript">
+    function go_to_page( page ) {
+    $('#page').val(page);
+    $('form.coursearch-searchfields-form').submit();
+    };
+  </script>
+
+  <style type="text/css" title="defaultStyle">
+
+  </style>
+
+
+
+
+</head>
+<body id="body-tag" class="">
+  
+  
+  
+  
+  
+  
+  
+
+	<header class="coursearch-masthead">
+		<div class="coursearch-masthead-branding">
+			<a href="/phpbin/course-search/">Boston University <span>Course Search</span></a>
+		</div>
+	</header>
+
+	<main class="coursearch-main">
+        		<header class="coursearch-header">
+			<p>Search our database of over 7,000 courses.</p>
+		</header>
+
+		<p>Perform a basic search by entering keywords you would expect to find in the course description or by entering a full course number (example: CAS XX 123).  If you would like to see expected course offerings for a particular semester, select that semester in the drop-down box. If you would like to see all courses expected to be offered in the future, select “Future Semesters.”</p>
+		<p>To perform a more targeted search, select Additional Search Options</p>
+	
+		<form class="coursearch-searchfields-form" method="get" action="search.php">
+		<div class="coursearch-searchfields">
+        <input type="hidden" name="page" id="page" value="w0">
+        <input type="hidden" name="pagesize" id="pagesize" value="10">
+        <input type="hidden" name="adv" id="adv" value="1">
+        <input type="hidden" name="nolog" id="nolog" value="">
+
+				<label class="coursearch-searchfields-keyword-label has-tooltip">
+					Keyword or Full Course Number (example: CAS XX 123)
+
+<!--					<span class="tooltip">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut</span> -->
+
+					<input class="coursearch-searchfields-keyword-field" type="search" name="search_adv_all" value="">
+				</label>
+
+
+				<label class="coursearch-searchfields-semester-label dropdown">
+					Semester
+
+					<select class="coursearch-searchfields-semester-select" name="yearsem_adv">
+            
+            <option value="2023-SPRG" selected="selected">Spring 2023</option>
+            
+            <option value="*">Future Semesters</option>
+            
+					</select>
+				</label>
+
+				<span>
+					<button id="search-submit" type="submit" class="coursearch-searchfields-submit">Search</button>
+				</span>
+		</div>
+
+		<div class="coursearch-options">
+			<button class="coursearch-options-expand" type="button" data-selection-count="">Additional Search Options</button>
+
+			<div class="coursearch-options-content">
+				<div class="coursearch-options-section row">
+					<div class="coursearch-options-section coursearch-options-section-schools">
+						<h3 class="coursearch-options-heading">Schools/Colleges/Programs</h3>
+
+						<p class="coursearch-options-descriptor">Select all of the schools/colleges/programs you’re interested in searching. If all options are unchecked, all schools/colleges/programs will be searched by default.</p>
+
+						<ul class="coursearch-options-group">
+              
+              
+							<li class="coursearch-options-item coursearch-options-item-CAS">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="CAS" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									CAS
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-CDS">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="CDS" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									CDS
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-CFA">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="CFA" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									CFA
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-CGS">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="CGS" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									CGS
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-COM">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="COM" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									COM
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-ENG">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="ENG" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									ENG
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-EOP">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="EOP" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									EOP
+								</label>
+							</li>
+              
+              
+              
+							<li class="coursearch-options-item coursearch-options-item-GMS">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="GMS" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									GMS
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-GRS">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="GRS" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									GRS
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-HUB">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="HUB" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									HUB
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-KHC">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="KHC" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									KHC
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-LAW">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="LAW" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									LAW
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-MED">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="MED" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									MED
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-MET">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="MET" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									MET
+								</label>
+							</li>
+              
+              
+              
+							<li class="coursearch-options-item coursearch-options-item-OTP">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="OTP" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									OTP
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-PDP">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="PDP" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									PDP
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-QST">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="QST" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									QST
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-SAR">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="SAR" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									SAR
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-SDM">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="SDM" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									SDM
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-SED">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="SED" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									SED
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-SHA">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="SHA" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									SHA
+								</label>
+							</li>
+              
+              
+              
+							<li class="coursearch-options-item coursearch-options-item-SPH">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="SPH" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									SPH
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-SSW">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="SSW" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									SSW
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-STH">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="STH" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									STH
+								</label>
+							</li>
+              
+							<li class="coursearch-options-item coursearch-options-item-XRG">
+								<label class="coursearch-options-item-label checkmark-container checkmark-container">
+									<input class="coursearch-options-item-checkbox" name="college[]" value="XRG" type="checkbox">
+
+									<span class="checkmark"></span>
+
+									XRG
+								</label>
+							</li>
+              
+              
+						</ul>
+						<p class="coursearch-smallprint">* Course offerings with the HUB code include the Cross-College Challenge (XCC), Hub cocurriculars, and select Hub Study Abroad experiences only.</p>
+            <a class="coursearch-options-section-link" href="#">Abbreviation Glossary</a>
+					</div>
+
+					<div class="coursearch-options-section coursearch-options-section-credits">
+						<h3 class="coursearch-options-heading">Credits</h3>
+						<label class="dropdown">
+							<select class="coursearch-searchfields-semeter-select" name="credits">
+                
+                <option value="*" selected="selected">Any</option>
+                
+                <option value="0_1">0-1 credits</option>
+                
+                <option value="2">2 credits</option>
+                
+                <option value="3">3 credits</option>
+                
+                <option value="4">4 credits</option>
+                
+                <option value="5plus">5+ credits</option>
+                
+                <option value="var">Variable credits</option>
+                
+							</select>
+						</label>
+					</div>
+				</div>
+
+				<div class="coursearch-options-section">
+					<h3 class="coursearch-options-hub-area-title">BU Hub Pathways</h3>
+
+					<p class="coursearch-options-section-hub-match">
+						Display courses in the following Hub Pathway:
+
+						<label class=" dropdown dropdown-inline">
+							<select name="pathway" class="coursearch-searchfields-semeter-select">
+								<option value="">(No Hub Pathway)</option>
+								<option value="social">Social &amp; Racial Justice</option>
+								<option value="environment">Environment &amp; Society</option>
+							</select>
+						</label>
+
+					</p>
+
+					<p><a class="" target="_blank" href="https://www.bu.edu/hub/hub-courses/bu-hub-pathways/">About BU Hub Pathways</a></p>
+        </div>
+
+				<div class="coursearch-options-section coursearch-options-section-hub" style="padding-bottom: 1.5em;">
+					<h3 class="coursearch-options-hub-area-title">BU Hub Areas</h3>
+
+					<p class="coursearch-options-section-hub-match">
+						Courses that match 
+
+						<label class=" dropdown dropdown-inline">
+							<select name="hub_match" class="coursearch-searchfields-semeter-select">
+								<option value="all" selected="selected">All</option>
+								<option value="any">Any</option>
+							</select>
+						</label>
+
+						of the Hub areas selected will be displayed.
+					</p>
+
+					<div class="coursearch-options-hub-areas">
+						<div class="coursearch-options-hub-area">
+							<h4 class="coursearch-options-hub-area-title">Philosophical, Aesthetic, and Historical Interpretation</h4>
+
+							<ul class="coursearch-options-hub-area-list">
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="A">
+
+										<span class="checkmark"></span>
+										Philosophical Inquiry and Life's Meanings (PLM)
+									</label>
+								</li>
+
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="B">
+
+										<span class="checkmark"></span>
+										Aesthetic Exploration (AEX)
+									</label>
+								</li>
+
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="C">
+
+										<span class="checkmark"></span>
+										Historical Consciousness (HCO)
+									</label>
+								</li>
+							</ul>
+						</div>
+
+						<div class="coursearch-options-hub-area">
+							<h4 class="coursearch-options-hub-area-title">Scientific and Social Inquiry</h4>
+
+							<ul class="coursearch-options-hub-area-list">
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="D">
+
+										<span class="checkmark"></span>
+										Scientific Inquiry I (SI1)
+									</label>
+								</li>
+
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="F">
+
+										<span class="checkmark"></span>
+										Scientific Inquiry II (SI2)
+									</label>
+								</li>
+
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="E">
+
+										<span class="checkmark"></span>
+										Social Inquiry I (SO1)
+									</label>
+								</li>
+
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="P">
+
+										<span class="checkmark"></span>
+										Social Inquiry II (SO2)
+									</label>
+								</li>
+							</ul>
+						</div>
+
+						<div class="coursearch-options-hub-area">
+							<h4 class="coursearch-options-hub-area-title">Quantitative Reasoning</h4>
+
+							<ul class="coursearch-options-hub-area-list">
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="G">
+
+										<span class="checkmark"></span>
+										Quantitative Reasoning I (QR1)
+									</label>
+								</li>
+
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="H">
+
+										<span class="checkmark"></span>
+										Quantitative Reasoning II (QR2)
+									</label>
+								</li>
+							</ul>
+						</div>
+
+						<div class="coursearch-options-hub-area">
+							<h4 class="coursearch-options-hub-area-title">Diversity, Civic Engagement, and Global Citizenship</h4>
+
+							<ul class="coursearch-options-hub-area-list">
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="I">
+
+										<span class="checkmark"></span>
+										The Individual in Community (IIC)
+									</label>
+								</li>
+
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="J">
+										<span class="checkmark"></span>
+										Global Citizenship and Intercultural Literacy (GCI)
+									</label>
+								</li>
+
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="K">
+
+										<span class="checkmark"></span>
+										Ethical Reasoning (ETR)
+									</label>
+								</li>
+							</ul>
+						</div>
+
+						<div class="coursearch-options-hub-area">
+							<h4 class="coursearch-options-hub-area-title">Communication</h4>
+
+							<ul class="coursearch-options-hub-area-list">
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="L">
+
+										<span class="checkmark"></span>
+										First-Year Writing Seminar (FYW)
+									</label>
+								</li>
+
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="M">
+
+										<span class="checkmark"></span>
+										Writing, Research, and Inquiry (WRI)
+									</label>
+								</li>
+
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="6">
+
+										<span class="checkmark"></span>
+										Writing-Intensive Course (WIN)
+
+									</label>
+								</li>
+
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="N">
+
+										<span class="checkmark"></span>
+										Oral and/or Signed Communication (OSC)
+									</label>
+								</li>
+
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="O">
+
+										<span class="checkmark"></span>
+										Digital/Multimedia Expression (DME)
+									</label>
+								</li>
+							</ul>
+						</div>
+
+						<div class="coursearch-options-hub-area">
+							<h4 class="coursearch-options-hub-area-title">Intellectual Toolkit</h4>
+
+							<ul class="coursearch-options-hub-area-list">
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="1">
+
+										<span class="checkmark"></span>
+										Critical Thinking (CRT)
+									</label>
+								</li>
+
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="2">
+
+										<span class="checkmark"></span>
+										Research and Information Literacy (RIL)
+									</label>
+								</li>
+
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="3">
+
+										<span class="checkmark"></span>
+										Teamwork/Collaboration (TWC)
+									</label>
+								</li>
+
+								<li class="coursearch-options-hub-area-item">
+									<label class="checkmark-container">
+										<input type="checkbox" name="hub[]" value="4">
+
+										<span class="checkmark"></span>
+										Creativity/Innovation (CRI)
+									</label>
+								</li>
+							</ul>
+						</div>
+
+					</div>
+
+					<a class="" target="_blank" href="https://www.bu.edu/hub/hub-courses/">All Hub Courses</a>
+				</div>
+      </div>
+		</div>
+
+
+<!-- BEGIN show_results_box -->
+		<div id="results-start"></div>
+		<div class="coursearch-error-note" style="display: none">
+      <h4>No results?</h4>
+      <ul>
+      	<li>Confirm spelling, full course number (example: CAS XX 123), and be sure that the search box has been populated.</li>
+      	<li>Confirm that you have selected the semester you wish to search or have selected “Future Semesters” to see all courses expected to be offered at some point in the future.</li>
+      	<li>Revise keywords for broader results.</li>
+      	<li>For more information on how to use the BU Course Search tool, please visit the <a href="http://www.bu.edu/advising/planning-tools/course-search/">Undergraduate Advising</a> website.</li>
+      </ul>
+      <p>Search using Additional Search Options:</p>
+      <ul>
+        <li>If you select schools/colleges/programs, you will see courses offered by <strong>all</strong> schools/colleges/programs selected.</li>
+        <li>If you select HUB as the code, you will only see the Cross-College Challenge (XCC), Hub cocurriculars, and select Hub Study Abroad experiences.</li>
+        <li>If you search by Hub area and select “All,” you will only see courses containing <strong>all, not some,</strong> of your selected Hub areas. (Example: Using “All,” and selecting Social Inquiry I and Ethical Reasoning will only show courses having both of these BU Hub areas.)</li>
+        <li>If you search by Hub area and select “Any,” you will see courses with<strong> any possible combination</strong> of your selected Hub areas. (Example: Using “Any,” and selecting Social Inquiry I and Ethical Reasoning will return courses having either or both of these BU Hub areas.)</li>
+        <li>Note: You can also visit the <a target="_blank" href="http://www.bu.edu/hub/hub-courses/">Hub Courses</a> page of the BU Hub website to search for courses by Hub area.</li>
+      </ul>
+		</div>
+
+		<div class="coursearch-results-note">
+      Searching for <strong></strong> returned <strong>4084</strong> classes
+		</div>
+
+		<div class="coursearch-results-section">
+			<header class="coursearch-results-section-header">
+				<label class="coursearch-results-display-dropdown-label dropdown dropdown-inline">
+          Displaying 1-10 of 4084
+					<select class="coursearch-results-display-dropdown-select" name="pagesize">
+            
+            <option value="5">5 per page</option>
+            
+            <option value="10" selected="selected">10 per page</option>
+            
+            <option value="25">25 per page</option>
+            
+            <option value="50">50 per page</option>
+            
+            <option value="-1">ALL</option>
+            
+					</select>
+				</label>
+
+				<div class="coursearch-results-pagination">
+          
+          
+          
+					<ul class="coursearch-results-pagination-pages">
+            
+            <li><a href="#" onclick="go_to_page(0); return false;">1</a></li>
+            
+            <li><a href="#" onclick="go_to_page(1); return false;">2</a></li>
+            
+            <li><a href="#" onclick="go_to_page(2); return false;">3</a></li>
+            
+            <li><a href="#" onclick="go_to_page(3); return false;">4</a></li>
+            
+            <li><a href="#" onclick="go_to_page(4); return false;">5</a></li>
+            
+          </ul>
+          <a href="#" class="coursearch-results-pagination-next" onclick="go_to_page(1); return false;"></a>
+          <a href="#" class="coursearch-results-pagination-last" onclick="go_to_page(408); return false;"></a>
+          
+				</div>
+			</header>
+
+			<ul class="coursearch-results">
+         
+				<li class="coursearch-result coursearch-result-expanded" id="coursearch-result-CASAA103">
+					<div class="coursearch-result-content">
+						<div class="coursearch-result-heading">
+							<h6>CAS AA 103</h6>
+							<h2>Introduction to African American Literature</h2>
+						</div>
+
+						<div class="coursearch-result-content-description">
+              
+              <p>Prereq: First-Year Writing Seminar (WR 120 or equivalent)<br></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+
+              <p>What is the African American literary tradition? In this course, we will read   poetry, slave narratives, essays, speeches, tales, short stories, and novels and   consider how culture, politics, and history shape African American literature.   Carries humanities divisional credit in CAS.  Effective Fall 2018,  this course fulfills a  single unit in each of the  following BU Hub areas: Aesthetic  Exploration,  Global Citizenship and  Intercultural Literacy. Effective Fall 2019, this   course fulfills a single unit in each of the  following BU Hub areas: Aesthetic   Exploration, Global Citizenship and  Intercultural Literacy, Critical Thinking. Effective Fall 2022, this course  fulfills a single unit in each of the following BU Hub areas: Writing-Intensive  Course, Global Citizenship and Intercultural Literacy, Critical Thinking.</p>
+              <p>[  4 cr.]</p>
+              
+            </div>
+					</div>
+
+            <ul class="coursearch-result-hub-list"><li>Global Citizenship and Intercultural Literacy</li><li>Critical Thinking</li><li>Writing-Intensive Course</li><li style="border-top: 1px solid #aaa; padding-top: 6px;"><strong>BU Hub Pathway:</strong><br>&nbsp;&nbsp;Social &amp; Racial Justice</li></ul>
+
+            <!-- Relevance score: <b>CASAA103</b> -->
+            <a class="coursearch-result-sections-link" href="/phpbin/course-search/section/?t=casaa103&amp;semester=2023-SPRG&amp;return=%2Fphpbin%2Fcourse-search%2Fsearch.php%3Fpage%3Dw0%26pagesize%3D-1%26adv%3D1%26nolog%3D%26search_adv_all%3D%26yearsem_adv%3D2023-SPRG%26credits%3D%2A%26pathway%3D%26hub_match%3Dall%26pagesize%3D10">1 section scheduled for Spring 2023</a><br>
+				</li>
+ 
+				<li class="coursearch-result" id="coursearch-result-CASAA112">
+					<div class="coursearch-result-content">
+						<div class="coursearch-result-heading">
+							<h6>CAS AA 112</h6>
+							<h2>Black Power in the Classroom: The History of Black Studies</h2>
+						</div>
+
+						<div class="coursearch-result-content-description">
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+
+              <p>Centers Black experiences, cultures, knowledge production and identity   formation in the United States and in the African Diaspora across time and   space. Examines and traces the genealogies of Black Studies as a discipline:   its political, ideological, and practical foundations on college campuses  and  in communities. Also explores earlier traditions and contemporary work  in Black  radical thought and activism that lay the groundwork for and build  on the  founding principles of Black Studies by mobilizing an intersectional  and  diasporic lens.  Effective Fall 2020, this course fulfills a single  unit in each of the following BU Hub areas: Historical Consciousness, Social  Inquiry I, Research and Information Literacy.</p>
+              <p>[  4 cr.]</p>
+              
+            </div>
+					</div>
+
+            <ul class="coursearch-result-hub-list"><li>Historical Consciousness</li><li>Social Inquiry I</li><li>Research and Information Literacy</li><li style="border-top: 1px solid #aaa; padding-top: 6px;"><strong>BU Hub Pathway:</strong><br>&nbsp;&nbsp;Social &amp; Racial Justice</li></ul>
+
+            <!-- Relevance score: <b>CASAA112</b> -->
+            <a class="coursearch-result-sections-link" href="/phpbin/course-search/section/?t=casaa112&amp;semester=2023-SPRG&amp;return=%2Fphpbin%2Fcourse-search%2Fsearch.php%3Fpage%3Dw0%26pagesize%3D-1%26adv%3D1%26nolog%3D%26search_adv_all%3D%26yearsem_adv%3D2023-SPRG%26credits%3D%2A%26pathway%3D%26hub_match%3Dall%26pagesize%3D10">1 section scheduled for Spring 2023</a><br>
+				</li>
+ 
+				<li class="coursearch-result" id="coursearch-result-CASAA207">
+					<div class="coursearch-result-content">
+						<div class="coursearch-result-heading">
+							<h6>CAS AA 207</h6>
+							<h2>Sociology of Race and Ethnicity</h2>
+						</div>
+
+						<div class="coursearch-result-content-description">
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+
+              <p>Examines the fundamental theoretical and empirical approaches regarding  race/ethnicity and the current state of race relations in the U.S. that explore  both contemporary social problems. Effective Fall 2019,  this  course  fulfills a  single unit in each of the following BU Hub areas:   Historical  Consciousness,  The Individual in Community, Research and  Information  Literacy. </p>
+              <p>[  4 cr.]</p>
+              
+            </div>
+					</div>
+
+            <ul class="coursearch-result-hub-list"><li>Historical Consciousness</li><li>The Individual in Community</li><li>Research and Information Literacy</li><li style="border-top: 1px solid #aaa; padding-top: 6px;"><strong>BU Hub Pathway:</strong><br>&nbsp;&nbsp;Social &amp; Racial Justice</li></ul>
+
+            <!-- Relevance score: <b>CASAA207</b> -->
+            <a class="coursearch-result-sections-link" href="/phpbin/course-search/section/?t=casaa207&amp;semester=2023-SPRG&amp;return=%2Fphpbin%2Fcourse-search%2Fsearch.php%3Fpage%3Dw0%26pagesize%3D-1%26adv%3D1%26nolog%3D%26search_adv_all%3D%26yearsem_adv%3D2023-SPRG%26credits%3D%2A%26pathway%3D%26hub_match%3Dall%26pagesize%3D10">4 sections scheduled for Spring 2023</a><br>
+				</li>
+ 
+				<li class="coursearch-result" id="coursearch-result-CASAA215">
+					<div class="coursearch-result-content">
+						<div class="coursearch-result-heading">
+							<h6>CAS AA 215</h6>
+							<h2>Arts of Africa and Its Diaspora</h2>
+						</div>
+
+						<div class="coursearch-result-content-description">
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+
+              <p>Exploration of a diversity of visual and performing arts from Africa,    including  royal regalia,  masquerades, and contemporary painting. Examines    how the  dispersal of Africans, due to the  transatlantic slave trade and    immigration,  contributed to the cultural richness of the Americas. Effective  Fall 2019, this   course  fulfills a single unit in each of the following BU Hub  areas:   Aesthetic   Exploration, Global Citizenship and Intercultural Literacy,   Critical  Thinking. </p>
+              <p>[  4 cr.]</p>
+              
+            </div>
+					</div>
+
+            <ul class="coursearch-result-hub-list"><li>Aesthetic Exploration</li><li>Global Citizenship and Intercultural Literacy</li><li>Critical Thinking</li><li style="border-top: 1px solid #aaa; padding-top: 6px;"><strong>BU Hub Pathway:</strong><br>&nbsp;&nbsp;Social &amp; Racial Justice</li></ul>
+
+            <!-- Relevance score: <b>CASAA215</b> -->
+            <a class="coursearch-result-sections-link" href="/phpbin/course-search/section/?t=casaa215&amp;semester=2023-SPRG&amp;return=%2Fphpbin%2Fcourse-search%2Fsearch.php%3Fpage%3Dw0%26pagesize%3D-1%26adv%3D1%26nolog%3D%26search_adv_all%3D%26yearsem_adv%3D2023-SPRG%26credits%3D%2A%26pathway%3D%26hub_match%3Dall%26pagesize%3D10">1 section scheduled for Spring 2023</a><br>
+				</li>
+ 
+				<li class="coursearch-result" id="coursearch-result-CASAA234">
+					<div class="coursearch-result-content">
+						<div class="coursearch-result-heading">
+							<h6>CAS AA 234</h6>
+							<h2>African Americans in Global Perspective: Slavery and the Creation of Race</h2>
+						</div>
+
+						<div class="coursearch-result-content-description">
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+
+              <p>A study of how chattel slavery in the Americas led to racialization as a  primary  tool in the creation of American society and New World capitalism.   Effective Fall 2020, this course fulfills a single unit in each of the  following BU Hub areas: Ethical Reasoning, Global Citizenship and  Intercultural Literacy, Critical Thinking.</p>
+              <p>[  4 cr.]</p>
+              
+            </div>
+					</div>
+
+            <ul class="coursearch-result-hub-list"><li>Global Citizenship and Intercultural Literacy</li><li>Ethical Reasoning</li><li>Critical Thinking</li><li style="border-top: 1px solid #aaa; padding-top: 6px;"><strong>BU Hub Pathway:</strong><br>&nbsp;&nbsp;Social &amp; Racial Justice</li></ul>
+
+            <!-- Relevance score: <b>CASAA234</b> -->
+            <a class="coursearch-result-sections-link" href="/phpbin/course-search/section/?t=casaa234&amp;semester=2023-SPRG&amp;return=%2Fphpbin%2Fcourse-search%2Fsearch.php%3Fpage%3Dw0%26pagesize%3D-1%26adv%3D1%26nolog%3D%26search_adv_all%3D%26yearsem_adv%3D2023-SPRG%26credits%3D%2A%26pathway%3D%26hub_match%3Dall%26pagesize%3D10">1 section scheduled for Spring 2023</a><br>
+				</li>
+ 
+				<li class="coursearch-result" id="coursearch-result-CASAA296">
+					<div class="coursearch-result-content">
+						<div class="coursearch-result-heading">
+							<h6>CAS AA 296</h6>
+							<h2>Religion and Hip Hop</h2>
+						</div>
+
+						<div class="coursearch-result-content-description">
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+
+              <p>Uses digital media studies to explore diverse religious expressions in hip  hop  culture. Through critical reading, community field trips, and hands-on   technology usage, students consider an often overlooked element in the study   of hip hop culture: religion. Effective Fall 2020, this course fulfills a  single unit in each of the following BU Hub areas: Digital/Multimedia  Expression, Aesthetic Exploration, Creativity/Innovation.</p>
+              <p>[  4 cr.]</p>
+              
+            </div>
+					</div>
+
+            <ul class="coursearch-result-hub-list"><li>Aesthetic Exploration</li><li>Digital/Multimedia Expression</li><li>Creativity/Innovation</li><li style="border-top: 1px solid #aaa; padding-top: 6px;"><strong>BU Hub Pathway:</strong><br>&nbsp;&nbsp;Social &amp; Racial Justice</li></ul>
+
+            <!-- Relevance score: <b>CASAA296</b> -->
+            <a class="coursearch-result-sections-link" href="/phpbin/course-search/section/?t=casaa296&amp;semester=2023-SPRG&amp;return=%2Fphpbin%2Fcourse-search%2Fsearch.php%3Fpage%3Dw0%26pagesize%3D-1%26adv%3D1%26nolog%3D%26search_adv_all%3D%26yearsem_adv%3D2023-SPRG%26credits%3D%2A%26pathway%3D%26hub_match%3Dall%26pagesize%3D10">1 section scheduled for Spring 2023</a><br>
+				</li>
+ 
+				<li class="coursearch-result" id="coursearch-result-CASAA308">
+					<div class="coursearch-result-content">
+						<div class="coursearch-result-heading">
+							<h6>CAS AA 308</h6>
+							<h2>Race and Politics</h2>
+						</div>
+
+						<div class="coursearch-result-content-description">
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+
+              <p>Combining research from history, political science, sociology, and economics,  this course examines the role of race and ethnicity in shaping American  politics and policy. Effective Fall 2019, this course fulfills a single unit  in each of the following BU Hub areas: Social Inquiry II, Ethical Reasoning,  Critical Thinking.</p>
+              <p>[  4 cr.]</p>
+              
+            </div>
+					</div>
+
+            <ul class="coursearch-result-hub-list"><li>Ethical Reasoning</li><li>Social Inquiry II</li><li>Critical Thinking</li><li style="border-top: 1px solid #aaa; padding-top: 6px;"><strong>BU Hub Pathway:</strong><br>&nbsp;&nbsp;Social &amp; Racial Justice</li></ul>
+
+            <!-- Relevance score: <b>CASAA308</b> -->
+            <a class="coursearch-result-sections-link" href="/phpbin/course-search/section/?t=casaa308&amp;semester=2023-SPRG&amp;return=%2Fphpbin%2Fcourse-search%2Fsearch.php%3Fpage%3Dw0%26pagesize%3D-1%26adv%3D1%26nolog%3D%26search_adv_all%3D%26yearsem_adv%3D2023-SPRG%26credits%3D%2A%26pathway%3D%26hub_match%3Dall%26pagesize%3D10">1 section scheduled for Spring 2023</a><br>
+				</li>
+ 
+				<li class="coursearch-result" id="coursearch-result-CASAA310">
+					<div class="coursearch-result-content">
+						<div class="coursearch-result-heading">
+							<h6>CAS AA 310</h6>
+							<h2>Civil Rights History</h2>
+						</div>
+
+						<div class="coursearch-result-content-description">
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+
+              <p>This course examines the U.S. Civil Rights and the struggle for black  freedom movements. From the late nineteenth century through the twenty-first  century, we consider events, organizations, "leaders" and organizers, legal  campaigns, and political protests to answer the questions: What were the  race, class, and gender dynamics within the movements? What were the  changing definitions of freedom? The course treats the movement's roots,  goals, ideologies, and cultures, and includes a comparison of the struggles  for equal rights of Mexican Americans, Native Americans, LGBT folks, and  other groups.  Effective Spring 2021, this course fulfills a single unit in  each of the following BU Hub areas: The Individual in Community, Historical  Consciousness, Teamwork/Collaboration.</p>
+              <p>[  4 cr.]</p>
+              
+            </div>
+					</div>
+
+            <ul class="coursearch-result-hub-list"><li>Historical Consciousness</li><li>The Individual in Community</li><li>Teamwork/Collaboration</li><li style="border-top: 1px solid #aaa; padding-top: 6px;"><strong>BU Hub Pathway:</strong><br>&nbsp;&nbsp;Social &amp; Racial Justice</li></ul>
+
+            <!-- Relevance score: <b>CASAA310</b> -->
+            <a class="coursearch-result-sections-link" href="/phpbin/course-search/section/?t=casaa310&amp;semester=2023-SPRG&amp;return=%2Fphpbin%2Fcourse-search%2Fsearch.php%3Fpage%3Dw0%26pagesize%3D-1%26adv%3D1%26nolog%3D%26search_adv_all%3D%26yearsem_adv%3D2023-SPRG%26credits%3D%2A%26pathway%3D%26hub_match%3Dall%26pagesize%3D10">1 section scheduled for Spring 2023</a><br>
+				</li>
+ 
+				<li class="coursearch-result" id="coursearch-result-CASAA335">
+					<div class="coursearch-result-content">
+						<div class="coursearch-result-heading">
+							<h6>CAS AA 335</h6>
+							<h2>Sociology of Race, Class &amp; Gender</h2>
+						</div>
+
+						<div class="coursearch-result-content-description">
+              
+              <p>Prereq: At least one prior 100- or 200-level sociology course, or <a href="search.php?search=CASWS101&amp;yearsem=*&amp;college=">CAS WS 101</a>/102.<br></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+
+              <p>No one of us is one thing, one identity, nor motivated by one singular interest,  nor privileged or subjugated by one singular form of power, but how do those  multiple forms of ourselves affect how we are advantaged, disadvantaged, viewed,  and understood by the social world? Our social world, is, by default, a vast web  of social intersections between and across groups with shared, overlapping, and  conflicting identities. Race, class and gender affect nearly all of our lived  experiences and greatly complicate and nuance concepts of diversity and  difference. Effective Fall 2020, this course   fulfills a single unit in each of  the following BU Hub areas:   Digital/Multimedia Expression , The Individual in  Community, Historical   Consciousness.</p>
+              <p>[  4 cr.]</p>
+              
+            </div>
+					</div>
+
+            <ul class="coursearch-result-hub-list"><li>Historical Consciousness</li><li>The Individual in Community</li><li>Digital/Multimedia Expression</li><li style="border-top: 1px solid #aaa; padding-top: 6px;"><strong>BU Hub Pathway:</strong><br>&nbsp;&nbsp;Social &amp; Racial Justice</li></ul>
+
+            <!-- Relevance score: <b>CASAA335</b> -->
+            <a class="coursearch-result-sections-link" href="/phpbin/course-search/section/?t=casaa335&amp;semester=2023-SPRG&amp;return=%2Fphpbin%2Fcourse-search%2Fsearch.php%3Fpage%3Dw0%26pagesize%3D-1%26adv%3D1%26nolog%3D%26search_adv_all%3D%26yearsem_adv%3D2023-SPRG%26credits%3D%2A%26pathway%3D%26hub_match%3Dall%26pagesize%3D10">1 section scheduled for Spring 2023</a><br>
+				</li>
+ 
+				<li class="coursearch-result" id="coursearch-result-CASAA356">
+					<div class="coursearch-result-content">
+						<div class="coursearch-result-heading">
+							<h6>CAS AA 356</h6>
+							<h2>Religion in the Digital Age</h2>
+						</div>
+
+						<div class="coursearch-result-content-description">
+              
+              <p>Prereq: First-Year Writing Seminar (<a href="search.php?search=CASWR120&amp;yearsem=*&amp;college=">CAS WR 120</a> or equivalent)<br></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+              <p></p>
+              
+
+              <p>How has technology impacted religion? This hands-on course explores how digital  technologies like the Internet, social media, gaming, and artificial intelligence  have changed the way that people think about religion.  Effective Spring 2022,  this course fulfills a single unit in each of the following BU Hub areas:  Digital/Multimedia Expression, Writing-Intensive Course, Creativity/Innovation.</p>
+              <p>[  4 cr.]</p>
+              
+            </div>
+					</div>
+
+            <ul class="coursearch-result-hub-list"><li>Digital/Multimedia Expression</li><li>Creativity/Innovation</li><li>Writing-Intensive Course</li></ul>
+
+            <!-- Relevance score: <b>CASAA356</b> -->
+            <a class="coursearch-result-sections-link" href="/phpbin/course-search/section/?t=casaa356&amp;semester=2023-SPRG&amp;return=%2Fphpbin%2Fcourse-search%2Fsearch.php%3Fpage%3Dw0%26pagesize%3D-1%26adv%3D1%26nolog%3D%26search_adv_all%3D%26yearsem_adv%3D2023-SPRG%26credits%3D%2A%26pathway%3D%26hub_match%3Dall%26pagesize%3D10">1 section scheduled for Spring 2023</a><br>
+				</li>
+
+		
+			</ul>
+
+			<footer class="coursearch-results-section-footer">
+				<div class="coursearch-results-section-footer-link">
+					<a href="">Return to Top</a>
+				</div>		
+
+				<div class="coursearch-results-pagination">
+          
+          
+          
+					<ul class="coursearch-results-pagination-pages">
+            
+            <li><a href="#" onclick="go_to_page(0); return false;">1</a></li>
+            
+            <li><a href="#" onclick="go_to_page(1); return false;">2</a></li>
+            
+            <li><a href="#" onclick="go_to_page(2); return false;">3</a></li>
+            
+            <li><a href="#" onclick="go_to_page(3); return false;">4</a></li>
+            
+            <li><a href="#" onclick="go_to_page(4); return false;">5</a></li>
+            
+          </ul>
+          <a href="#" class="coursearch-results-pagination-next" onclick="go_to_page(1); return false;"></a>
+          <a href="#" class="coursearch-results-pagination-last" onclick="go_to_page(408); return false;"></a>
+          
+				</div>
+			</footer>
+		</div>
+
+<!-- END show_results_box -->
+
+
+
+
+
+
+
+
+
+
+
+
+			</form>
+
+	</main>
+
+	<div class="coursearch-modal-container">
+		<div class="coursearch-modal">
+			<button class="coursearch-modal-close">Close</button>
+
+			<h2>Abbreviation Glossary</h2>
+
+			<div class="coursearch-modal-section">
+				<div class="table-wrapper">
+					<table>
+						<tbody><tr>
+							<th>Abbreviation</th>
+							<th>Name</th>
+						</tr>
+						<tr>
+							<td>CAS</td>
+							<td>College of Arts &amp; Sciences</td>
+						</tr>
+						<tr>
+							<td>CFA</td>
+							<td>College of Fine Arts</td>
+						</tr>
+						<tr>
+							<td>CGS</td>
+							<td>College of General Studies</td>
+						</tr>
+						<tr>
+							<td>COM</td>
+							<td>College of Communication</td>
+						</tr>
+						<tr>
+							<td>EGS</td>
+							<td>College of Engineering and Graduate School of Arts &amp; Sciences</td>
+						</tr>
+						<tr>
+							<td>ENG</td>
+							<td>College of Engineering</td>
+						</tr>
+						<tr>
+							<td>EOP</td>
+							<td>Center for English Language &amp; Orientation Programs (CELOP)</td>
+						</tr>
+						<tr>
+							<td>GMS</td>
+							<td>Graduate Medical Sciences</td>
+						</tr>
+						<tr>
+							<td>GRS</td>
+							<td>Graduate School of Arts &amp; Sciences</td>
+						</tr>
+						<tr>
+							<td>HUB</td>
+							<td>BU Hub general education program</td>
+						</tr>
+						<tr>
+							<td>KHC</td>
+							<td>Questrom School of Business</td>
+						</tr>
+						<tr>
+							<td>LAW</td>
+							<td>School of Law</td>
+						</tr>
+						<tr>
+							<td>MED</td>
+							<td>School of Medicine</td>
+						</tr>
+						<tr>
+							<td>OTP</td>
+							<td>Officer Training Program</td>
+						</tr>
+						<tr>
+							<td>PDP</td>
+							<td>Physical Education Recreation and Dance</td>
+						</tr>
+						<tr>
+							<td>QST</td>
+							<td>Questrom School of Business</td>
+						</tr>
+						<tr>
+							<td>SAR</td>
+							<td>Sargent College</td>
+						</tr>
+						<tr>
+							<td>SDM</td>
+							<td>Henry M. Goldman School of Dental Medicine</td>
+						</tr>
+						<tr>
+							<td>SED</td>
+							<td>Wheelock College of Education &amp; Human Development</td>
+						</tr>
+						<tr>
+							<td>SHA</td>
+							<td>School of Hospitality Administration</td>
+						</tr>
+						<tr>
+							<td>SPH</td>
+							<td>School of Public Health</td>
+						</tr>
+						<tr>
+							<td>SSW</td>
+							<td>School of Social Work</td>
+						</tr>
+						<tr>
+							<td>STH</td>
+							<td>School of Theology</td>
+						</tr>
+						<tr>
+							<td>XRG</td>
+							<td>Cross Registration</td>
+						</tr>
+					</tbody></table>
+				</div>
+			</div>
+
+				
+		</div>
+	</div>
+
+	<footer class="coursearch-footer">
+		<ul class="coursearch-footer-links">
+			<li><a href="https://www.bu.edu/academics/bulletin/">Bulletin</a></li>
+
+			<li><a href="https://www.bu.edu/link/bin/uiscgi_studentlink.pl/uismpl/?ModuleName=menu.pl&amp;NewMenu=Home">Student Link</a></li>
+
+			<li><a href="http://www.bu.edu/help/tech/">Contact</a></li>
+
+			<li><a href="https://www.bu.edu/advising/">Undergraduate Advising</a></li>
+		</ul>
+
+		<div class="coursearch-footer-copyright">
+			<p>© 2020 Trustees of Boston University</p>
+		</div>
+
+		<div class="coursearch-footer-branding">
+			<a class="coursearch-footer-masterplate" href="https://www.bu.edu">
+				<img src="/phpbin/course-search/interface/css/images/bu.gif">
+			</a>
+		</div>
+	</footer>
+
+
+</body></html>
