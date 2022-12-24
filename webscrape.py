@@ -1,4 +1,5 @@
 from bs4 import BeautifulSoup
+import pandas as pd
 import requests
 
 # Online version
@@ -21,8 +22,22 @@ for course in course_list:
 
     course_sections = course.find("a", {"class":"coursearch-result-sections-link"}).text
     course_sections_url = "https://www.bu.edu" + course.find("a", {"class":"coursearch-result-sections-link"})['href']
+    course_sections_html = BeautifulSoup(requests.get(course_sections_url).text, "html.parser")
+    course_sections_table = course_sections_html.find_all("table")
+    course_df = pd.read_html(str(course_sections_table))[0]
+
+    course_description_box = course.find("div", {"class":"coursearch-result-content-description"}).find_all("p")
+    course_description = course_description_box[4].text
+    course_prereq = course_description_box[0].text
+    course_hub_list = course.find_all("li", {"class":None})
+
     print(course_id)
     print(course_name)
     print(course_sections)
-    print(course_sections_url)
+    print(course_df)
+
+    print(course_prereq)
+    print(course_description)
+    for hub in course_hub_list:
+        print(hub.text)
     print("-----------")
