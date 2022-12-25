@@ -3,7 +3,6 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import requests
 import base64
-import re
 
 #Goes from grab_search_data -> grab_course_data -> grab_sections_data
 def grab_search_data():
@@ -65,7 +64,7 @@ def grab_course_data(course):
         "credits": course_credit,
         "hubs": hub_list,
         "sections": course_sections,
-        "course_schedule": course_df,
+        # "course_schedule": course_df,
         "professors": course_instructors
     }
 
@@ -82,6 +81,10 @@ def grab_sections_data(course_df):
         section["type"] = course_df["Type"][ind]
         section["location"] = course_df["Location"][ind]
         section["schedule"] = course_df["Schedule"][ind]
+
+        # Parse Schedule Data
+        # 
+
         if pd.isna(course_df["Notes"][ind]):
             section["availability"] = True
         elif "Class Full" or "Class Closed" in course_df["Notes"][ind]:
@@ -93,6 +96,7 @@ def grab_sections_data(course_df):
 
 def grab_rmp_data(prof):
     bu_school_id = 124
+    # prof = "Christine Papadakis"
     
     url = "https://www.ratemyprofessors.com" \
         "/search/teachers?query=%s&sid=%s" % (prof.replace(" ", "%20"), base64.b64encode(("School-%s" % bu_school_id)
@@ -100,6 +104,8 @@ def grab_rmp_data(prof):
     doc = requests.get(url).text
     data = {}
     rating = -1
+    difficulty = -1
+    print(url)
     
     if '"avgRating":' in doc:
         i = doc.index('"avgRating":')
@@ -107,7 +113,14 @@ def grab_rmp_data(prof):
         if "," in ss:
             ss = ss[0:1]
         rating = float(ss)
+    if '"avgDifficulty":' in doc: 
+        i = doc.index('"avgDifficulty":')
+        ss = doc[i+16:i+19]
+        if "," in ss:
+            ss = ss[0:1]
+        difficulty = float(ss)
     data["rating"] = rating
+    data["difficulty"] = difficulty
     print(data)
     return data
         
@@ -126,5 +139,5 @@ def grab_rmp_data(prof):
     #     return data
     # else:
     #     None
-
-grab_search_data()
+with open('firstTenResultsWebScrape.txt', 'w') as f:
+    f.write(str(grab_search_data()))
