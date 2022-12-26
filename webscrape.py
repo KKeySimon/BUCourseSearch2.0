@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import requests
 import base64
+from csv import writer
 
 #Goes from grab_search_data -> grab_course_data -> grab_sections_data
 def grab_search_data():
@@ -18,14 +19,23 @@ def grab_search_data():
     course_list = doc.find_all("li", {"class":"coursearch-result"})
     data = {}
 
-    for course in course_list:
-        #i.e. CAS CS 112
-        course_id = course.find("h6").text
-        data[course_id] = grab_course_data(course)
 
-    return data
+    # CSV File Header
+    with open('firstTenResultsWebScrape.csv', 'w') as f:
+        create = writer(f)
+        header = ['Name', 'Course', 'Description', 'Prerequisites', 'Credits', 'Hub Unit(s)', 'Section(s)', 'Professor(s)']
+        create.writerow(header)
+        
+        for course in course_list:
+            # i.e. CAS CS 112
+            course_id = course.find("h6").text
+            data[course_id] = grab_course_data(course)
+        for key in data.values():  
+            create.writerow(key.values())
+
 
 def grab_course_data(course):
+    course_id = course.find("h6").text
     course_name = course.find("h2").text
     course_sections = course.find("a", {"class":"coursearch-result-sections-link"}).text
     course_sections_url = "https://www.bu.edu" + course.find("a", {"class":"coursearch-result-sections-link"})['href']
@@ -58,6 +68,7 @@ def grab_course_data(course):
         # print(hub.text)
 
     return {
+        "course": course_id,
         "name": course_name,
         "description": course_description,
         "prereqs": course_prereq,
@@ -105,7 +116,7 @@ def grab_rmp_data(prof):
     data = {}
     rating = -1
     difficulty = -1
-    print(url)
+    # print(url)
     
     if '"avgRating":' in doc:
         i = doc.index('"avgRating":')
@@ -121,11 +132,8 @@ def grab_rmp_data(prof):
         difficulty = float(ss)
     data["rating"] = rating
     data["difficulty"] = difficulty
-    print(data)
+    # print(data)
     return data
-        
-
-   
 
     # if professor is not None:
     #     data = {}
@@ -139,5 +147,6 @@ def grab_rmp_data(prof):
     #     return data
     # else:
     #     None
-with open('firstTenResultsWebScrape.txt', 'w') as f:
-    f.write(str(grab_search_data()))
+
+if __name__ == '__main__':
+    grab_search_data()
