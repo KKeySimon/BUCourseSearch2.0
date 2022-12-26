@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import requests
 import base64
+from datetime import datetime, timedelta
 from csv import writer
 
 #Goes from grab_search_data -> grab_course_data -> grab_sections_data
@@ -93,8 +94,7 @@ def grab_sections_data(course_df):
         section["location"] = course_df["Location"][ind]
         section["schedule"] = course_df["Schedule"][ind]
 
-        # Parse Schedule Data
-        # 
+        parse_schedule(section["schedule"])
 
         if pd.isna(course_df["Notes"][ind]):
             section["availability"] = True
@@ -104,6 +104,39 @@ def grab_sections_data(course_df):
             section["availability"] = True
         course_sections[course_df['Section'][ind]] = section
     return course_sections
+
+# Parse Schedule Data
+# The way we determine overlap will be with just integers with it representing minutes
+# There are 1440 minutes in a day, so Monday will begin at 0 (midnight) and end at 1439 (11:59 pm),
+# with Tuesday starting at 1440 and so on...
+# It will be organized into a list of tuples
+def parse_schedule(str):
+    week_dict = {
+        'M': 0,
+        'T': 1440,
+        'W': 2880,
+        'R': 4320,
+        'F': 5760,
+        'S': 7200,
+        'U': 8640
+    }
+    arr = str.split()
+    days = arr[0]
+    h = ""
+    for i in range(1, len(arr)):
+        h = h + arr[i]
+    
+    hours = h.split('-')
+
+    t1 = datetime.strptime(hours[0], "%I:%M%p")
+    t2 = datetime.strptime(hours[1], "%I:%M%p")
+    delta1 = timedelta(hours=t1.hour, minutes=t1.minute).total_seconds() / 60
+    delta2 = timedelta(hours=t2.hour, minutes=t2.minute).total_seconds() / 60
+
+    result = []
+    for i in range(0, len(days)):
+        result.append((week_dict[days[i]] + delta1, week_dict[days[i]] + delta2))
+    return result
 
 def grab_rmp_data(prof):
     bu_school_id = 124
