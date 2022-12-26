@@ -111,12 +111,21 @@ def parse_schedule(str):
     }
     arr = str.split()
     days = arr[0]
-    hours = arr[1]
+    h = ""
+    for i in range(1, len(arr)):
+        h = h + arr[i]
+    
+    hours = h.split('-')
+
+    t1 = datetime.strptime(hours[0], "%I:%M%p")
+    t2 = datetime.strptime(hours[1], "%I:%M%p")
+    delta1 = timedelta(hours=t1.hour, minutes=t1.minute).total_seconds() / 60
+    delta2 = timedelta(hours=t2.hour, minutes=t2.minute).total_seconds() / 60
+
     result = []
     for i in range(0, len(days)):
-        result.append((week_dict[days[i]], week_dict[days[i]]))
+        result.append((week_dict[days[i]] + delta1, week_dict[days[i]] + delta2))
     return result
-
 
 def grab_rmp_data(prof):
     bu_school_id = 124
