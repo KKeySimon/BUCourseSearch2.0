@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: rgba(255, 255, 255, 0.52);
+}
+
+/* Header */
+.coursearch-masthead {
+    border-top: 5px solid rgb(232, 10, 10);
+    padding: 5em 0 5em 0;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.coursearch-masthead-branding a {
+    text-decoration: none;
+    font-size: 23px;
+    font-weight: bold;
+    color: black
+}
+
+.coursearch-masthead-branding span {
+    font-weight: normal;
+}
+
+/* Main Description */
+.coursearch-main{
+    height: 65vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+header {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    font-weight: 100;
+    font-size: 24px;
+    color: rgb(99, 99, 99);
+    padding-bottom: 5em;
+
+}
+
+.coursearch-main p {
+    padding: 0 15em 1em 15em;
+    color: rgb(99, 99, 99);
+    
+}
+
+/* Course Search Field */
+.coursearch-searchfields {
+    height: 50vh;
+    width: 67vw;
+    background-color: rgba(138, 171, 180, 0.196);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    margin-bottom: 6px;
+}
+
+.searchbar {
+    background-color: transparent;
+}
+
+.dropdown {
+    background-color: transparent;
+}
+
+/* Additional Information */
+.additional-info {
+    height: 15vh;
+    width: 67vw;
+    background-color: rgba(138, 171, 180, 0.196);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+}
+
+.additional-info button {
+    text-decoration: none;
+    background: none;
+    border: none;
+    color: rgb(209, 64, 64);
+    padding: 2em;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.additional-info button strong {
+    background: transparent;
+    font-weight: bold;
+}
