@@ -12,24 +12,24 @@ export default function Main() {
         <p>To perform a more targeted search, select Additional Search Options</p>
       </div>
 
-      <div class="coursearch-searchfields">
-        <label class="searchbar">
-          Keyword or Full Course Number (example: CAS XX 123) 
-          <input class="coursearch-searchfields-keyword-field" type="search" name="search_adv_all" value=""></input>
-        </label>
+      <form class="coursearch-searchfields">
+        <div class="searchbar">
+          <label for="search">Keyword or Full Course Number (example: CAS XX 123)</label>
+          <input class="coursearch-searchfields-keyword-field" type="search"></input>
+        </div>
 
         <label class="dropdown" >
           Semester
-          <select class="coursearch-searchfields-semester-select" name="yearsem_adv">
+          <select class="coursearch-searchfields-semester-select">
           <option value="2023-SPRG" selected="selected" >Spring 2023</option>
-          <option value="*"  >Future Semesters</option>
+          <option value="Future-Semesters"  >Future Semesters</option>
         </select>
         </label>
 
         <span class="search">
           <button id="search-submit" type="submit" class="coursearch-searchfields-submit">Search</button>
         </span>
-      </div>
+      </form>
 
       <div class="additional-info">
         <button class="coursearch-options-expand" type="button" data-selection-count="" ><strong>^</strong> Additional Search Options</button>
