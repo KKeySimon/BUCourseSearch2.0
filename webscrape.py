@@ -20,7 +20,6 @@ def grab_search_data():
     course_list = doc.find_all("li", {"class":"coursearch-result"})
     data = {}
 
-
     # CSV File Header
     with open('firstTenResultsWebScrape.csv', 'w') as f:
         create = writer(f)
