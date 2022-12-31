@@ -4,7 +4,21 @@ import pandas as pd
 import requests
 import base64
 from datetime import datetime, timedelta
-from csv import writer
+
+# Grabbed from stackoverflow (not my code)
+# https://stackoverflow.com/questions/12625627/python3-convert-unicode-string-to-int-representation
+def numfy(s):
+    number = 0
+    for e in [ord(c) for c in s]:
+        number = (number * 0x110000) + e
+    return number
+
+def denumfy(number):
+    l = []
+    while(number != 0):
+        l.append(chr(number % 0x110000))
+        number = number // 0x110000
+    return ''.join(reversed(l))
 
 #Goes from grab_search_data -> grab_course_data -> grab_sections_data
 def grab_search_data():
@@ -13,28 +27,19 @@ def grab_search_data():
     result = requests.get(url)
     doc = BeautifulSoup(result.text, "html.parser")
 
-    # # Offline Version
-    # with open("sample.html", "r") as f:
-    #     doc = BeautifulSoup(f, "html.parser")
-
     course_list = doc.find_all("li", {"class":"coursearch-result"})
-    data = {}
+    data = []
 
-    # CSV File Header
-    with open('firstTenResultsWebScrape.csv', 'w') as f:
-        create = writer(f)
-        header = ['Name', 'Course', 'Description', 'Prerequisites', 'Credits', 'Hub Unit(s)', 'Section(s)', 'Professor(s)']
-        create.writerow(header)
-        
-        for course in course_list:
-            # i.e. CAS CS 112
-            course_id = course.find("h6").text
-            data[course_id] = grab_course_data(course)
-        for key in data.values():  
-            create.writerow(key.values())
+    for course in course_list:
+        #i.e. CAS CS 112
+        course_id = course.find("h6").text
+        data.append(grab_course_data(course))
+    return data
 
 
 def grab_course_data(course):
+    course_id = course.find("h6").text
+    print(course_id)
     course_name = course.find("h2").text
     course_sections = course.find("a", {"class":"coursearch-result-sections-link"}).text
     course_sections_url = "https://www.bu.edu" + course.find("a", {"class":"coursearch-result-sections-link"})['href']
@@ -45,54 +50,64 @@ def grab_course_data(course):
     course_description_box = course.find("div", {"class":"coursearch-result-content-description"}).find_all("p")
     course_description = course_description_box[4].text
     course_prereq = course_description_box[0].text
-    course_credit = course_description_box[5].text
+    course_credit = int(course_description_box[5].text[3])
     course_hub_list = course.find_all("li", {"class":None})
     
-    course_sections = grab_sections_data(course_df)
+    course_sections = grab_sections_data(course_df, course_id)
     
     course_instructors = course_df['Instructor'].tolist()
     course_instructors = list(dict.fromkeys(course_instructors))
-    # print(course_instructors)
-    # print(course_name)
-    # print(course_sections)
-    # print(course_df)
-
-    # print(course_prereq)
-    # print(course_description)
-    # print(course_credit)
     
     hub_list = []
     for hub in course_hub_list:
         hub_list.append(hub.text)
-        # print(hub.text)
+
+    parsed_id = course_id.split()
 
     return {
-        "course": course_id,
+        # CAS CS 112
+        "course_id": course_id,
+        # CAS
+        "college": parsed_id[0],
+        # CS
+        "department": parsed_id[1],
+        # 112
+        "course": parsed_id[2],
+        # Intro to Programming II
         "name": course_name,
         "description": course_description,
         "prereqs": course_prereq,
         "credits": course_credit,
         "hubs": hub_list,
         "sections": course_sections,
-        # "course_schedule": course_df,
         "professors": course_instructors
     }
 
-def grab_sections_data(course_df):
-    course_sections = {}
+def grab_sections_data(course_df, course_id):
+    course_sections = []
     for ind in course_df.index:
         section = {}
+        print(course_id + " " + course_df['Section'][ind])
+        section["section_full_name"] = course_id + " " + course_df['Section'][ind]
+        section["course_id"] = course_id
+        section["section"] = course_df['Section'][ind]
         section["instructor"] = course_df['Instructor'][ind]
         if pd.isna(section["instructor"]):
-            section["instructorData"] = None
+            section["instructor"] = "None"
+            section["instructorDiff"] = -1
+            section["instructorRating"] = -1
         else:
-            section["instructorData"] = grab_rmp_data(section["instructor"])
+            dict = grab_rmp_data(section["instructor"])
+            section["instructorDiff"] = dict["difficulty"]
+            section["instructorRating"] = dict["rating"]
 
         section["type"] = course_df["Type"][ind]
         section["location"] = course_df["Location"][ind]
-        section["schedule"] = course_df["Schedule"][ind]
 
-        parse_schedule(section["schedule"])
+        scheduleDict = parse_schedule(course_df["Schedule"][ind])
+        section["days"] = scheduleDict[0]
+        section["scheduleStart"] = scheduleDict[1]
+        section["scheduleEnd"] = scheduleDict[2]
 
         if pd.isna(course_df["Notes"][ind]):
             section["availability"] = True
@@ -100,7 +115,7 @@ def grab_sections_data(course_df):
             section["availability"] = False
         else:
             section["availability"] = True
-        course_sections[course_df['Section'][ind]] = section
+        course_sections.append(section)
     return course_sections
 
 # Parse Schedule Data
@@ -128,12 +143,15 @@ def parse_schedule(str):
 
     t1 = datetime.strptime(hours[0], "%I:%M%p")
     t2 = datetime.strptime(hours[1], "%I:%M%p")
-    delta1 = timedelta(hours=t1.hour, minutes=t1.minute).total_seconds() / 60
-    delta2 = timedelta(hours=t2.hour, minutes=t2.minute).total_seconds() / 60
+    delta1 = int (timedelta(hours=t1.hour, minutes=t1.minute).total_seconds() / 60)
+    delta2 = int (timedelta(hours=t2.hour, minutes=t2.minute).total_seconds() / 60)
 
-    result = []
-    for i in range(0, len(days)):
-        result.append((week_dict[days[i]] + delta1, week_dict[days[i]] + delta2))
+    #New
+    result = [days, delta1, delta2]
+    #Old
+    # result = []
+    # for i in range(0, len(days)):
+    #     result.append((week_dict[days[i]] + delta1, week_dict[days[i]] + delta2))
     return result
 
 def grab_rmp_data(prof):
@@ -163,21 +181,7 @@ def grab_rmp_data(prof):
         difficulty = float(ss)
     data["rating"] = rating
     data["difficulty"] = difficulty
-    # print(data)
     return data
-
-    # if professor is not None:
-    #     data = {}
-    #     data["rating"] = professor.rating
-    #     data["difficulty"] = professor.difficulty
-    #     data["numRatings"] = professor.num_rating
-    #     if professor.would_take_again is not None:
-    #         data["takeAgain"] = round(professor.would_take_again, 1)
-    #     else:
-    #         data["takeAgain"] = None
-    #     return data
-    # else:
-    #     None
 
 if __name__ == '__main__':
     grab_search_data()
