@@ -57,6 +57,9 @@ def grab_course_data(course):
     
     course_instructors = course_df['Instructor'].tolist()
     course_instructors = list(dict.fromkeys(course_instructors))
+
+    if pd.isna(course_instructors):
+        course_instructors = ["None"]
     
     hub_list = []
     for hub in course_hub_list:
