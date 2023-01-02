@@ -2,12 +2,8 @@ This is the logic that I've used to implement the database
 (and I'm assuming I have the right assumptions for this with the few resources I found)
 
 Implementation:
-#1: ID's
-    - Sections will be made up of identifiers that are made by encoding a string into a 32-bit integer
-    - Purpose of these id's is so that when adding to DB, the same courses will return the same ID and will replace old database
-    - ID's are required to be integers in SupaBase
 
-#2: Column Names & Join
+#1  : Column Names & Join
     - We can join two tables together, which means that the table will look for columns between 2 tables that are identical
     - If the two columns are identical and 2 value points within these columns are identical, we can use join on them
     - Read up on join in: https://www.w3schools.com/sql/sql_join.asp
