@@ -4,16 +4,6 @@
   background: rgba(231, 246, 252, 0.179);
   font-weight: 100;
 }
-
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 /* Header */
 .coursearch-masthead {
   border-top: 5px solid rgb(232, 10, 10);

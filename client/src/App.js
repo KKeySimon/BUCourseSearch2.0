@@ -15,7 +15,7 @@ function App() {
   return (
     <html>
       <Head />
-      <body id="body-tag">
+      <body>
         <Header />
         <Main />
         <Footer />
