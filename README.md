@@ -8,3 +8,7 @@ This mainly comes in form of filters that will be added such as
 
 For Project Members:
 run "pip3 install -r requirements.txt" for development
+
+TODO:
+- [ ] Implement all filters
+- [ ] Set default value of instructorDiff to above 5 if RMP page doesn't exist for this person

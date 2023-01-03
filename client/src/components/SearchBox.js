@@ -26,6 +26,8 @@ function parseData(data) {
 const SearchBox = () => {
 
   const [title, setTitle] = useState('')
+  const [rmpRating, setRmpRating] = useState('')
+  const [rmpDiff, setRmpDiff] = useState('')
   const [formError, setFormError] = useState(null)
 
   const [courses, setCourses] = useState(null)
@@ -38,7 +40,18 @@ const SearchBox = () => {
       setFormError('Please fill in all the fields correctly.')
       return
     }
+
     let input = title.replace(" ", " & ")
+
+    let rating = -1
+    if (rmpRating != "") {
+      rating = rmpRating
+    }
+
+    let diff = -1
+    if (rmpDiff != "") {
+      diff = rmpDiff
+    }
 
     const { data, error } = await supabase
     .from('Sections')
@@ -48,6 +61,8 @@ const SearchBox = () => {
       )
     `)
     .textSearch('course_id', input)
+    .gte('instructorRating', rating)
+    .lte('instructorDiff', diff)
 
     if (error) {
       console.log(error)
@@ -58,6 +73,7 @@ const SearchBox = () => {
       console.log(data)
       setCourses(parseData(data))
       setFetchError(null)
+      setFormError(null)
     }
   }
 
@@ -67,12 +83,29 @@ const SearchBox = () => {
         <div className="searchbar">
           <label htmlFor="search">Keyword or Full Course Number (example: CAS XX 123)</label>
           <input 
-          type="text" 
-          id="title"
+          type="text"
           className="coursesearch-searchfields-keyword-field"
           value={title}
           onChange={(e) => setTitle(e.target.value)}>
           </input>
+          
+          <label htmlFor="search">Minimum RateMyProfessor Rating</label>
+          <input
+          type="number"
+          className="coursesearch-searchfields-keyword-field"
+          value={rmpRating}
+          onChange={(e) => setRmpRating(e.target.value)}>
+          </input>
+
+          <label htmlFor="search">Maximum RateMyProfessor Difficulty</label>
+          <input
+          type="number"
+          className="coursesearch-searchfields-keyword-field"
+          value={rmpDiff}
+          onChange={(e) => setRmpDiff(e.target.value)}>
+          </input>
+
+
         </div>
 
         <label className="dropdown" >
