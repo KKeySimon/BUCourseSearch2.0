@@ -23,36 +23,67 @@ function parseData(data) {
   return array
 }
 
+//I can't make a query call for unavailable since it's labeled false or true
+//I can't seem to do false || true in the query for booleans so I'll
+//manually take the data out with this function
+function checkAvailable(data, available) {
+  if (available === 'False') {
+    return data
+  } else {
+    let arr = []
+    for (let i = 0; i < data.length; i++) {
+      if (data[i].availability === true) {
+        arr.push(data[i])
+      }
+    }
+    return arr
+  }
+}
+
 const SearchBox = () => {
 
   const [title, setTitle] = useState('')
   const [rmpRating, setRmpRating] = useState('')
   const [rmpDiff, setRmpDiff] = useState('')
-  const [formError, setFormError] = useState(null)
+  const [available, setAvailable] = useState('False')
+  const [includeProf, setIncludeProf] = useState('')
 
+  const [formError, setFormError] = useState(null)
   const [courses, setCourses] = useState(null)
   const [fetchError, setFetchError] = useState(null)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    if (!title) {
-      setFormError('Please fill in all the fields correctly.')
-      return
+    // if (!title) {
+    //   setFormError('Please fill in all the fields correctly.')
+    //   return
+    // }
+
+    let input
+    if (title === "") {
+      input = "*"
+    } else {
+      input = "%"+title+"%"
     }
 
-    let input = title.replace(" ", " & ")
-
     let rating = -1
-    if (rmpRating != "") {
+    if (rmpRating !== "") {
       rating = rmpRating
     }
 
-    let diff = -1
-    if (rmpDiff != "") {
+    let diff = 5
+    if (rmpDiff !== "") {
       diff = rmpDiff
     }
 
+    let prof
+    if (includeProf === "") {
+      prof = "*"
+    } else {
+      prof = "%" + includeProf + "%"
+    }
+    
     const { data, error } = await supabase
     .from('Sections')
     .select(`*,
@@ -60,9 +91,10 @@ const SearchBox = () => {
         *
       )
     `)
-    .textSearch('course_id', input)
+    .ilike('course_id', input)
     .gte('instructorRating', rating)
     .lte('instructorDiff', diff)
+    .ilike('instructor', prof)
 
     if (error) {
       console.log(error)
@@ -70,8 +102,7 @@ const SearchBox = () => {
       setCourses(null)
     }
     if (data) {
-      console.log(data)
-      setCourses(parseData(data))
+      setCourses(parseData(checkAvailable(data, available)))
       setFetchError(null)
       setFormError(null)
     }
@@ -105,15 +136,34 @@ const SearchBox = () => {
           onChange={(e) => setRmpDiff(e.target.value)}>
           </input>
 
+          <label htmlFor="search">Search for a professor</label>
+          <input
+          type="text"
+          className="coursesearch-searchfields-keyword-field"
+          value={includeProf}
+          onChange={(e) => setIncludeProf(e.target.value)}>
+          </input>
+
+
 
         </div>
 
         <label className="dropdown" >
           Semester
           <select className="coursearch-searchfields-semester-select" defaultValue="2023-SPRG">
-          <option value="2023-SPRG">Spring 2023</option>
-          <option value="Future-Semesters"  >Future Semesters</option>
-        </select>
+            <option value="2023-SPRG">Spring 2023</option>
+            <option value="Future-Semesters"  >Future Semesters</option>
+          </select>
+        </label>
+        
+        <label className="dropdown" >
+          Exclude Unavailable Courses
+          <select className="coursearch-searchfields-semester-select" defaultValue="False"
+          value={available}
+          onChange={(e) => setAvailable(e.target.value)}>
+            <option value="False">False</option>
+            <option value="True">True</option>
+          </select>
         </label>
 
         <span className="search">

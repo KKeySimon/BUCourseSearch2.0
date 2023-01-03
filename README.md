@@ -11,4 +11,6 @@ run "pip3 install -r requirements.txt" for development
 
 TODO:
 - [ ] Implement all filters
-- [ ] Set default value of instructorDiff to above 5 if RMP page doesn't exist for this person
+- [ ] Set default value of instructorDiff when webscraping to above 5 if RMP page doesn't exist for this person
+- [ ] Put everything other than Keyword under Additional Search Options
+- [ ] Add schedule/checkmark related filters
