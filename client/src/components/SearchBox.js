@@ -40,6 +40,14 @@ function checkAvailable(data, available) {
   }
 }
 
+
+let collegeToggle = Array(25)
+
+function changeClass(ind) {
+  console.log(collegeToggle)
+  collegeToggle[ind] = !collegeToggle[ind]
+}
+
 const SearchBox = () => {
 
   const [title, setTitle] = useState('')
@@ -147,24 +155,55 @@ const SearchBox = () => {
 
 
         </div>
+        <div>
+          <label className="dropdown" >
+            Semester
+            <select className="coursearch-searchfields-semester-select" defaultValue="2023-SPRG">
+              <option value="2023-SPRG">Spring 2023</option>
+              <option value="Future-Semesters"  >Future Semesters</option>
+            </select>
+          </label>
+          
+          <label className="dropdown" >
+            Exclude Unavailable Courses
+            <select className="coursearch-searchfields-semester-select" defaultValue="False"
+            value={available}
+            onChange={(e) => setAvailable(e.target.value)}>
+              <option value="False">False</option>
+              <option value="True">True</option>
+            </select>
+          </label>
+        </div>
 
-        <label className="dropdown" >
-          Semester
-          <select className="coursearch-searchfields-semester-select" defaultValue="2023-SPRG">
-            <option value="2023-SPRG">Spring 2023</option>
-            <option value="Future-Semesters"  >Future Semesters</option>
-          </select>
-        </label>
-        
-        <label className="dropdown" >
-          Exclude Unavailable Courses
-          <select className="coursearch-searchfields-semester-select" defaultValue="False"
-          value={available}
-          onChange={(e) => setAvailable(e.target.value)}>
-            <option value="False">False</option>
-            <option value="True">True</option>
-          </select>
-        </label>
+        <div>
+          <input type="checkbox" onClick={changeClass(0)} />CAS
+          <input type="checkbox" onChange={changeClass(1)} />CDS
+          <input type="checkbox" onChange={changeClass(2)} />CFA
+          <input type="checkbox" onChange={changeClass(3)} />CGS
+          <input type="checkbox" onChange={changeClass(4)} />COM
+          <input type="checkbox" onChange={changeClass(5)} />ENG
+          <input type="checkbox" onChange={changeClass(6)} />EOP
+          <input type="checkbox" onChange={changeClass(7)} />GMS
+          <input type="checkbox" onChange={changeClass(8)} />GRS
+          <input type="checkbox" onChange={changeClass(9)} />HUB
+          <input type="checkbox" onChange={changeClass(10)} />KHC
+          <input type="checkbox" onChange={changeClass(11)} />LAW
+          <input type="checkbox" onChange={changeClass(12)} />MED
+          <input type="checkbox" onChange={changeClass(13)} />MET
+          <input type="checkbox" onChange={changeClass(14)} />OTP
+          <input type="checkbox" onChange={changeClass(15)} />PDP
+          <input type="checkbox" onChange={changeClass(16)} />QST
+          <input type="checkbox" onChange={changeClass(17)} />SAR
+          <input type="checkbox" onChange={changeClass(18)} />SDM
+          <input type="checkbox" onChange={changeClass(19)} />SED
+          <input type="checkbox" onChange={changeClass(20)} />SHA
+          <input type="checkbox" onChange={changeClass(21)} />SPH
+          <input type="checkbox" onChange={changeClass(22)} />SSW
+          <input type="checkbox" onChange={changeClass(23)} />STH
+          <input type="checkbox" onChange={changeClass(24)} />XRG
+
+          
+        </div>
 
         <span className="search">
           <button id="search-submit" type="submit" className="coursearch-searchfields-submit">Search</button>
