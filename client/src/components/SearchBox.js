@@ -42,12 +42,59 @@ function checkAvailable(data, available) {
 
 
 let collegeToggle = Array(25)
+for (let i = 0; i < collegeToggle.length; i++) {
+  collegeToggle[i] = false;
+}
+
+//This could've been an array, but I'm too lazy to change it
+let collegeToggleDict = {
+  0: "CAS",
+  1: "CDS",
+  2: "CFA",
+  3: "CGS",
+  4: "COM",
+  5: "ENG",
+  6: "EOP",
+  7: "GMS",
+  8: "GRS",
+  9: "HUB",
+  10: "KHC",
+  11: "LAW",
+  12: "MED",
+  13: "MET",
+  14: "OTP",
+  15: "PDP",
+  16: "QST",
+  17: "SAR",
+  18: "SDM",
+  19: "SED",
+  20: "SHA",
+  21: "SPH",
+  22: "SSW",
+  23: "STH",
+  24: "XRG"
+}
 
 function changeClass(ind) {
-  
   collegeToggle[ind] = !collegeToggle[ind]
   console.log(collegeToggle)
 }
+
+function filterColleges(data, colleges, filterColleges) {
+  if (filterColleges) {
+    let arr = []
+    for (let i = 0; i < data.length; i++) {
+      if (colleges.some(substring => data[i].course_id.includes(substring))){
+        arr.push(data[i])
+      }
+    }
+    console.log(arr)
+    return arr;
+  } else {
+    return data
+  }
+}
+  
 
 const SearchBox = () => {
 
@@ -92,7 +139,15 @@ const SearchBox = () => {
     } else {
       prof = "%" + includeProf + "%"
     }
-    
+
+    let colleges = []
+    let filterC = false
+    for (let i = 0; i < collegeToggle.length; i++) {
+      if (collegeToggle[i] === true) {
+        colleges.push(collegeToggleDict[i])
+        filterC = true
+      }
+    }
     const { data, error } = await supabase
     .from('Sections')
     .select(`*,
@@ -104,6 +159,10 @@ const SearchBox = () => {
     .gte('instructorRating', rating)
     .lte('instructorDiff', diff)
     .ilike('instructor', prof)
+    //For some reason, the in command only filters the Courses portion
+    //and still returns the sections and seems to have no wild card, so we will manually
+    //filter on the client side
+    //.in('course_id', colleges)
 
     if (error) {
       console.log(error)
@@ -111,7 +170,12 @@ const SearchBox = () => {
       setCourses(null)
     }
     if (data) {
-      setCourses(parseData(checkAvailable(data, available)))
+      //Very strange bug (for some reason data.Courses when explicitly
+      //console logged, but when logging data
+      //only some sections will show its Courses. Don't assume it exists or not
+      //if you can't see the Courses attribute inside a Sections value)
+      // console.log(data)
+      setCourses(filterColleges(parseData(checkAvailable(data, available)), colleges, filterC))
       setFetchError(null)
       setFormError(null)
     }
