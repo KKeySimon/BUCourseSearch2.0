@@ -89,7 +89,7 @@ body {
   min-width: 80vw;
   padding: 3em 0;
   margin: 0 3em 1em 3em;
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
   background-color: rgba(196, 204, 209, 0.305);

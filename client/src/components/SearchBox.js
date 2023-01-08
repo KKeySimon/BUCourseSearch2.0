@@ -46,7 +46,7 @@ for (let i = 0; i < collegeToggle.length; i++) {
   collegeToggle[i] = false;
 }
 
-//This could've been an array, but I'm too lazy to change it
+//This could've  been an array, but being able to see which index is which college helps
 let collegeToggleDict = {
   0: "CAS",
   1: "CDS",
@@ -94,6 +94,63 @@ function filterColleges(data, colleges, filterColleges) {
     return data
   }
 }
+
+let hubToggle = Array(21)
+
+let hubToggleArr = {0 : "Philosophical Inquiry and Life's Meanings",
+  1 : "Aesthetic Exploration",
+  2 : "Historical Consciousness",
+  3 : "Scientific Inquiry I",
+  4 : "Scientific Inquiry II",
+  5 : "Social Inquiry I",
+  6 : "Social Inquiry II",
+  7 : "Quantitative Reasoning I",
+  8 : "Quantitative Reasoning II",
+  9 : "The Individual in Community",
+  10 : "Global Citizenship and Intercultural Literacy",
+  11 : "Ethical Reasoning",
+  12 : "First-Year Writing Seminar",
+  13 : "Writing, Research, and Inquiry",
+  14 : "Writing-Intensive Course",
+  15 : "Oral and/or Signed Communication",
+  16 : "Digital/Multimedia Expression",
+  17 : "Critical Thinking",
+  18 : "Research and Information Literacy",
+  19 : "Teamwork/Collaboration",
+  20 : "Creativity/Innovation"
+}
+
+for (let i = 0; i < hubToggle.length; i++) {
+  hubToggle[i] = false;
+}
+
+function changeHub(i) {
+  hubToggle[i] = !hubToggle[i]
+  console.log(hubToggle)
+}
+
+function filterHub(data, hubs, filter, allOrAny) {
+  if (filter) {
+    let arr = []
+    if (allOrAny === 'All') {
+      for (let i = 0; i < data.length; i++) {
+        if (hubs.every(substring => data[i].hubs.includes(substring))){
+          arr.push(data[i])
+        }
+      }
+    } else {
+      for (let i = 0; i < data.length; i++) {
+        if (hubs.some(substring => data[i].hubs.includes(substring))){
+          arr.push(data[i])
+        }
+      }
+    }
+    console.log(arr)
+    return arr;
+  } else {
+    return data
+  }
+}
   
 
 const SearchBox = () => {
@@ -104,6 +161,7 @@ const SearchBox = () => {
   const [available, setAvailable] = useState('False')
   const [includeProf, setIncludeProf] = useState('')
 
+  const [allOrAny, setAllOrAny] = useState('All')
   const [formError, setFormError] = useState(null)
   const [courses, setCourses] = useState(null)
   const [fetchError, setFetchError] = useState(null)
@@ -148,6 +206,17 @@ const SearchBox = () => {
         filterC = true
       }
     }
+
+    let hubs = []
+    let filterH = false
+    for (let i = 0; i < hubToggle.length; i++) {
+      if (hubToggle[i] === true) {
+        hubs.push(hubToggleArr[i])
+        filterH = true
+      }
+    }
+
+
     const { data, error } = await supabase
     .from('Sections')
     .select(`*,
@@ -175,7 +244,14 @@ const SearchBox = () => {
       //only some sections will show its Courses. Don't assume it exists or not
       //if you can't see the Courses attribute inside a Sections value)
       // console.log(data)
-      setCourses(filterColleges(parseData(checkAvailable(data, available)), colleges, filterC))
+      console.log(data)
+      setCourses(
+        filterHub(
+          filterColleges(
+            parseData(checkAvailable(data, available)), 
+          colleges, filterC),
+        hubs, filterH, allOrAny)
+      )
       setFetchError(null)
       setFormError(null)
     }
@@ -223,7 +299,7 @@ const SearchBox = () => {
         <div>
           <label className="dropdown" >
             Semester
-            <select className="coursearch-searchfields-semester-select" defaultValue="2023-SPRG">
+            <select className="coursearch-searchfields-semester-select">
               <option value="2023-SPRG">Spring 2023</option>
               <option value="Future-Semesters"  >Future Semesters</option>
             </select>
@@ -231,7 +307,7 @@ const SearchBox = () => {
           
           <label className="dropdown" >
             Exclude Unavailable Courses
-            <select className="coursearch-searchfields-semester-select" defaultValue="False"
+            <select className="coursearch-searchfields-semester-select"
             value={available}
             onChange={(e) => setAvailable(e.target.value)}>
               <option value="False">False</option>
@@ -239,7 +315,7 @@ const SearchBox = () => {
             </select>
           </label>
         </div>
-
+        Colleges
         {/* Checkboxes */}
         <div>
           <input type="checkbox" onClick={event => changeClass(0, event)} />CAS
@@ -267,6 +343,65 @@ const SearchBox = () => {
           <input type="checkbox" onClick={event => changeClass(22, event)} />SSW
           <input type="checkbox" onClick={event => changeClass(23, event)} />STH
           <input type="checkbox" onClick={event => changeClass(24, event)} />XRG
+        </div>
+
+      
+        <div>
+          BU HUB Areas
+          <label className="dropdown" >
+            All or Any
+            <select className="coursearch-searchfields-semester-select"
+            value={allOrAny}
+            onChange={(e) => setAllOrAny(e.target.value)}>
+              <option value="All">All</option>
+              <option value="Any">Any</option>
+            </select>
+          </label>
+        </div>
+
+        <div>
+          Philosophical, Aesthetic, and Historical Interpretation
+          <input type="checkbox" onClick={event => changeHub(0, event)} />Philosophical Inquiry and Life's Meanings (PLM)
+          <input type="checkbox" onClick={event => changeHub(1, event)} />Aesthetic Exploration (AEX)
+          <input type="checkbox" onClick={event => changeHub(2, event)} />Historical Consciousness (HCO)
+        </div>
+        
+        <div>
+          Scientific and Social Inquiry
+          <input type="checkbox" onClick={event => changeHub(3, event)} />Scientific Inquiry I (SI1)
+          <input type="checkbox" onClick={event => changeHub(4, event)} />Scientific Inquiry II (SI2)
+          <input type="checkbox" onClick={event => changeHub(5, event)} />Social Inquiry I (SO1)
+          <input type="checkbox" onClick={event => changeHub(6, event)} />Social Inquiry II (SO2)
+        </div>
+
+        <div>
+          Quantitative Reasoning
+          <input type="checkbox" onClick={event => changeHub(7, event)} />Quantitative Reasoning I (QR1)
+          <input type="checkbox" onClick={event => changeHub(8, event)} />Quantitative Reasoning II (QR2)
+        </div>
+
+        <div>
+          Diversity, Civic Engagement, and Global Citizenship
+          <input type="checkbox" onClick={event => changeHub(9, event)} />The Individual in Community (IIC)
+          <input type="checkbox" onClick={event => changeHub(10, event)} />Global Citizenship and Intercultural Literacy (GCI)
+          <input type="checkbox" onClick={event => changeHub(11, event)} />Ethical Reasoning (ETR)
+        </div>
+
+        <div>
+          Communication
+          <input type="checkbox" onClick={event => changeHub(12, event)} />First-Year Writing Seminar (FYW)
+          <input type="checkbox" onClick={event => changeHub(13, event)} />Writing, Research, and Inquiry (WRI)
+          <input type="checkbox" onClick={event => changeHub(14, event)} />Writing-Intensive Course (WIN)
+          <input type="checkbox" onClick={event => changeHub(15, event)} />Oral and/or Signed Communication (OSC)
+          <input type="checkbox" onClick={event => changeHub(16, event)} />Digital/Multimedia Expression (DME)
+        </div>
+
+        <div>
+          Intellectual Toolkit
+          <input type="checkbox" onClick={event => changeHub(17, event)} />Critical Thinking (CRT)
+          <input type="checkbox" onClick={event => changeHub(18, event)} />Research and Information Literacy (RIL)
+          <input type="checkbox" onClick={event => changeHub(19, event)} />Teamwork/Collaboration (TWC)
+          <input type="checkbox" onClick={event => changeHub(20, event)} />Creativity/Innovation (CRI)
         </div>
 
         <span className="search">
