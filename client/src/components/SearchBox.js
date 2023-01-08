@@ -44,8 +44,9 @@ function checkAvailable(data, available) {
 let collegeToggle = Array(25)
 
 function changeClass(ind) {
-  console.log(collegeToggle)
+  
   collegeToggle[ind] = !collegeToggle[ind]
+  console.log(collegeToggle)
 }
 
 const SearchBox = () => {
@@ -175,34 +176,33 @@ const SearchBox = () => {
           </label>
         </div>
 
+        {/* Checkboxes */}
         <div>
-          <input type="checkbox" onClick={changeClass(0)} />CAS
-          <input type="checkbox" onChange={changeClass(1)} />CDS
-          <input type="checkbox" onChange={changeClass(2)} />CFA
-          <input type="checkbox" onChange={changeClass(3)} />CGS
-          <input type="checkbox" onChange={changeClass(4)} />COM
-          <input type="checkbox" onChange={changeClass(5)} />ENG
-          <input type="checkbox" onChange={changeClass(6)} />EOP
-          <input type="checkbox" onChange={changeClass(7)} />GMS
-          <input type="checkbox" onChange={changeClass(8)} />GRS
-          <input type="checkbox" onChange={changeClass(9)} />HUB
-          <input type="checkbox" onChange={changeClass(10)} />KHC
-          <input type="checkbox" onChange={changeClass(11)} />LAW
-          <input type="checkbox" onChange={changeClass(12)} />MED
-          <input type="checkbox" onChange={changeClass(13)} />MET
-          <input type="checkbox" onChange={changeClass(14)} />OTP
-          <input type="checkbox" onChange={changeClass(15)} />PDP
-          <input type="checkbox" onChange={changeClass(16)} />QST
-          <input type="checkbox" onChange={changeClass(17)} />SAR
-          <input type="checkbox" onChange={changeClass(18)} />SDM
-          <input type="checkbox" onChange={changeClass(19)} />SED
-          <input type="checkbox" onChange={changeClass(20)} />SHA
-          <input type="checkbox" onChange={changeClass(21)} />SPH
-          <input type="checkbox" onChange={changeClass(22)} />SSW
-          <input type="checkbox" onChange={changeClass(23)} />STH
-          <input type="checkbox" onChange={changeClass(24)} />XRG
-
-          
+          <input type="checkbox" onClick={event => changeClass(0, event)} />CAS
+          <input type="checkbox" onClick={event => changeClass(1, event)} />CDS
+          <input type="checkbox" onClick={event => changeClass(2, event)} />CFA
+          <input type="checkbox" onClick={event => changeClass(3, event)} />CGS
+          <input type="checkbox" onClick={event => changeClass(4, event)} />COM
+          <input type="checkbox" onClick={event => changeClass(5, event)} />ENG
+          <input type="checkbox" onClick={event => changeClass(6, event)} />EOP
+          <input type="checkbox" onClick={event => changeClass(7, event)} />GMS
+          <input type="checkbox" onClick={event => changeClass(8, event)} />GRS
+          <input type="checkbox" onClick={event => changeClass(9, event)} />HUB
+          <input type="checkbox" onClick={event => changeClass(10, event)} />KHC
+          <input type="checkbox" onClick={event => changeClass(11, event)} />LAW
+          <input type="checkbox" onClick={event => changeClass(12, event)} />MED
+          <input type="checkbox" onClick={event => changeClass(13, event)} />MET
+          <input type="checkbox" onClick={event => changeClass(14, event)} />OTP
+          <input type="checkbox" onClick={event => changeClass(15, event)} />PDP
+          <input type="checkbox" onClick={event => changeClass(16, event)} />QST
+          <input type="checkbox" onClick={event => changeClass(17, event)} />SAR
+          <input type="checkbox" onClick={event => changeClass(18, event)} />SDM
+          <input type="checkbox" onClick={event => changeClass(19, event)} />SED
+          <input type="checkbox" onClick={event => changeClass(20, event)} />SHA
+          <input type="checkbox" onClick={event => changeClass(21, event)} />SPH
+          <input type="checkbox" onClick={event => changeClass(22, event)} />SSW
+          <input type="checkbox" onClick={event => changeClass(23, event)} />STH
+          <input type="checkbox" onClick={event => changeClass(24, event)} />XRG
         </div>
 
         <span className="search">
