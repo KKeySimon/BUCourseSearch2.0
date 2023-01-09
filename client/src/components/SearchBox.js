@@ -260,7 +260,7 @@ const SearchBox = () => {
 
   return (
     <div>
-      <form className="coursearch-searchfields" onSubmit={handleSubmit}>
+      <div className="coursearch-searchfields">
         <div className="searchbar">
           <label htmlFor="search">Keyword or Full Course Number (example: CAS XX 123)</label>
           <input 
@@ -407,12 +407,19 @@ const SearchBox = () => {
             <input type="checkbox" onClick={event => changeHub(20, event)} />Creativity/Innovation (CRI)
           </div>
         </div>
+        
+        <div>
+          Input your required courses to filter overlapping courses
+          Follow this exact format for filter to function
+          MTWRF 11:30-15:15 (means course occurs Monday, Tuesday, Wednesday, Thursday, Friday 11:30 AM to 3:15 PM)
+          <ScheduleFilter />
+        </div>
 
         <span className="search">
-          <button id="search-submit" type="submit" className="coursearch-searchfields-submit">Search</button>
+          <button onClick={handleSubmit}>Search</button>
         </span>
         {formError && <p>{formError}</p>}
-      </form>
+      </div>
       <div>
         {fetchError && (<p>{fetchError}</p>)}
         {courses && (
@@ -423,10 +430,7 @@ const SearchBox = () => {
           </div>
         )}
       </div>
-      Input your required courses to filter overlapping courses
-      Follow this exact format for filter to function
-      MTWHF 11:30-15:15 (means course occurs Monday, Tuesday, Wednesday, Thursday, Friday 11:30 AM to 3:15 PM)
-      <ScheduleFilter />
+      
     </div>
     
   )

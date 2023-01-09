@@ -14,3 +14,4 @@ TODO:
 - [ ] Set default value of instructorDiff when webscraping to above 5 if RMP page doesn't exist for this person
 - [ ] Put everything other than Keyword under Additional Search Options
 - [ ] Add schedule/checkmark related filters
+- [ ] Implement schedule overlapping algo
