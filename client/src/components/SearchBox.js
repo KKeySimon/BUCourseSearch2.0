@@ -1,6 +1,7 @@
 import { useState } from "react"
 import supabase from "../config/supabaseClient"
 import CoursesCard from "./CoursesCard"
+import ScheduleFilter from "./ScheduleFilter"
 
 //Our current data is Sections -> Courses
 //It should be Courses -> Sections so we will edit it here
@@ -316,7 +317,7 @@ const SearchBox = () => {
           </label>
         </div>
         Colleges
-        {/* Checkboxes */}
+        {/* College Checkboxes */}
         <div>
           <input type="checkbox" onClick={event => changeClass(0, event)} />CAS
           <input type="checkbox" onClick={event => changeClass(1, event)} />CDS
@@ -359,49 +360,52 @@ const SearchBox = () => {
           </label>
         </div>
 
+        {/* Hub Checkboxes */}
         <div>
-          Philosophical, Aesthetic, and Historical Interpretation
-          <input type="checkbox" onClick={event => changeHub(0, event)} />Philosophical Inquiry and Life's Meanings (PLM)
-          <input type="checkbox" onClick={event => changeHub(1, event)} />Aesthetic Exploration (AEX)
-          <input type="checkbox" onClick={event => changeHub(2, event)} />Historical Consciousness (HCO)
-        </div>
-        
-        <div>
-          Scientific and Social Inquiry
-          <input type="checkbox" onClick={event => changeHub(3, event)} />Scientific Inquiry I (SI1)
-          <input type="checkbox" onClick={event => changeHub(4, event)} />Scientific Inquiry II (SI2)
-          <input type="checkbox" onClick={event => changeHub(5, event)} />Social Inquiry I (SO1)
-          <input type="checkbox" onClick={event => changeHub(6, event)} />Social Inquiry II (SO2)
-        </div>
+          <div>
+            Philosophical, Aesthetic, and Historical Interpretation
+            <input type="checkbox" onClick={event => changeHub(0, event)} />Philosophical Inquiry and Life's Meanings (PLM)
+            <input type="checkbox" onClick={event => changeHub(1, event)} />Aesthetic Exploration (AEX)
+            <input type="checkbox" onClick={event => changeHub(2, event)} />Historical Consciousness (HCO)
+          </div>
+          
+          <div>
+            Scientific and Social Inquiry
+            <input type="checkbox" onClick={event => changeHub(3, event)} />Scientific Inquiry I (SI1)
+            <input type="checkbox" onClick={event => changeHub(4, event)} />Scientific Inquiry II (SI2)
+            <input type="checkbox" onClick={event => changeHub(5, event)} />Social Inquiry I (SO1)
+            <input type="checkbox" onClick={event => changeHub(6, event)} />Social Inquiry II (SO2)
+          </div>
 
-        <div>
-          Quantitative Reasoning
-          <input type="checkbox" onClick={event => changeHub(7, event)} />Quantitative Reasoning I (QR1)
-          <input type="checkbox" onClick={event => changeHub(8, event)} />Quantitative Reasoning II (QR2)
-        </div>
+          <div>
+            Quantitative Reasoning
+            <input type="checkbox" onClick={event => changeHub(7, event)} />Quantitative Reasoning I (QR1)
+            <input type="checkbox" onClick={event => changeHub(8, event)} />Quantitative Reasoning II (QR2)
+          </div>
 
-        <div>
-          Diversity, Civic Engagement, and Global Citizenship
-          <input type="checkbox" onClick={event => changeHub(9, event)} />The Individual in Community (IIC)
-          <input type="checkbox" onClick={event => changeHub(10, event)} />Global Citizenship and Intercultural Literacy (GCI)
-          <input type="checkbox" onClick={event => changeHub(11, event)} />Ethical Reasoning (ETR)
-        </div>
+          <div>
+            Diversity, Civic Engagement, and Global Citizenship
+            <input type="checkbox" onClick={event => changeHub(9, event)} />The Individual in Community (IIC)
+            <input type="checkbox" onClick={event => changeHub(10, event)} />Global Citizenship and Intercultural Literacy (GCI)
+            <input type="checkbox" onClick={event => changeHub(11, event)} />Ethical Reasoning (ETR)
+          </div>
 
-        <div>
-          Communication
-          <input type="checkbox" onClick={event => changeHub(12, event)} />First-Year Writing Seminar (FYW)
-          <input type="checkbox" onClick={event => changeHub(13, event)} />Writing, Research, and Inquiry (WRI)
-          <input type="checkbox" onClick={event => changeHub(14, event)} />Writing-Intensive Course (WIN)
-          <input type="checkbox" onClick={event => changeHub(15, event)} />Oral and/or Signed Communication (OSC)
-          <input type="checkbox" onClick={event => changeHub(16, event)} />Digital/Multimedia Expression (DME)
-        </div>
+          <div>
+            Communication
+            <input type="checkbox" onClick={event => changeHub(12, event)} />First-Year Writing Seminar (FYW)
+            <input type="checkbox" onClick={event => changeHub(13, event)} />Writing, Research, and Inquiry (WRI)
+            <input type="checkbox" onClick={event => changeHub(14, event)} />Writing-Intensive Course (WIN)
+            <input type="checkbox" onClick={event => changeHub(15, event)} />Oral and/or Signed Communication (OSC)
+            <input type="checkbox" onClick={event => changeHub(16, event)} />Digital/Multimedia Expression (DME)
+          </div>
 
-        <div>
-          Intellectual Toolkit
-          <input type="checkbox" onClick={event => changeHub(17, event)} />Critical Thinking (CRT)
-          <input type="checkbox" onClick={event => changeHub(18, event)} />Research and Information Literacy (RIL)
-          <input type="checkbox" onClick={event => changeHub(19, event)} />Teamwork/Collaboration (TWC)
-          <input type="checkbox" onClick={event => changeHub(20, event)} />Creativity/Innovation (CRI)
+          <div>
+            Intellectual Toolkit
+            <input type="checkbox" onClick={event => changeHub(17, event)} />Critical Thinking (CRT)
+            <input type="checkbox" onClick={event => changeHub(18, event)} />Research and Information Literacy (RIL)
+            <input type="checkbox" onClick={event => changeHub(19, event)} />Teamwork/Collaboration (TWC)
+            <input type="checkbox" onClick={event => changeHub(20, event)} />Creativity/Innovation (CRI)
+          </div>
         </div>
 
         <span className="search">
@@ -419,6 +423,10 @@ const SearchBox = () => {
           </div>
         )}
       </div>
+      Input your required courses to filter overlapping courses
+      Follow this exact format for filter to function
+      MTWHF 11:30-15:15 (means course occurs Monday, Tuesday, Wednesday, Thursday, Friday 11:30 AM to 3:15 PM)
+      <ScheduleFilter />
     </div>
     
   )
