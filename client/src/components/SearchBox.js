@@ -1,7 +1,6 @@
-import { useState } from "react"
+import React, { Component, useState } from "react"
 import supabase from "../config/supabaseClient"
 import CoursesCard from "./CoursesCard"
-import ScheduleFilter from "./ScheduleFilter"
 
 //Our current data is Sections -> Courses
 //It should be Courses -> Sections so we will edit it here
@@ -152,6 +151,7 @@ function filterHub(data, hubs, filter, allOrAny) {
     return data
   }
 }
+
   
 
 const SearchBox = () => {
@@ -244,12 +244,11 @@ const SearchBox = () => {
       //console logged, but when logging data
       //only some sections will show its Courses. Don't assume it exists or not
       //if you can't see the Courses attribute inside a Sections value)
-      // console.log(data)
       console.log(data)
       setCourses(
         filterHub(
           filterColleges(
-            parseData(checkAvailable(data, available)), 
+            parseData(filterSchedule(checkAvailable(data, available), currentSchedule)), 
           colleges, filterC),
         hubs, filterH, allOrAny)
       )
@@ -434,6 +433,130 @@ const SearchBox = () => {
     </div>
     
   )
+}
+
+let currentSchedule = []
+
+//Schedule filter related code
+function filterSchedule(data, schedule) {
+  if (schedule.length === 0) {
+    return data
+  }
+  var arr = []
+  for (let i = 0; i < data.length; i++) {
+    arr.push(data[i])
+    
+    for (let j = 0; j < schedule.length; j++) {
+      //check for days first
+      let dayOverlap = false
+      for (let k = 0; k < schedule[j]["days"].length; k++) {
+        //if day found...
+        if (data[i].days.indexOf(schedule[j]["days"].charAt(k)) > -1) {
+          dayOverlap = true;
+          continue;
+        }
+      }
+      if (dayOverlap) {
+        //if overlapping, then pop and move on
+        if (data[i].scheduleStart <= schedule[j]["end"] && schedule[j]["start"] <= data[i].scheduleEnd) {
+          arr.pop()
+          continue
+        }
+      }
+    }
+  }
+  return arr
+}
+
+let dayDict = {
+  'M': 'Monday',
+  'T': 'Tuesday',
+  'W': 'Wednesday',
+  'R': 'Thursday',
+  'F': 'Friday',
+  'S': 'Saturday',
+  'U': 'Sunday'
+}
+let processVisualInput = (str) => {
+  let temp = str.split(" ")
+  let days = temp[0]
+
+  let result = ""
+  for (let i = 0; i < days.length; i++) {
+      let d = dayDict[days.charAt(i)]
+      result = result + " " + d
+  }
+
+  result = result + " " + temp[1]
+  return result
+}
+
+let processData = (str) => {
+  let arr = str.split(" ")
+  let days = arr[0]
+  let hours = arr[1].split("-")
+  let t1 = parseInt(hours[0].split(":")[0])*60 + parseInt(hours[0].split(":")[1])
+  let t2 = parseInt(hours[1].split(":")[0]*60) + parseInt(hours[1].split(":")[1])
+  return {"days": days, "start": t1, "end": t2}
+}
+
+class ScheduleFilter extends Component {
+constructor() {
+  super();
+  this.state = {
+    // should be a list of dictionaries with key "start", "end", and "days"
+    visualList: [],
+    data: [],
+    itemName: ''
+  };
+}
+handleChange = (event) => {
+  this.setState({itemName: event.target.value});
+}
+delete = (index) => {
+  this.state.visualList.splice(index, 1);
+  this.state.data.splice(index, 1)
+  this.setState({list: this.state.visualList})
+  this.setState({data: this.state.data})
+  currentSchedule = this.state.data
+  console.log(index);
+}
+
+add = () => {
+  const visualList = [...this.state.visualList]
+  const data = [...this.state.data]
+  visualList.push(processVisualInput(this.state.itemName));
+  data.push(processData(this.state.itemName))
+  currentSchedule = data
+  console.log(data)
+  this.setState({data: data})
+  this.setState({visualList: visualList});
+  this.setState({itemName: ''})
+}
+
+render() { 
+  const renderData = () => {
+    return this.state.visualList.map((item, index) => {
+      return (
+        <div key={item}>{item}  
+          <button onClick={() => this.delete(index)}>Remove</button>
+          </div>
+      )
+    })
+  }
+
+  return (
+    <div>
+      <input
+      type="text"
+      value={this.state.itemName}
+      onChange={this.handleChange}
+    /> <button onClick={() => this.add()}>Click to add</button>
+      
+      {renderData()}
+    </div>
+  );
+}
 }
 
 export default SearchBox
