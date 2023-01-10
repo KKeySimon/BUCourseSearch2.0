@@ -1,7 +1,10 @@
 import * as React from "react";
+import { useState } from "react";
 import SearchBox from "./SearchBox";
 
 const Main = () => {
+  const [additional, setAdditional] = useState(false)
+
   return (
     <main className="coursearch-main">
       <header className="coursearch-header">
@@ -13,10 +16,8 @@ const Main = () => {
         <p>To perform a more targeted search, select Additional Search Options</p>
       </div>
       <SearchBox />
-
-      <div className="additional-info">
-        <button className="coursearch-options-expand" type="button" data-selection-count="" ><strong>^</strong> Additional Search Options</button>
-      </div>
+      
+      
     </main>
   );
 };
