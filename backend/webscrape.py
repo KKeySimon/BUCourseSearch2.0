@@ -21,9 +21,13 @@ def denumfy(number):
     return ''.join(reversed(l))
 
 #Goes from grab_search_data -> grab_course_data -> grab_sections_data
-def grab_search_data():
+def grab_search_data(url):
     # Online version
-    url = "https://www.bu.edu/phpbin/course-search/search.php?page=w0&pagesize=-1&adv=1&nolog=&search_adv_all=&yearsem_adv=2023-SPRG&credits=*&pathway=&hub_match=all&pagesize=10"
+    #All
+    # url = "https://www.bu.edu/phpbin/course-search/search.php?page=w0&pagesize=5&adv=1&nolog=&search_adv_all=&yearsem_adv=2023-SPRG&credits=*&pathway=&hub_match=all&pagesize=-1"
+    # page x of size 10 (edit page=____ next to search.php?)
+    #url = "https://www.bu.edu/phpbin/course-search/search.php?page=2&pagesize=10&adv=1&nolog=&search_adv_all=&yearsem_adv=2023-SPRG&credits=*&pathway=&hub_match=all&pagesize=10"
+    
     result = requests.get(url)
     doc = BeautifulSoup(result.text, "html.parser")
 
@@ -31,8 +35,6 @@ def grab_search_data():
     data = []
 
     for course in course_list:
-        #i.e. CAS CS 112
-        course_id = course.find("h6").text
         data.append(grab_course_data(course))
     return data
 
@@ -50,15 +52,17 @@ def grab_course_data(course):
     course_description_box = course.find("div", {"class":"coursearch-result-content-description"}).find_all("p")
     course_description = course_description_box[4].text
     course_prereq = course_description_box[0].text
-    course_credit = int(course_description_box[5].text[3])
+    try:
+        course_credit = int(course_description_box[5].text[3])
+    except:
+        course_credit = -1
     course_hub_list = course.find_all("li", {"class":None})
     
     course_sections = grab_sections_data(course_df, course_id)
     
     course_instructors = course_df['Instructor'].tolist()
     course_instructors = list(dict.fromkeys(course_instructors))
-
-    if pd.isna(course_instructors):
+    if pd.isna(course_instructors).all():
         course_instructors = ["None"]
     
     hub_list = []
@@ -97,7 +101,7 @@ def grab_sections_data(course_df, course_id):
         section["instructor"] = course_df['Instructor'][ind]
         if pd.isna(section["instructor"]):
             section["instructor"] = "None"
-            section["instructorDiff"] = -1
+            section["instructorDiff"] = 9
             section["instructorRating"] = -1
         else:
             dict = grab_rmp_data(section["instructor"])
@@ -105,7 +109,10 @@ def grab_sections_data(course_df, course_id):
             section["instructorRating"] = dict["rating"]
 
         section["type"] = course_df["Type"][ind]
-        section["location"] = course_df["Location"][ind]
+        if pd.isna(course_df["Location"][ind]):
+            section["location"] = "N/A"
+        else:
+            section["location"] = course_df["Location"][ind]
 
         scheduleDict = parse_schedule(course_df["Schedule"][ind])
         section["days"] = scheduleDict[0]
@@ -144,10 +151,14 @@ def parse_schedule(str):
     
     hours = h.split('-')
 
-    t1 = datetime.strptime(hours[0], "%I:%M%p")
-    t2 = datetime.strptime(hours[1], "%I:%M%p")
-    delta1 = int (timedelta(hours=t1.hour, minutes=t1.minute).total_seconds() / 60)
-    delta2 = int (timedelta(hours=t2.hour, minutes=t2.minute).total_seconds() / 60)
+    try:
+        t1 = datetime.strptime(hours[0], "%I:%M%p")
+        t2 = datetime.strptime(hours[1], "%I:%M%p")
+        delta1 = int (timedelta(hours=t1.hour, minutes=t1.minute).total_seconds() / 60)
+        delta2 = int (timedelta(hours=t2.hour, minutes=t2.minute).total_seconds() / 60)
+    except:
+        delta1 = -1
+        delta2 = -1
 
     #New
     result = [days, delta1, delta2]
