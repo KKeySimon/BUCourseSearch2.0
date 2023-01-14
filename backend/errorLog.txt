@@ -1,8 +1,0 @@
-error occured in batch 367 of 815
-error for batch 367 is('Connection aborted.', TimeoutError(60, 'Operation timed out'))
-error occured in batch 380 of 815
-error for batch 380 iscan only concatenate str (not "float") to str
-error occured in batch 381 of 815
-error for batch 381 iscan only concatenate str (not "float") to str
-error occured in batch 431 of 815
-error for batch 431 isNo tables found
