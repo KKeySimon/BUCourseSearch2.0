@@ -82,7 +82,7 @@
   min-width: 80vw;
   padding: 3em 0;
   margin: 0 3em 1em 3em;
-  /* display: flex; */
+  display: flex;
   justify-content: center;
   align-items: center;
   background-color: rgba(196, 204, 209, 0.305);
@@ -91,9 +91,16 @@
   border-radius: 6px;
 }
 
+@media (max-width: 700px) {
+  .coursearch-searchfields {
+    display:block;
+  }
+}
+
 
 .searchbar {
   display: flex;
+  flex-direction: column;
   background-color: transparent;
   margin: 1em 2em;
   gap: 20px;
@@ -107,6 +114,11 @@
   display: flex;
   flex-direction: column;
   background-color: transparent;
+}
+
+.searchbar input {
+  border-radius: 5px;
+  padding: 6px
 }
 
 .coursearch-searchfields-keyword-field {
@@ -130,6 +142,10 @@
   flex-direction: column;
   background-color: transparent;
   margin: 1em 2em;
+}
+
+.search button {
+  cursor: pointer;
 }
 
 /* Additional Information */
@@ -164,12 +180,172 @@
   background-color: transparent;
 }
 
+
+
+
 /* Additinal Info Dropdown */
+.hidden-dropdown-menu {
+  min-width: 60vw;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+}
+
 .additional-info-dropdown {
   display: none;
   display: flex;
   flex-direction: column;
 }
+
+.additional-dropdown-input-first-section {
+  display: flex;
+  justify-content: center;
+  background: transparent
+}
+
+.additional-dropdown-options-first-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: right;
+}
+
+.additional-searchbar {
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  margin: 1em 2em;
+  gap: 20px;
+  width: 60%;
+}
+
+.additional-searchbar label {
+  background-color: transparent;
+}
+
+.additional-searchbar section {
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+}
+
+.additional-searchbar input {
+  border-radius: 5px;
+  padding: 6px
+}
+
+
+
+.outter-checkbox-container {
+  display: flex;
+  min-width: 80vw;
+  justify-content: center;
+  height: 20em;
+}
+
+.inner-checkbox-container {
+  width: 65vw;
+  outline: 1px red solid;
+
+}
+
+.inner-checkbox-container label {
+  width: 4em;
+  height: 2em;
+  outline: 1px black solid;
+}
+
+
+
+
+
+/* COLLEGES */
+.colleges {
+  margin-left: 4em
+}
+
+
+
+
+/* BU HUB AREAS */
+.bu-hub-areas {
+  outline: 1px black solid;
+  margin: 4em 10em;
+  min-width: 80vw;
+}
+
+.bu-hub-areas h2{
+  margin-left: 4em
+
+}
+
+.bu-hub-areas-checkbox {
+  gap: 3em;
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+}
+
+.bu-hub-areas-checkbox p {
+  font-weight: bold;
+  margin: 0;
+}
+
+.first-row{
+  display: flex;
+  justify-content: center;
+}
+
+.first-row-child {
+  display: flex;
+  flex-direction: column;
+}
+
+.second-row{
+  display: flex;
+  justify-content: center;
+}
+
+.second-row-child {
+  display: flex;
+  flex-direction: column;
+}
+
+.third-row{
+  display: flex;
+  justify-content: center;
+}
+
+.third-row-child {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+
+/* Required Courses Input Message */
+.require-courses-input {
+  margin: 1em 12em;
+  outline: 1px blue solid;
+}
+
+
+
+/* Data Presented From Database */
+.database-container {
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  margin: 0 5em;
+}
+
+.database-container div {
+  background: transparent;
+}
+
+
 
 
 /* Footer */

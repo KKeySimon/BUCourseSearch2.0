@@ -15,7 +15,6 @@ const Main = () => {
       </div>
       <SearchBox />
       
-      
     </main>
 
   );
