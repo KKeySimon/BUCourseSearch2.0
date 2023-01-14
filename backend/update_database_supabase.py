@@ -21,7 +21,7 @@ numCourses = int(numCourses.text[numCourses.text.index("of ") + 3 : numCourses.t
 
 supabase: Client = create_client(supabase_url, supabase_key)
 # int(numCourses / 5)
-for i in range(223, 300):
+for i in range(339, int(numCourses / 5)):
     url = "https://www.bu.edu/phpbin/course-search/search.php?page=" + str(i) + "&pagesize=5&adv=1&nolog=&search_adv_all=&yearsem_adv=2023-SPRG&credits=*&pathway=&hub_match=all&pagesize=5"
     # url = "https://www.bu.edu/phpbin/course-search/search.php?page=w0&pagesize=5&adv=1&nolog=&search_adv_all=cas+cc+222&yearsem_adv=2023-SPRG&credits=*&pathway=&hub_match=all&pagesize=5"
     try:
@@ -54,5 +54,4 @@ for i in range(223, 300):
             file.write("error occured in batch " + str(i) + " of " + str(int(numCourses / 5)) + "\n")
             file.write("error for batch " + str(i) + " is" + str(e) + "\n")
         pass
-
 

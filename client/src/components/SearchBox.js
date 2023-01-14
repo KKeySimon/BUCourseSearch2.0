@@ -1,8 +1,6 @@
 import React, { Component, useState } from "react"
 import supabase from "../config/supabaseClient"
 import CoursesCard from "./CoursesCard"
-import ScheduleFilter from "./ScheduleFilter"
-import searchicon from "../assets/search-icon.png"
 
 //It's a forcst!
 //Our current data is Sections -> Courses
@@ -271,171 +269,302 @@ const SearchBox = () => {
           value={title}
           onChange={(e) => setTitle(e.target.value)}>
           </input>
+        </div>
+        <span className="search">
+            <button onClick={handleSubmit}>Search</button>
+        </span>
+      </div>
+
+
+      <div className="additional-info">
+          <button type="button" onClick={() => setAdditional(!additional)} ><strong>^</strong> Additional Search Options</button>
+
+          { additional && <div>
+          <div className="searchbar">
+            <label htmlFor="search">Minimum RateMyProfessor Rating</label>
+            <input
+            type="number"
+            className="coursesearch-searchfields-keyword-field"
+            value={rmpRating}
+            onChange={(e) => setRmpRating(e.target.value)}>
+            </input>
+
+            <label htmlFor="search">Maximum RateMyProfessor Difficulty</label>
+            <input
+            type="number"
+            className="coursesearch-searchfields-keyword-field"
+            value={rmpDiff}
+            onChange={(e) => setRmpDiff(e.target.value)}>
+            </input>
+
+            <label htmlFor="search">Search for a professor</label>
+            <input
+            type="text"
+            className="coursesearch-searchfields-keyword-field"
+            value={includeProf}
+            onChange={(e) => setIncludeProf(e.target.value)}>
+            </input>
+          </div>
+          <div>
+            <label className="dropdown" >
+              Semester
+              <select className="coursearch-searchfields-semester-select">
+                <option value="2023-SPRG">Spring 2023</option>
+                <option value="Future-Semesters"  >Future Semesters</option>
+              </select>
+            </label>
+            
+            <label className="dropdown" >
+              Exclude Unavailable Courses
+              <select className="coursearch-searchfields-semester-select"
+              value={available}
+              onChange={(e) => setAvailable(e.target.value)}>
+                <option value="False">False</option>
+                <option value="True">True</option>
+              </select>
+            </label>
+          </div>
+          Colleges
+          {/* College Checkboxes */}
+          <div>
+            <input type="checkbox" onClick={event => changeClass(0, event)} />CAS
+            <input type="checkbox" onClick={event => changeClass(1, event)} />CDS
+            <input type="checkbox" onClick={event => changeClass(2, event)} />CFA
+            <input type="checkbox" onClick={event => changeClass(3, event)} />CGS
+            <input type="checkbox" onClick={event => changeClass(4, event)} />COM
+            <input type="checkbox" onClick={event => changeClass(5, event)} />ENG
+            <input type="checkbox" onClick={event => changeClass(6, event)} />EOP
+            <input type="checkbox" onClick={event => changeClass(7, event)} />GMS
+            <input type="checkbox" onClick={event => changeClass(8, event)} />GRS
+            <input type="checkbox" onClick={event => changeClass(9, event)} />HUB
+            <input type="checkbox" onClick={event => changeClass(10, event)} />KHC
+            <input type="checkbox" onClick={event => changeClass(11, event)} />LAW
+            <input type="checkbox" onClick={event => changeClass(12, event)} />MED
+            <input type="checkbox" onClick={event => changeClass(13, event)} />MET
+            <input type="checkbox" onClick={event => changeClass(14, event)} />OTP
+            <input type="checkbox" onClick={event => changeClass(15, event)} />PDP
+            <input type="checkbox" onClick={event => changeClass(16, event)} />QST
+            <input type="checkbox" onClick={event => changeClass(17, event)} />SAR
+            <input type="checkbox" onClick={event => changeClass(18, event)} />SDM
+            <input type="checkbox" onClick={event => changeClass(19, event)} />SED
+            <input type="checkbox" onClick={event => changeClass(20, event)} />SHA
+            <input type="checkbox" onClick={event => changeClass(21, event)} />SPH
+            <input type="checkbox" onClick={event => changeClass(22, event)} />SSW
+            <input type="checkbox" onClick={event => changeClass(23, event)} />STH
+            <input type="checkbox" onClick={event => changeClass(24, event)} />XRG
+          </div>
+
+        
+          <div>
+            BU HUB Areas
+            <label className="dropdown" >
+              All or Any
+              <select className="coursearch-searchfields-semester-select"
+              value={allOrAny}
+              onChange={(e) => setAllOrAny(e.target.value)}>
+                <option value="All">All</option>
+                <option value="Any">Any</option>
+              </select>
+            </label>
+          </div>
+
+          {/* Hub Checkboxes */}
+          <div>
+            <div>
+              Philosophical, Aesthetic, and Historical Interpretation
+              <input type="checkbox" onClick={event => changeHub(0, event)} />Philosophical Inquiry and Life's Meanings (PLM)
+              <input type="checkbox" onClick={event => changeHub(1, event)} />Aesthetic Exploration (AEX)
+              <input type="checkbox" onClick={event => changeHub(2, event)} />Historical Consciousness (HCO)
+            </div>
+            
+            <div>
+              Scientific and Social Inquiry
+              <input type="checkbox" onClick={event => changeHub(3, event)} />Scientific Inquiry I (SI1)
+              <input type="checkbox" onClick={event => changeHub(4, event)} />Scientific Inquiry II (SI2)
+              <input type="checkbox" onClick={event => changeHub(5, event)} />Social Inquiry I (SO1)
+              <input type="checkbox" onClick={event => changeHub(6, event)} />Social Inquiry II (SO2)
+            </div>
+
+            <div>
+              Quantitative Reasoning
+              <input type="checkbox" onClick={event => changeHub(7, event)} />Quantitative Reasoning I (QR1)
+              <input type="checkbox" onClick={event => changeHub(8, event)} />Quantitative Reasoning II (QR2)
+            </div>
+
+            <div>
+              Diversity, Civic Engagement, and Global Citizenship
+              <input type="checkbox" onClick={event => changeHub(9, event)} />The Individual in Community (IIC)
+              <input type="checkbox" onClick={event => changeHub(10, event)} />Global Citizenship and Intercultural Literacy (GCI)
+              <input type="checkbox" onClick={event => changeHub(11, event)} />Ethical Reasoning (ETR)
+            </div>
+
+            <div>
+              Communication
+              <input type="checkbox" onClick={event => changeHub(12, event)} />First-Year Writing Seminar (FYW)
+              <input type="checkbox" onClick={event => changeHub(13, event)} />Writing, Research, and Inquiry (WRI)
+              <input type="checkbox" onClick={event => changeHub(14, event)} />Writing-Intensive Course (WIN)
+              <input type="checkbox" onClick={event => changeHub(15, event)} />Oral and/or Signed Communication (OSC)
+              <input type="checkbox" onClick={event => changeHub(16, event)} />Digital/Multimedia Expression (DME)
+            </div>
+
+            <div>
+              Intellectual Toolkit
+              <input type="checkbox" onClick={event => changeHub(17, event)} />Critical Thinking (CRT)
+              <input type="checkbox" onClick={event => changeHub(18, event)} />Research and Information Literacy (RIL)
+              <input type="checkbox" onClick={event => changeHub(19, event)} />Teamwork/Collaboration (TWC)
+              <input type="checkbox" onClick={event => changeHub(20, event)} />Creativity/Innovation (CRI)
+            </div>
+          </div>
           
-          <label htmlFor="search">Minimum RateMyProfessor Rating</label>
-          <input
-          type="number"
-          className="coursesearch-searchfields-keyword-field"
-          value={rmpRating}
-          onChange={(e) => setRmpRating(e.target.value)}>
-          </input>
+          <div>
+            Input your required courses to filter overlapping courses
+            Follow this exact format for filter to function
+            MTWRF 11:30-15:15 (means course occurs Monday, Tuesday, Wednesday, Thursday, Friday 11:30 AM to 3:15 PM)
+            <ScheduleFilter />
+          </div>
 
-          <label htmlFor="search">Maximum RateMyProfessor Difficulty</label>
-          <input
-          type="number"
-          className="coursesearch-searchfields-keyword-field"
-          value={rmpDiff}
-          onChange={(e) => setRmpDiff(e.target.value)}>
-          </input>
-
-          <label htmlFor="search">Search for a professor</label>
-          <input
-          type="text"
-          className="coursesearch-searchfields-keyword-field"
-          value={includeProf}
-          onChange={(e) => setIncludeProf(e.target.value)}>
-          </input>
-
-
-
-        </div>
-        <div>
-          <label className="dropdown" >
-            Semester
-            <select className="coursearch-searchfields-semester-select">
-              <option value="2023-SPRG">Spring 2023</option>
-              <option value="Future-Semesters"  >Future Semesters</option>
-            </select>
-          </label>
           
-          <label className="dropdown" >
-            Exclude Unavailable Courses
-            <select className="coursearch-searchfields-semester-select"
-            value={available}
-            onChange={(e) => setAvailable(e.target.value)}>
-              <option value="False">False</option>
-              <option value="True">True</option>
-            </select>
-          </label>
-        </div>
-        Colleges
-        {/* College Checkboxes */}
-        <div>
-          <input type="checkbox" onClick={event => changeClass(0, event)} />CAS
-          <input type="checkbox" onClick={event => changeClass(1, event)} />CDS
-          <input type="checkbox" onClick={event => changeClass(2, event)} />CFA
-          <input type="checkbox" onClick={event => changeClass(3, event)} />CGS
-          <input type="checkbox" onClick={event => changeClass(4, event)} />COM
-          <input type="checkbox" onClick={event => changeClass(5, event)} />ENG
-          <input type="checkbox" onClick={event => changeClass(6, event)} />EOP
-          <input type="checkbox" onClick={event => changeClass(7, event)} />GMS
-          <input type="checkbox" onClick={event => changeClass(8, event)} />GRS
-          <input type="checkbox" onClick={event => changeClass(9, event)} />HUB
-          <input type="checkbox" onClick={event => changeClass(10, event)} />KHC
-          <input type="checkbox" onClick={event => changeClass(11, event)} />LAW
-          <input type="checkbox" onClick={event => changeClass(12, event)} />MED
-          <input type="checkbox" onClick={event => changeClass(13, event)} />MET
-          <input type="checkbox" onClick={event => changeClass(14, event)} />OTP
-          <input type="checkbox" onClick={event => changeClass(15, event)} />PDP
-          <input type="checkbox" onClick={event => changeClass(16, event)} />QST
-          <input type="checkbox" onClick={event => changeClass(17, event)} />SAR
-          <input type="checkbox" onClick={event => changeClass(18, event)} />SDM
-          <input type="checkbox" onClick={event => changeClass(19, event)} />SED
-          <input type="checkbox" onClick={event => changeClass(20, event)} />SHA
-          <input type="checkbox" onClick={event => changeClass(21, event)} />SPH
-          <input type="checkbox" onClick={event => changeClass(22, event)} />SSW
-          <input type="checkbox" onClick={event => changeClass(23, event)} />STH
-          <input type="checkbox" onClick={event => changeClass(24, event)} />XRG
-        </div>
-
-      
-        <div>
-          BU HUB Areas
-          <label className="dropdown" >
-            All or Any
-            <select className="coursearch-searchfields-semester-select"
-            value={allOrAny}
-            onChange={(e) => setAllOrAny(e.target.value)}>
-              <option value="All">All</option>
-              <option value="Any">Any</option>
-            </select>
-          </label>
-        </div>
-
-        {/* Hub Checkboxes */}
-        <div>
-          <div>
-            Philosophical, Aesthetic, and Historical Interpretation
-            <input type="checkbox" onClick={event => changeHub(0, event)} />Philosophical Inquiry and Life's Meanings (PLM)
-            <input type="checkbox" onClick={event => changeHub(1, event)} />Aesthetic Exploration (AEX)
-            <input type="checkbox" onClick={event => changeHub(2, event)} />Historical Consciousness (HCO)
-          </div>
-          
-          <div>
-            Scientific and Social Inquiry
-            <input type="checkbox" onClick={event => changeHub(3, event)} />Scientific Inquiry I (SI1)
-            <input type="checkbox" onClick={event => changeHub(4, event)} />Scientific Inquiry II (SI2)
-            <input type="checkbox" onClick={event => changeHub(5, event)} />Social Inquiry I (SO1)
-            <input type="checkbox" onClick={event => changeHub(6, event)} />Social Inquiry II (SO2)
-          </div>
-
-          <div>
-            Quantitative Reasoning
-            <input type="checkbox" onClick={event => changeHub(7, event)} />Quantitative Reasoning I (QR1)
-            <input type="checkbox" onClick={event => changeHub(8, event)} />Quantitative Reasoning II (QR2)
-          </div>
-
-          <div>
-            Diversity, Civic Engagement, and Global Citizenship
-            <input type="checkbox" onClick={event => changeHub(9, event)} />The Individual in Community (IIC)
-            <input type="checkbox" onClick={event => changeHub(10, event)} />Global Citizenship and Intercultural Literacy (GCI)
-            <input type="checkbox" onClick={event => changeHub(11, event)} />Ethical Reasoning (ETR)
-          </div>
-
-          <div>
-            Communication
-            <input type="checkbox" onClick={event => changeHub(12, event)} />First-Year Writing Seminar (FYW)
-            <input type="checkbox" onClick={event => changeHub(13, event)} />Writing, Research, and Inquiry (WRI)
-            <input type="checkbox" onClick={event => changeHub(14, event)} />Writing-Intensive Course (WIN)
-            <input type="checkbox" onClick={event => changeHub(15, event)} />Oral and/or Signed Communication (OSC)
-            <input type="checkbox" onClick={event => changeHub(16, event)} />Digital/Multimedia Expression (DME)
-          </div>
-
-          <div>
-            Intellectual Toolkit
-            <input type="checkbox" onClick={event => changeHub(17, event)} />Critical Thinking (CRT)
-            <input type="checkbox" onClick={event => changeHub(18, event)} />Research and Information Literacy (RIL)
-            <input type="checkbox" onClick={event => changeHub(19, event)} />Teamwork/Collaboration (TWC)
-            <input type="checkbox" onClick={event => changeHub(20, event)} />Creativity/Innovation (CRI)
-          </div>
-        </div>
+        </div>}
+        {formError && <p>{formError}</p>}
         
         <div>
-          Input your required courses to filter overlapping courses
-          Follow this exact format for filter to function
-          MTWRF 11:30-15:15 (means course occurs Monday, Tuesday, Wednesday, Thursday, Friday 11:30 AM to 3:15 PM)
-          <ScheduleFilter />
+          {fetchError && (<p>{fetchError}</p>)}
+          {courses && (
+            <div>
+              {courses.map(courses => (
+                <CoursesCard key={courses.course_id} courses={courses}/>
+              ))}
+            </div>
+          )}
         </div>
-
-        <span className="search">
-          <button onClick={handleSubmit}>Search</button>
-        </span>
-        {formError && <p>{formError}</p>}
       </div>
-      <div>
-        {fetchError && (<p>{fetchError}</p>)}
-        {courses && (
-          <div>
-            {courses.map(courses => (
-              <CoursesCard key={courses.course_id} courses={courses}/>
-            ))}
-          </div>
-        )}
-      </div>
-      
     </div>
     
   )
+}
+
+let currentSchedule = []
+
+//Schedule filter related code
+function filterSchedule(data, schedule) {
+  if (schedule.length === 0) {
+    return data
+  }
+  var arr = []
+  for (let i = 0; i < data.length; i++) {
+    arr.push(data[i])
+    
+    for (let j = 0; j < schedule.length; j++) {
+      //check for days first
+      let dayOverlap = false
+      for (let k = 0; k < schedule[j]["days"].length; k++) {
+        //if day found...
+        if (data[i].days.indexOf(schedule[j]["days"].charAt(k)) > -1) {
+          dayOverlap = true;
+          continue;
+        }
+      }
+      if (dayOverlap) {
+        //if overlapping, then pop and move on
+        if (data[i].scheduleStart <= schedule[j]["end"] && schedule[j]["start"] <= data[i].scheduleEnd) {
+          arr.pop()
+          continue
+        }
+      }
+    }
+  }
+  return arr
+}
+
+let dayDict = {
+  'M': 'Monday',
+  'T': 'Tuesday',
+  'W': 'Wednesday',
+  'R': 'Thursday',
+  'F': 'Friday',
+  'S': 'Saturday',
+  'U': 'Sunday'
+}
+let processVisualInput = (str) => {
+  let temp = str.split(" ")
+  let days = temp[0]
+
+  let result = ""
+  for (let i = 0; i < days.length; i++) {
+      let d = dayDict[days.charAt(i)]
+      result = result + " " + d
+  }
+
+  result = result + " " + temp[1]
+  return result
+}
+
+let processData = (str) => {
+  let arr = str.split(" ")
+  let days = arr[0]
+  let hours = arr[1].split("-")
+  let t1 = parseInt(hours[0].split(":")[0])*60 + parseInt(hours[0].split(":")[1])
+  let t2 = parseInt(hours[1].split(":")[0]*60) + parseInt(hours[1].split(":")[1])
+  return {"days": days, "start": t1, "end": t2}
+}
+
+class ScheduleFilter extends Component {
+constructor() {
+  super();
+  this.state = {
+    // should be a list of dictionaries with key "start", "end", and "days"
+    visualList: [],
+    data: [],
+    itemName: ''
+  };
+}
+handleChange = (event) => {
+  this.setState({itemName: event.target.value});
+}
+delete = (index) => {
+  this.state.visualList.splice(index, 1);
+  this.state.data.splice(index, 1)
+  this.setState({list: this.state.visualList})
+  this.setState({data: this.state.data})
+  currentSchedule = this.state.data
+  console.log(index);
+}
+
+add = () => {
+  const visualList = [...this.state.visualList]
+  const data = [...this.state.data]
+  visualList.push(processVisualInput(this.state.itemName));
+  data.push(processData(this.state.itemName))
+  currentSchedule = data
+  console.log(data)
+  this.setState({data: data})
+  this.setState({visualList: visualList});
+  this.setState({itemName: ''})
+}
+
+render() { 
+  const renderData = () => {
+    return this.state.visualList.map((item, index) => {
+      return (
+        <div key={item}>{item}  
+          <button onClick={() => this.delete(index)}>Remove</button>
+          </div>
+      )
+    })
+  }
+
+  return (
+    <div>
+      <input
+      type="text"
+      value={this.state.itemName}
+      onChange={this.handleChange}
+    /> <button onClick={() => this.add()}>Click to add</button>
+      
+      {renderData()}
+    </div>
+  );
+}
 }
 
 export default SearchBox
