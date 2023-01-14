@@ -4,6 +4,7 @@ import CoursesCard from "./CoursesCard"
 import ScheduleFilter from "./ScheduleFilter"
 import searchicon from "../assets/search-icon.png"
 
+//It's a forcst!
 //Our current data is Sections -> Courses
 //It should be Courses -> Sections so we will edit it here
 function parseData(data) {
