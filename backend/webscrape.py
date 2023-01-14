@@ -24,7 +24,7 @@ def denumfy(number):
 def grab_search_data(url):
     # Online version
     #All
-    # url = "https://www.bu.edu/phpbin/course-search/search.php?page=w0&pagesize=5&adv=1&nolog=&search_adv_all=&yearsem_adv=2023-SPRG&credits=*&pathway=&hub_match=all&pagesize=-1"
+    # url = "https://www.bu.edu/phpbin/course-search/search.php?page=w0&pagesize=5&adv=1&nolog=&search_adv_all=cas+bi+206&yearsem_adv=2023-SPRG&credits=*&pathway=&hub_match=all&pagesize=5"
     # page x of size 10 (edit page=____ next to search.php?)
     #url = "https://www.bu.edu/phpbin/course-search/search.php?page=2&pagesize=10&adv=1&nolog=&search_adv_all=&yearsem_adv=2023-SPRG&credits=*&pathway=&hub_match=all&pagesize=10"
     
@@ -64,6 +64,12 @@ def grab_course_data(course):
     course_instructors = list(dict.fromkeys(course_instructors))
     if pd.isna(course_instructors).all():
         course_instructors = ["None"]
+    elif pd.isna(course_instructors).any():
+        arr = []
+        for c in course_instructors:
+            if not pd.isna(c):
+                arr.append(c)
+        course_instructors = arr
     
     hub_list = []
     for hub in course_hub_list:
@@ -92,10 +98,23 @@ def grab_course_data(course):
 
 def grab_sections_data(course_df, course_id):
     course_sections = []
+    course_overlap_dict = {}
     for ind in course_df.index:
         section = {}
-        print(course_id + " " + course_df['Section'][ind])
-        section["section_full_name"] = course_id + " " + course_df['Section'][ind]
+        overlap = False
+        name = course_id + " " + course_df['Section'][ind]
+        if name in course_overlap_dict:
+            course_overlap_dict[name] = course_overlap_dict[name] + 1
+            overlap = True
+        else:
+            course_overlap_dict[name] = 1
+        
+        if overlap == True:
+            name = name + " " + str(course_overlap_dict[name])
+        print(name)
+
+        section["section_full_name"] = name
+
         section["course_id"] = course_id
         section["section"] = course_df['Section'][ind]
         section["instructor"] = course_df['Instructor'][ind]
@@ -108,20 +127,25 @@ def grab_sections_data(course_df, course_id):
             section["instructorDiff"] = dict["difficulty"]
             section["instructorRating"] = dict["rating"]
 
-        section["type"] = course_df["Type"][ind]
+        if pd.isna(course_df["Type"][ind]):
+            section["type"] = "N/A"
+        else:
+            section["type"] = course_df["Type"][ind]
+
         if pd.isna(course_df["Location"][ind]):
             section["location"] = "N/A"
         else:
-            section["location"] = course_df["Location"][ind]
+            section["location"] = str(course_df["Location"][ind])
 
         scheduleDict = parse_schedule(course_df["Schedule"][ind])
+
         section["days"] = scheduleDict[0]
         section["scheduleStart"] = scheduleDict[1]
         section["scheduleEnd"] = scheduleDict[2]
 
         if pd.isna(course_df["Notes"][ind]):
             section["availability"] = True
-        elif "Class Full" or "Class Closed" in course_df["Notes"][ind]:
+        elif course_df["Notes"][ind].find("Class Full") != -1 or course_df["Notes"][ind].find("Class Closed") != -1:
             section["availability"] = False
         else:
             section["availability"] = True

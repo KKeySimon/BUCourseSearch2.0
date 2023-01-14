@@ -1,9 +1,7 @@
 import * as React from "react";
-import { useState } from "react";
 import SearchBox from "./SearchBox";
 
 const Main = () => {
-  const [additional, setAdditional] = useState(false)
 
   return (
     <main className="coursearch-main">
