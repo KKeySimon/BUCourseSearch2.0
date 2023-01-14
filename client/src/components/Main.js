@@ -2,6 +2,7 @@ import * as React from "react";
 import SearchBox from "./SearchBox";
 
 const Main = () => {
+
   return (
     <main className="coursearch-main">
       <header className="coursearch-header">
@@ -13,6 +14,8 @@ const Main = () => {
         <p>To perform a more targeted search, select Additional Search Options</p>
       </div>
       <SearchBox />
+      
+      
     </main>
 
   );
