@@ -1,0 +1,2 @@
+error occured in batch 690 of 815
+error for batch 690 iscan only concatenate str (not "float") to str
