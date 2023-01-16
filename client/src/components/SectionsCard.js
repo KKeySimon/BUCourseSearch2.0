@@ -3,7 +3,6 @@ const SectionsCard =  ({ sections }) => {
         <div>
             <p>{sections.section_full_name + " --- " +  sections.instructor}</p>
         </div>
-        
     )
 }
 
