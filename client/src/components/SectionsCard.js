@@ -7,7 +7,6 @@ const SectionsCard =  ({ sections }) => {
                     sections.instructorRating + ", Diff: " + sections.instructorDiff + ")"
                 : sections.section_full_name + " --- " +  sections.instructor}</p>
         </div>
-        
     )
 }
 

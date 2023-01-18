@@ -200,6 +200,7 @@ def grab_rmp_data(prof):
         "/search/teachers?query=%s&sid=%s" % (prof.replace(" ", "%20"), base64.b64encode(("School-%s" % bu_school_id)
                                                                                  .encode('ascii')).decode('ascii'))
     doc = requests.get(url).text
+    print(doc)
     data = {}
     rating = -1
     difficulty = -1
@@ -217,9 +218,16 @@ def grab_rmp_data(prof):
         if "," in ss:
             ss = ss[0:1]
         difficulty = float(ss)
+    # if '"avgDifficulty":' in doc: 
+    #     i = doc.index('"avgDifficulty":')
+    #     ss = doc[i+16:i+19]
+    #     if "," in ss:
+    #         ss = ss[0:1]
+        difficulty = float(ss)
     data["rating"] = rating
     data["difficulty"] = difficulty
     return data
 
 if __name__ == '__main__':
-    grab_search_data()
+    grab_rmp_data("christine+papadakis")
+    # grab_search_data()
