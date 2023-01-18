@@ -1,0 +1,34 @@
+error occured in batch 564 of 815
+error for batch 564 is The read operation timed out
+error occured in batch 568 of 815
+error for batch 568 is The read operation timed out
+error occured in batch 579 of 815
+error for batch 579 is The read operation timed out
+error occured in batch 589 of 815
+error for batch 589 is The read operation timed out
+error occured in batch 592 of 815
+error for batch 592 is The read operation timed out
+error occured in batch 605 of 815
+error for batch 605 is _ssl.c:975: The handshake operation timed out
+error occured in batch 609 of 815
+error for batch 609 is The read operation timed out
+error occured in batch 613 of 815
+error for batch 613 is The read operation timed out
+error occured in batch 630 of 815
+error for batch 630 is The read operation timed out
+error occured in batch 631 of 815
+error for batch 631 is The read operation timed out
+error occured in batch 637 of 815
+error for batch 637 is The read operation timed out
+error occured in batch 646 of 815
+error for batch 646 is ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+error occured in batch 647 of 815
+error for batch 647 is ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+error occured in batch 648 of 815
+error for batch 648 is ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+error occured in batch 649 of 815
+error for batch 649 is ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+error occured in batch 650 of 815
+error for batch 650 is ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+error occured in batch 651 of 815
+error for batch 651 is Server disconnected without sending a response.

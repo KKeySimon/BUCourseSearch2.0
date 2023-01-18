@@ -9,8 +9,6 @@ load_dotenv()
 supabase_url = os.getenv("SUPABASE_URL")
 supabase_key = os.getenv("SUPABASE_KEY")
 
-with open("errorLog.txt", "w") as file:
-    file.write("")
 
 #This block is just to get total number of courses
 result = requests.get("https://www.bu.edu/phpbin/course-search/search.php?page=w0&pagesize=10&adv=1&nolog=&search_adv_all=&yearsem_adv=2023-SPRG&credits=*&pathway=&hub_match=all")
@@ -21,7 +19,7 @@ numCourses = int(numCourses.text[numCourses.text.index("of ") + 3 : numCourses.t
 
 supabase: Client = create_client(supabase_url, supabase_key)
 # int(numCourses / 5)
-for i in range(517, int(numCourses / 5)):
+for i in range(557, int(numCourses / 5)):
     url = "https://www.bu.edu/phpbin/course-search/search.php?page=" + str(i) + "&pagesize=5&adv=1&nolog=&search_adv_all=&yearsem_adv=2023-SPRG&credits=*&pathway=&hub_match=all&pagesize=5"
     # url = "https://www.bu.edu/phpbin/course-search/search.php?page=w0&pagesize=5&adv=1&nolog=&search_adv_all=cas+cc+222&yearsem_adv=2023-SPRG&credits=*&pathway=&hub_match=all&pagesize=5"
     try:
@@ -52,6 +50,6 @@ for i in range(517, int(numCourses / 5)):
         print(e)
         with open("errorLog.txt", "a") as file:
             file.write("error occured in batch " + str(i) + " of " + str(int(numCourses / 5)) + "\n")
-            file.write("error for batch " + str(i) + " is" + str(e) + "\n")
+            file.write("error for batch " + str(i) + " is " + str(e) + "\n")
         pass
 
