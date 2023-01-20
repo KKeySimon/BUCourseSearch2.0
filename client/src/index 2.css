@@ -1,0 +1,229 @@
+* {
+  margin: 0;
+  padding: 0;
+  background: rgba(231, 246, 252, 0.179);
+  font-weight: 100;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Header */
+.coursearch-masthead {
+  border-top: 5px solid rgb(232, 10, 10);
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.coursearch-masthead-branding {
+  padding: 4em 2em;
+  margin: 0 8em 2em 8em;
+  min-width: 80vw;
+  font-size: 1.5em;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.coursearch-masthead-branding a {
+  text-decoration: none;
+  font-size: 1.6em;
+  font-weight: bold;
+  color: black;  
+}
+
+.coursearch-masthead-branding span {
+  font-weight: normal;
+}
+
+
+/* Main Description */
+.coursearch-main { 
+  width: 100vw;
+  min-width: 5vw;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.coursearch-header {
+  margin: 0 8em 2em 8em;
+  min-width: 80vw;
+  font-size: 28px;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(109, 109, 109);
+  text-align: center;
+  font-weight: 100;
+
+}
+
+.description {
+  min-width: 80vw;
+  margin: 0 8em 2em 8em;
+  font-size: 20px;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2em;
+  font-weight: 100;
+}
+
+/* Course Search Field */
+.coursearch-searchfields {
+  min-width: 80vw;
+  padding: 3em 0;
+  margin: 0 3em 1em 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(196, 204, 209, 0.305);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.209);
+  border: 1px solid rgba(255, 255, 255, 0.283);
+  border-radius: 6px;
+}
+
+@media (max-width: 650px) {
+  .coursearch-searchfields {
+    display: block;
+  }
+}
+
+.searchbar {
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  margin: 1em 2em;
+}
+
+.coursearch-searchfields-keyword-field {
+  min-height: 2em;
+}
+
+.coursearch-searchfields-semester-select {
+  min-height: 2em;
+}
+
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  margin: 1em 2em;
+
+}
+
+.search {
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  margin: 1em 2em;
+}
+
+/* Additional Information */
+.additional-info {
+  min-width: 80vw;
+  padding: 3em 0;
+  margin: 0 3em 10em 3em;
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  background-color: rgba(196, 204, 209, 0.305);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.209);
+  border: 1px solid rgba(255, 255, 255, 0.283);
+  border-radius: 6px;
+}
+
+.additional-info button {
+  background-color: transparent;
+  border: none;
+  font-size: 1em;
+  color: rgb(211, 54, 54);
+  cursor: pointer;
+
+}
+
+.additional-info button:hover {
+  text-decoration: underline;
+}
+
+.additional-info strong {
+  background-color: transparent;
+}
+
+
+/* Footer */
+.coursearch-footer {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(36, 36, 36);
+  padding: 4em 0;
+}
+
+.coursearch-footer .container {
+  max-width: 40em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: transparent;
+}
+
+
+.coursearch-footer-links {
+  display: flex;
+  gap: 5em;
+  list-style: none;
+  background-color: transparent
+}
+
+@media (max-width: 650px) {
+  .coursearch-footer-links {
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+  }
+}
+
+.coursearch-footer-links a {
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  background-color: transparent
+}
+
+.coursearch-footer-links li {
+  background-color: transparent
+
+}
+
+.coursearch-footer-branding {
+  background-color: transparent;
+}
+
+.coursearch-footer-copyright {
+  padding: 3em 0 3em 0;
+  background: transparent
+}
+
+.coursearch-footer-copyright p {
+  background: transparent;
+  color: rgb(139, 139, 139);
+  font-weight: 100;
+}
