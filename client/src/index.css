@@ -5,6 +5,11 @@
   font-family: 'Roboto', sans-serif;
 }
 
+html {
+  display: flex;
+  flex-direction: column;
+}
+
 /* Header */
 .coursearch-masthead {
   border-top: 5px solid rgb(232, 10, 10);
@@ -79,17 +84,18 @@
 
 /* Course Search Field */
 .coursearch-searchfields {
+  position: sticky;
+  top: 0;
   min-width: 80vw;
   padding: 3em 0;
   margin: 0 3em 1em 3em;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(196, 204, 209, 0.305);
-  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.209);
-  border: 1px solid rgba(255, 255, 255, 0.283);
+  background-color: rgb(219, 227, 231);
   border-radius: 6px;
 }
+
 
 @media (max-width: 700px) {
   .coursearch-searchfields {
@@ -156,9 +162,7 @@
   display: flex;
   justify-content: center;
   gap: 1em;
-  background-color: rgba(196, 204, 209, 0.305);
-  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.209);
-  border: 1px solid rgba(255, 255, 255, 0.283);
+  background-color: rgb(219, 227, 231);
   border-radius: 6px;
   flex-direction: column;
 }
@@ -209,6 +213,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: right;
+  background: transparent;
 }
 
 .additional-searchbar {
@@ -237,26 +242,31 @@
 
 
 
+
 .outter-checkbox-container {
-  display: flex;
-  background: transparent;
   min-width: 80vw;
-  justify-content: center;
-  height: 20em;
+  height: 40vh;
+  margin: 3em 10em;
 }
 
 .inner-checkbox-container {
-  width: 65vw;
+  min-width: 65vw;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   background: transparent;
-  /* outline: 1px red solid; */
 
 }
 
 .inner-checkbox-container label {
-  width: 4em;
-  height: 2em;
-
+  padding: 2em;
+  font-size: 20px;
+  background: transparent;
   /* outline: 1px black solid; */
+}
+
+.inner-checkbox-container label input {
+  height: 1em;
+  width: 1em;
 }
 
 
