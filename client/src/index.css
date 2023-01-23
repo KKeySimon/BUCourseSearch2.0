@@ -506,3 +506,8 @@ html {
   color: rgb(139, 139, 139);
   font-weight: 100;
 }
+
+.github-img {
+  background: transparent;
+  width: 4em;
+}
