@@ -288,13 +288,11 @@ const SearchBox = () => {
             </button>
       </div>
 
-
       <div className="additional-info">
-          <button type="button" onClick={() => setAdditional(!additional)} ><strong>^</strong> Additional Search Options</button>
+          <button type="button" onClick={() => setAdditional(!additional)} ><strong>^</strong> Additional Search Options </button>
 
           
           { additional && <div className="hidden-dropdown-menu">
-
           <div className="additional-dropdown-input-first-section">
             <div className="additional-searchbar">
               <section className="additional-dropdown-input-container">
@@ -347,7 +345,9 @@ const SearchBox = () => {
           </div>
         </div>
 
-          <h2 className="colleges">Colleges</h2>
+
+        
+        <h2 className="colleges">Colleges</h2>
           {/* College Checkboxes */}
           <div className="outter-checkbox-container">
             <section className="inner-checkbox-container">
@@ -442,7 +442,8 @@ const SearchBox = () => {
             MTWRF 11:30-15:15 (means course occurs Monday, Tuesday, Wednesday, Thursday, Friday 11:30 AM to 3:15 PM)
             <ScheduleFilter />
           </div>
-        </div>}
+          
+          </div>}
       </div>
 
       <div className="database-container">
@@ -458,8 +459,7 @@ const SearchBox = () => {
               </div>
             )}
           </div>
-        </div>
-
+      </div>
     </div>
     
   )
