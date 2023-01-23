@@ -277,6 +277,18 @@ html {
   justify-items: center;
 }
 
+@media (max-width: 558px) {
+  .inner-checkbox-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media(max-width: 500px) {
+  .inner-checkbox-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 .inner-checkbox-container input {
   width: 1.4em;
   height: 1.4em;
@@ -367,11 +379,6 @@ html {
     flex-direction: column;
   }
 }
-
-
-
-
-
 
 
 
