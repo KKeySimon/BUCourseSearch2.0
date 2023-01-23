@@ -94,13 +94,8 @@ html {
   align-items: center;
   background-color: rgb(219, 227, 231);
   border-radius: 6px;
-}
-
-
-@media (max-width: 700px) {
-  .coursearch-searchfields {
-    display:block;
-  }
+  z-index: 100;
+  border: 1px solid rgba(110, 109, 109, 0.311);
 }
 
 
@@ -144,15 +139,33 @@ html {
 }
 
 .search {
-  display: flex;
-  flex-direction: column;
-  background-color: transparent;
-  margin: 1em 2em;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  padding: .5em;
+  color: white;
+  background-color: rgb(233, 82, 82);
+  transition: 300ms;
 }
 
-.search button {
+.search:hover {
   cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  padding: .5em;
+  color: white;
+  background-color: rgb(219, 60, 60);
 }
+
+@media (max-width: 700px) {
+  .coursearch-searchfields {
+    display:block;
+  }
+  .search {
+    width: 100%;
+  }
+}
+
 
 /* Additional Information */
 .additional-info {
@@ -240,128 +253,127 @@ html {
   padding: 6px
 }
 
+/* DELETED CSS GOES HERE */
 
-
+/* COLLEGE CHECBOXES */
+.colleges {
+  margin-left: 2em;
+  background: transparent;
+}
 
 .outter-checkbox-container {
-  min-width: 80vw;
-  height: 40vh;
-  margin: 3em 10em;
+  width: 80vw;
+  height: auto;
+  position: relative;
+  background: transparent;
 }
 
 .inner-checkbox-container {
-  min-width: 65vw;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   background: transparent;
+  margin-top: 2em;
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  grid-gap: 2em;
+  justify-items: center;
+}
 
+.inner-checkbox-container input {
+  width: 1.4em;
+  height: 1.4em;
 }
 
 .inner-checkbox-container label {
-  padding: 2em;
-  font-size: 20px;
-  background: transparent;
-  /* outline: 1px black solid; */
-}
-
-.inner-checkbox-container label input {
-  height: 1em;
-  width: 1em;
+  font-size: 1.2em;
 }
 
 
-
-
-
-/* COLLEGES */
-.colleges {
-  margin-left: 6em
-}
-
-
-
-
-/* BU HUB AREAS */
+/* BU HUB COURSES CHECKBOXES*/
 .bu-hub-areas {
-  /* outline: 1px black solid; */
-  margin: 4em 10em;
-  min-width: 80vw;
+  width: 80vw;
+  margin-top: 4em;
   background: transparent;
 }
 
-.bu-hub-areas h2{
-  margin-left: 1em
-
+.bu-hub-title {
+  margin-left: 2em;
+  margin-bottom: 1em;
+  background: transparent
 }
 
 .bu-hub-areas-checkbox {
-  gap: 3em;
+  margin: 0 4em;
   display: flex;
   flex-direction: column;
+  gap: 2em;
+  background: transparent;
+}
+
+.bu-hub-areas-checkbox > section {
+  display: flex;
+  justify-content: center;
+  background: transparent;
   font-size: 20px;
-  background: transparent;
+  gap: 1em;
 }
 
-.bu-hub-areas-checkbox p {
+.first-row-child > p {
   font-weight: bold;
-  margin: 0;
 }
 
-.first-row{
-  display: flex;
-  justify-content: center;
-  background: transparent;
-  gap: 2em;
-}
 
-.first-row-child {
+.first-row > div {
   display: flex;
+  gap: 1em;
   flex-direction: column;
   background: transparent;
-  gap: 10px;
 }
 
-.second-row{
-  display: flex;
-  justify-content: center;
-  background: transparent;
-  gap: 2em;
-
+.second-row-child > p {
+  font-weight: bold;
 }
 
 
-.second-row-child {
+.second-row > div {
   display: flex;
+  gap: 1em;
   flex-direction: column;
   background: transparent;
-  gap: 10px;
 }
 
-.third-row{
-  display: flex;
-  justify-content: center;
-  background: transparent;
-  gap: 2em;
-
+.third-row-child > p {
+  font-weight: bold;
 }
 
-.third-row-child {
+
+.third-row > div {
   display: flex;
+  gap: 1em;
   flex-direction: column;
   background: transparent;
-  gap: 10px;
 }
+
+
+
+
+
+
 
 
 
 
 /* Required Courses Input Message */
 .require-courses-input {
+  width: 80vw;
   display: flex;
   flex-direction: column;
-  gap: 2em;
-  margin: 1em 16em;
-  /* outline: 1px blue solid; */
+  justify-content: center;
+  gap: 1em;
+  align-items: center;
+  margin-top: 2em;
+}
+
+.require-courses-input  p {
+  width: 60vw;
 }
 
 
@@ -377,6 +389,7 @@ html {
 .database-container div {
   background: transparent;
 }
+
 
 
 

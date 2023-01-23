@@ -1,7 +1,6 @@
 import React, { Component, useState } from "react"
 import supabase from "../config/supabaseClient"
 import CoursesCard from "./CoursesCard"
-import "../../node_modules/bootstrap/dist/css/bootstrap.css"
 
 //It's a forcst!
 //Our current data is Sections -> Courses
@@ -48,7 +47,7 @@ for (let i = 0; i < collegeToggle.length; i++) {
   collegeToggle[i] = false;
 }
 
-//This could've  been an array, but being able to see which index is which college helps
+//This could've  been an array, but being able to see which index for which college helps
 let collegeToggleDict = {
   0: "CAS",
   1: "CDS",
@@ -274,18 +273,18 @@ const SearchBox = () => {
         </div>
 
         <div className="additional-dropdown-options-first-section">
-              <label className="dropdown" >
-                Semester
-                <select className="coursearch-searchfields-semester-select">
-                  <option value="2023-SPRG">Spring 2023</option>
-                  <option value="Future-Semesters"  >Future Semesters</option>
-                </select>
-              </label>
-            </div>
+          <label className="dropdown" >
+            Semester
+            <select className="coursearch-searchfields-semester-select">
+              <option value="2023-SPRG">Spring 2023</option>
+              <option value="Future-Semesters"  >Future Semesters</option>
+            </select>
+          </label>
+        </div>
 
-            <button type="button" className="btn btn-danger" onClick={handleSubmit}>
-              Search
-            </button>
+          <button type="button" className="search" onClick={handleSubmit}>
+            Search
+          </button>
       </div>
 
       <div className="additional-info">
@@ -347,9 +346,9 @@ const SearchBox = () => {
 
 
         
-        <h2 className="colleges">Colleges</h2>
           {/* College Checkboxes */}
           <div className="outter-checkbox-container">
+            <h2 className="colleges">Colleges</h2>
             <section className="inner-checkbox-container">
               <label><input type="checkbox" onClick={event => changeClass(1, event)} />CDS</label>
               <label><input type="checkbox" onClick={event => changeClass(2, event)} />CFA</label>
@@ -380,8 +379,8 @@ const SearchBox = () => {
 
         
           <div className="bu-hub-areas">
-            <h2>BU HUB Areas</h2>
             {/* Hub Checkboxes */}
+            <h2 className="bu-hub-title">BU HUB Areas</h2>
             <div className="bu-hub-areas-checkbox">
               <section className="first-row">
                 <div className="first-row-child">
@@ -437,9 +436,11 @@ const SearchBox = () => {
           </div>
           
           <div className="require-courses-input">
-            Input your required courses to filter overlapping courses
-            Follow this exact format for filter to function
-            MTWRF 11:30-15:15 (means course occurs Monday, Tuesday, Wednesday, Thursday, Friday 11:30 AM to 3:15 PM)
+            <p>
+              Input your required courses to filter overlapping courses
+              Follow this exact format for filter to function
+              MTWRF 11:30-15:15 (means course occurs Monday, Tuesday, Wednesday, Thursday, Friday 11:30 AM to 3:15 PM)
+            </p>
             <ScheduleFilter />
           </div>
           
@@ -576,12 +577,14 @@ render() {
   }
 
   return (
-    <div>
+    <div className="schedule">
       <input
+      className="input-bottom"
       type="text"
       value={this.state.itemName}
       onChange={this.handleChange}
-    /> <button onClick={() => this.add()}>Click to add</button>
+    /> 
+      <button className="btn-bottom"onClick={() => this.add()}>Click To Add</button>
       
       {renderData()}
     </div>
