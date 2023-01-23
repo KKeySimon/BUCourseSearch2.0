@@ -88,14 +88,16 @@ html {
   top: 0;
   min-width: 80vw;
   padding: 3em 0;
-  margin: 0 3em 1em 3em;
+  margin: 0 3em 3em 3em;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: rgb(219, 227, 231);
-  border-radius: 6px;
+  box-shadow: 0 8px 12px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 1px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );;
   z-index: 100;
-  border: 1px solid rgba(110, 109, 109, 0.311);
 }
 
 
@@ -176,7 +178,10 @@ html {
   justify-content: center;
   gap: 1em;
   background-color: rgb(219, 227, 231);
-  border-radius: 6px;
+  box-shadow: 0 8px 12px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 1px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );;
   flex-direction: column;
 }
 
@@ -206,7 +211,7 @@ html {
   display: flex;
   justify-content: center;
   flex-direction: column;
-
+  background: transparent;
 }
 
 .additional-info-dropdown {
@@ -253,8 +258,6 @@ html {
   padding: 6px
 }
 
-/* DELETED CSS GOES HERE */
-
 /* COLLEGE CHECBOXES */
 .colleges {
   margin-left: 2em;
@@ -277,7 +280,7 @@ html {
   justify-items: center;
 }
 
-@media (max-width: 558px) {
+@media (max-width: 600px) {
   .inner-checkbox-container {
     grid-template-columns: repeat(4, 1fr);
   }
@@ -329,12 +332,16 @@ html {
 }
 
 .bu-hub-areas-checkbox > label {
-  background: transparent
+  background: transparent;
 }
 
 .first-row-child > p {
   font-weight: bold;
   background: transparent
+}
+
+.first-row-child > label {
+  background: transparent;
 }
 
 
@@ -347,6 +354,11 @@ html {
 
 .second-row-child > p {
   font-weight: bold;
+  background: transparent;
+}
+
+.second-row-child > label {
+  background: transparent;
 }
 
 
@@ -359,6 +371,11 @@ html {
 
 .third-row-child > p {
   font-weight: bold;
+  background: transparent;
+}
+
+.third-row-child > label {
+  background: transparent;
 }
 
 
@@ -510,4 +527,87 @@ html {
 .github-img {
   background: transparent;
   width: 4em;
+}
+
+
+
+/* COURSE INFORMATION SECTION */
+.course-card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  height: auto;
+  width: 80vw;
+  margin-bottom: 3em;
+}
+
+
+
+/* PRE-SECTION INFORMATION */
+.pre-section-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 80vw;
+
+  background-color: rgb(219, 227, 231);
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 3px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );}
+
+.course-id {
+  margin: 1em 0 0 1em;
+  background: transparent;
+}
+
+.course-name {
+  margin: 1em 0 0 1em;
+  background: transparent;
+}
+
+.course-prereq {
+  margin: 1em 0 0 1em;
+  background: transparent;
+}
+
+.course-prereq h5 {
+  background: transparent;
+}
+
+.course-desc {
+  margin: 1em 0 1em 1em;
+  background: transparent;
+}
+
+
+
+/* SECTION INFORMATION */
+.course-sections-container {
+  margin-top: 3em;
+  background-color: rgb(219, 227, 231);
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 3px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.course-sections {
+  margin: 1em;
+  background: transparent;
+}
+
+#sections {
+  margin: 1em;
+  font-size: 25px;
+  background: transparent;
+}
+
+.hubs {
+  background: transparent;
+}
+
+.rpm p{
+  background: transparent;
+  margin: .6em;
 }

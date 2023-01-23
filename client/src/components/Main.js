@@ -10,7 +10,10 @@ const Main = () => {
       </header>
 
       <div className="description">
-        <p>Perform a basic search by entering keywords you would expect to find in the course description or by entering a full course number (example: CAS XX 123).  If you would like to see expected course offerings for a particular semester, select that semester in the drop-down box. If you would like to see all courses expected to be offered in the future, select “Future Semesters.”</p>
+        <p>Welcome to the new and improved Boston Universty Course Search. 
+          This course search will provide additional information regarding any course that you choose. 
+          On top of the capabalities that the original BU Course Search displays, we provide a Rate My Professor Rating and Difficulty and can manage time-conflicts in your schedule.
+        </p>
         <p>To perform a more targeted search, select Additional Search Options</p>
       </div>
       <SearchBox />

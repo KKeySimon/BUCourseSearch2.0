@@ -1,6 +1,6 @@
 const SectionsCard =  ({ sections }) => {
     return (
-        <div>
+        <div className="rpm">
             {/* If instructor rating is -1, do not include */}
             <p>{sections.instructorRating !== -1 
                 ? sections.section_full_name + " --- " +  sections.instructor + " (Rating: " + 
