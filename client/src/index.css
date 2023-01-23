@@ -144,7 +144,7 @@ html {
   border-radius: 4px;
   padding: .5em;
   color: white;
-  background-color: rgb(233, 82, 82);
+  background-color: #e95252;
   transition: 300ms;
 }
 
@@ -316,8 +316,13 @@ html {
   gap: 1em;
 }
 
+.bu-hub-areas-checkbox > label {
+  background: transparent
+}
+
 .first-row-child > p {
   font-weight: bold;
+  background: transparent
 }
 
 
@@ -370,12 +375,42 @@ html {
   gap: 1em;
   align-items: center;
   margin-top: 2em;
+  background: transparent;
 }
 
 .require-courses-input  p {
   width: 60vw;
+  background: transparent;
 }
 
+.input-bottom {
+  width: 80%;
+  margin-right: 2em;
+  background: transparent;
+  padding: .4em;
+  border-radius: 4px;
+}
+
+.schedule {
+  background: transparent
+}
+
+.schedule button {
+  margin-top: 1em;
+  color: white;
+  background-color: #e95252;
+  padding: .8em;
+  border-radius: 4px;
+  transition: 300ms;
+}
+
+.schedule button:hover {
+  margin-top: 1em;
+  color: white;
+  background-color: #c73434;
+  padding: .8em;
+  border-radius: 4px;
+}
 
 
 /* Data Presented From Database */
