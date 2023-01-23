@@ -350,30 +350,30 @@ const SearchBox = () => {
           <div className="outter-checkbox-container">
             <h2 className="colleges">Colleges</h2>
             <section className="inner-checkbox-container">
-              <label><input type="checkbox" onClick={event => changeClass(1, event)} />CDS</label>
-              <label><input type="checkbox" onClick={event => changeClass(2, event)} />CFA</label>
-              <label><input type="checkbox" onClick={event => changeClass(3, event)} />CGS</label>
-              <label><input type="checkbox" onClick={event => changeClass(4, event)} />COM</label>
-              <label><input type="checkbox" onClick={event => changeClass(5, event)} />ENG</label>
-              <label><input type="checkbox" onClick={event => changeClass(6, event)} />EOP</label>
-              <label><input type="checkbox" onClick={event => changeClass(7, event)} />GMS</label>
-              <label><input type="checkbox" onClick={event => changeClass(8, event)} />GRS</label>
-              <label><input type="checkbox" onClick={event => changeClass(9, event)} />HUB</label>
-              <label><input type="checkbox" onClick={event => changeClass(10, event)} />KHC</label>
-              <label><input type="checkbox" onClick={event => changeClass(11, event)} />LAW</label>
-              <label><input type="checkbox" onClick={event => changeClass(12, event)} />MED</label>
-              <label><input type="checkbox" onClick={event => changeClass(13, event)} />MET</label>
-              <label><input type="checkbox" onClick={event => changeClass(14, event)} />OTP</label>
-              <label><input type="checkbox" onClick={event => changeClass(15, event)} />PDP</label>
-              <label><input type="checkbox" onClick={event => changeClass(16, event)} />QST</label>
-              <label><input type="checkbox" onClick={event => changeClass(17, event)} />SAR</label>
-              <label><input type="checkbox" onClick={event => changeClass(18, event)} />SDM</label>
-              <label><input type="checkbox" onClick={event => changeClass(19, event)} />SED</label>
-              <label><input type="checkbox" onClick={event => changeClass(20, event)} />SHA</label>
-              <label><input type="checkbox" onClick={event => changeClass(21, event)} />SPH</label>
-              <label><input type="checkbox" onClick={event => changeClass(22, event)} />SSW</label>
-              <label><input type="checkbox" onClick={event => changeClass(23, event)} />STH</label>
-              <label><input type="checkbox" onClick={event => changeClass(24, event)} />XRG</label>
+              <label><input type="checkbox" onClick={event => changeClass(1, event)} /> CDS</label>
+              <label><input type="checkbox" onClick={event => changeClass(2, event)} /> CFA</label>
+              <label><input type="checkbox" onClick={event => changeClass(3, event)} /> CGS</label>
+              <label><input type="checkbox" onClick={event => changeClass(4, event)} /> COM</label>
+              <label><input type="checkbox" onClick={event => changeClass(5, event)} /> ENG</label>
+              <label><input type="checkbox" onClick={event => changeClass(6, event)} /> EOP</label>
+              <label><input type="checkbox" onClick={event => changeClass(7, event)} /> GMS</label>
+              <label><input type="checkbox" onClick={event => changeClass(8, event)} /> GRS</label>
+              <label><input type="checkbox" onClick={event => changeClass(9, event)} /> HUB</label>
+              <label><input type="checkbox" onClick={event => changeClass(10, event)} /> KHC</label>
+              <label><input type="checkbox" onClick={event => changeClass(11, event)} /> LAW</label>
+              <label><input type="checkbox" onClick={event => changeClass(12, event)} /> MED</label>
+              <label><input type="checkbox" onClick={event => changeClass(13, event)} /> MET</label>
+              <label><input type="checkbox" onClick={event => changeClass(14, event)} /> OTP</label>
+              <label><input type="checkbox" onClick={event => changeClass(15, event)} /> PDP</label>
+              <label><input type="checkbox" onClick={event => changeClass(16, event)} /> QST</label>
+              <label><input type="checkbox" onClick={event => changeClass(17, event)} /> SAR</label>
+              <label><input type="checkbox" onClick={event => changeClass(18, event)} /> SDM</label>
+              <label><input type="checkbox" onClick={event => changeClass(19, event)} /> SED</label>
+              <label><input type="checkbox" onClick={event => changeClass(20, event)} /> SHA</label>
+              <label><input type="checkbox" onClick={event => changeClass(21, event)} /> SPH</label>
+              <label><input type="checkbox" onClick={event => changeClass(22, event)} /> SSW</label>
+              <label><input type="checkbox" onClick={event => changeClass(23, event)} /> STH</label>
+              <label><input type="checkbox" onClick={event => changeClass(24, event)} /> XRG</label>
             </section>
           </div>
 
@@ -385,51 +385,51 @@ const SearchBox = () => {
               <section className="first-row">
                 <div className="first-row-child">
                   <p>Philosophical, Aesthetic, and Historical Interpretation</p>
-                  <label><input type="checkbox" onClick={event => changeHub(0, event)} />Philosophical Inquiry and Life's Meanings (PLM)</label>
-                  <label><input type="checkbox" onClick={event => changeHub(1, event)} />Aesthetic Exploration (AEX)</label>
-                  <label><input type="checkbox" onClick={event => changeHub(2, event)} />Historical Consciousness (HCO)</label>
+                  <label><input type="checkbox" onClick={event => changeHub(0, event)} /> Philosophical Inquiry and Life's Meanings (PLM)</label>
+                  <label><input type="checkbox" onClick={event => changeHub(1, event)} /> Aesthetic Exploration (AEX)</label>
+                  <label><input type="checkbox" onClick={event => changeHub(2, event)} /> Historical Consciousness (HCO)</label>
                 </div>
                 
                 <div className="first-row-child">
                   <p>Scientific and Social Inquiry</p>
-                  <label><input type="checkbox" onClick={event => changeHub(3, event)} />Scientific Inquiry I (SI1)</label>
-                  <label><input type="checkbox" onClick={event => changeHub(4, event)} />Scientific Inquiry II (SI2)</label>
-                  <label><input type="checkbox" onClick={event => changeHub(5, event)} />Social Inquiry I (SO1)</label>
-                  <label><input type="checkbox" onClick={event => changeHub(6, event)} />Social Inquiry II (SO2)</label>
+                  <label><input type="checkbox" onClick={event => changeHub(3, event)} /> Scientific Inquiry I (SI1)</label>
+                  <label><input type="checkbox" onClick={event => changeHub(4, event)} /> Scientific Inquiry II (SI2)</label>
+                  <label><input type="checkbox" onClick={event => changeHub(5, event)} /> Social Inquiry I (SO1)</label>
+                  <label><input type="checkbox" onClick={event => changeHub(6, event)} /> Social Inquiry II (SO2)</label>
                 </div>
               </section>
 
               <section className="second-row">
                 <div className="second-row-child">
                   <p>Quantitative Reasoning</p>
-                  <label><input type="checkbox" onClick={event => changeHub(7, event)} />Quantitative Reasoning I (QR1)</label>
-                  <label><input type="checkbox" onClick={event => changeHub(8, event)} />Quantitative Reasoning II (QR2)</label>
+                  <label><input type="checkbox" onClick={event => changeHub(7, event)} /> Quantitative Reasoning I (QR1)</label>
+                  <label><input type="checkbox" onClick={event => changeHub(8, event)} /> Quantitative Reasoning II (QR2)</label>
                 </div>
 
                 <div className="second-row-child">
                   <p>Diversity, Civic Engagement, and Global Citizenship</p>
-                  <label><input type="checkbox" onClick={event => changeHub(9, event)} />The Individual in Community (IIC)</label>
-                  <label><input type="checkbox" onClick={event => changeHub(10, event)} />Global Citizenship and Intercultural Literacy (GCI)</label>
-                  <label><input type="checkbox" onClick={event => changeHub(11, event)} />Ethical Reasoning (ETR)</label>
+                  <label><input type="checkbox" onClick={event => changeHub(9, event)} /> The Individual in Community (IIC)</label>
+                  <label><input type="checkbox" onClick={event => changeHub(10, event)} /> Global Citizenship and Intercultural Literacy (GCI)</label>
+                  <label><input type="checkbox" onClick={event => changeHub(11, event)} /> Ethical Reasoning (ETR)</label>
                 </div>
               </section>
 
               <section className="third-row">
                 <div className="third-row-child">
                   <p>Communication</p>
-                  <label><input type="checkbox" onClick={event => changeHub(12, event)} />First-Year Writing Seminar (FYW)</label>
-                  <label><input type="checkbox" onClick={event => changeHub(13, event)} />Writing, Research, and Inquiry (WRI)</label>
-                  <label><input type="checkbox" onClick={event => changeHub(14, event)} />Writing-Intensive Course (WIN)</label>
-                  <label><input type="checkbox" onClick={event => changeHub(15, event)} />Oral and/or Signed Communication (OSC)</label>
-                  <label><input type="checkbox" onClick={event => changeHub(16, event)} />Digital/Multimedia Expression (DME)</label>
+                  <label><input type="checkbox" onClick={event => changeHub(12, event)} /> First-Year Writing Seminar (FYW)</label>
+                  <label><input type="checkbox" onClick={event => changeHub(13, event)} /> Writing, Research, and Inquiry (WRI)</label>
+                  <label><input type="checkbox" onClick={event => changeHub(14, event)} /> Writing-Intensive Course (WIN)</label>
+                  <label><input type="checkbox" onClick={event => changeHub(15, event)} /> Oral and/or Signed Communication (OSC)</label>
+                  <label><input type="checkbox" onClick={event => changeHub(16, event)} /> Digital/Multimedia Expression (DME)</label>
                 </div>
 
                 <div className="third-row-child">
                   <p>Intellectual Toolkit</p>
-                  <label><input type="checkbox" onClick={event => changeHub(17, event)} />Critical Thinking (CRT)</label>
-                  <label><input type="checkbox" onClick={event => changeHub(18, event)} />Research and Information Literacy (RIL)</label>
-                  <label><input type="checkbox" onClick={event => changeHub(19, event)} />Teamwork/Collaboration (TWC)</label>
-                  <label><input type="checkbox" onClick={event => changeHub(20, event)} />Creativity/Innovation (CRI)</label>
+                  <label><input type="checkbox" onClick={event => changeHub(17, event)} /> Critical Thinking (CRT)</label>
+                  <label><input type="checkbox" onClick={event => changeHub(18, event)} /> Research and Information Literacy (RIL)</label>
+                  <label><input type="checkbox" onClick={event => changeHub(19, event)} /> Teamwork/Collaboration (TWC)</label>
+                  <label><input type="checkbox" onClick={event => changeHub(20, event)} /> Creativity/Innovation (CRI)</label>
                 </div>
               </section>
            </div>
@@ -538,12 +538,29 @@ constructor() {
     // should be a list of dictionaries with key "start", "end", and "days"
     visualList: [],
     data: [],
-    itemName: ''
+    itemName: '',
+    weekdays: [false, false, false, false, false, false, false],
+    startTime: '',
+    endTime: ''
   };
 }
-handleChange = (event) => {
+
+setItemName = (event) => {
   this.setState({itemName: event.target.value});
 }
+setStartTime = (event) => {
+  this.setState({startTime: event.target.value});
+}
+setEndTime = (event) => {
+  this.setState({endTime: event.target.value});
+}
+
+setWeekdays = (i) => {
+  let weekdaysTemp = this.state.weekdays
+  weekdaysTemp[i] = !weekdaysTemp[i]
+  this.setState({weekdays: weekdaysTemp})
+}
+
 delete = (index) => {
   this.state.visualList.splice(index, 1);
   this.state.data.splice(index, 1)
@@ -554,6 +571,9 @@ delete = (index) => {
 }
 
 add = () => {
+  console.log(this.state.startTime)
+  console.log(this.state.endTime)
+  console.log(this.state.weekdays)
   const visualList = [...this.state.visualList]
   const data = [...this.state.data]
   visualList.push(processVisualInput(this.state.itemName));
@@ -563,6 +583,13 @@ add = () => {
   this.setState({data: data})
   this.setState({visualList: visualList});
   this.setState({itemName: ''})
+  let weekdays = document.getElementsByClassName('weekdayCheck')
+  for (var i = 0; i < weekdays.length; i++) {
+    weekdays[i].checked = false;
+  }
+  this.setState({weekdays: [false, false, false, false, false, false, false]})
+  this.setState({startTime: ""})
+  this.setState({endTime: ""})
 }
 
 render() { 
@@ -575,15 +602,27 @@ render() {
       )
     })
   }
-
+  
   return (
     <div className="schedule">
       <input
-      className="input-bottom"
-      type="text"
-      value={this.state.itemName}
-      onChange={this.handleChange}
-    /> 
+        className="input-bottom"
+        type="text"
+        value={this.state.itemName}
+        onChange={this.setItemName}
+      />
+
+      <label><input className="input-bottom" type="time" value={this.state.startTime} onChange={this.setStartTime}/>Start Time</label>
+      <label><input className="input-bottom" type="time" value={this.state.endTime} onChange={this.setEndTime}/>End Time</label>
+
+      <label><input type="checkbox" className="weekdayCheck" onClick={event => this.setWeekdays(0, event)} /> Monday</label>
+      <label><input type="checkbox" className="weekdayCheck" onClick={event => this.setWeekdays(1, event)} /> Tuesday</label>
+      <label><input type="checkbox" className="weekdayCheck" onClick={event => this.setWeekdays(2, event)} /> Wednesday</label>
+      <label><input type="checkbox" className="weekdayCheck" onClick={event => this.setWeekdays(3, event)} /> Thursday</label>
+      <label><input type="checkbox" className="weekdayCheck" onClick={event => this.setWeekdays(4, event)} /> Friday</label>
+      <label><input type="checkbox" className="weekdayCheck" onClick={event => this.setWeekdays(5, event)} /> Saturday</label>
+      <label><input type="checkbox" className="weekdayCheck" onClick={event => this.setWeekdays(6, event)} /> Sunday</label>
+
       <button className="btn-bottom"onClick={() => this.add()}>Click To Add</button>
       
       {renderData()}
