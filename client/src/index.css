@@ -357,7 +357,16 @@ html {
   background: transparent;
 }
 
-
+@media (max-width: 750px){
+  .bu-hub-areas-checkbox > section {
+    display: flex;
+    justify-content: center;
+    background: transparent;
+    font-size: 20px;
+    gap: 1em;
+    flex-direction: column;
+  }
+}
 
 
 
