@@ -424,26 +424,66 @@ html {
   border-radius: 4px;
 }
 
+
 .schedule {
   background: transparent
 }
 
+
+
 .schedule button {
   margin-top: 1em;
+  width: 50vw;
   color: white;
   background-color: #e95252;
   padding: .8em;
   border-radius: 4px;
   transition: 300ms;
+  
 }
 
 .schedule button:hover {
+  width: 50vw;
   margin-top: 1em;
   color: white;
   background-color: #c73434;
   padding: .8em;
   border-radius: 4px;
 }
+
+
+.schedule-checkboxes {
+  margin: 1em;
+  background: transparent;
+}
+
+.schedule-inputs {
+  background: transparent;
+}
+
+@media(max-width: 730px) {
+  .input-bottom {
+    width: 50vw;
+    margin-left: 1em;
+  }
+  .schedule{
+    display:block
+  }
+  .schedule button {
+    width: 80vw;
+  }
+}
+
+@media(max-width: 730px) {
+  .schedule-checkboxes {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1em;
+    background: transparent;
+  }
+}
+
+
 
 
 /* Data Presented From Database */

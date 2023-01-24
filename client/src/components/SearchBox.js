@@ -595,17 +595,20 @@ render() {
   
   return (
     <div className="schedule">
-      <br></br>
-      <label><input className="input-bottom" type="time" value={this.state.startTime} onChange={this.setStartTime}/>Start Time</label>
-      <label><input className="input-bottom" type="time" value={this.state.endTime} onChange={this.setEndTime}/>End Time</label>
-      <br></br>
-      <label><input type="checkbox" className="weekdayCheck" onClick={event => this.setWeekdays(0, event)} /> Monday </label>
-      <label><input type="checkbox" className="weekdayCheck" onClick={event => this.setWeekdays(1, event)} /> Tuesday </label>
-      <label><input type="checkbox" className="weekdayCheck" onClick={event => this.setWeekdays(2, event)} /> Wednesday </label>
-      <label><input type="checkbox" className="weekdayCheck" onClick={event => this.setWeekdays(3, event)} /> Thursday </label>
-      <label><input type="checkbox" className="weekdayCheck" onClick={event => this.setWeekdays(4, event)} /> Friday </label>
-      <label><input type="checkbox" className="weekdayCheck" onClick={event => this.setWeekdays(5, event)} /> Saturday </label>
-      <label><input type="checkbox" className="weekdayCheck" onClick={event => this.setWeekdays(6, event)} /> Sunday </label>
+      <div className="schedule-inputs">
+        <label><input className="input-bottom" type="time" value={this.state.startTime} onChange={this.setStartTime}/>Start Time</label>
+        <label><input className="input-bottom" type="time" value={this.state.endTime} onChange={this.setEndTime}/>End Time</label>
+      </div>
+      
+      <div className="schedule-checkboxes">
+        <label><input type="checkbox" className="weekdayCheck" onClick={event => this.setWeekdays(0, event)} /> Monday </label>
+        <label><input type="checkbox" className="weekdayCheck" onClick={event => this.setWeekdays(1, event)} /> Tuesday </label>
+        <label><input type="checkbox" className="weekdayCheck" onClick={event => this.setWeekdays(2, event)} /> Wednesday </label>
+        <label><input type="checkbox" className="weekdayCheck" onClick={event => this.setWeekdays(3, event)} /> Thursday </label>
+        <label><input type="checkbox" className="weekdayCheck" onClick={event => this.setWeekdays(4, event)} /> Friday </label>
+        <label><input type="checkbox" className="weekdayCheck" onClick={event => this.setWeekdays(5, event)} /> Saturday </label>
+        <label><input type="checkbox" className="weekdayCheck" onClick={event => this.setWeekdays(6, event)} /> Sunday </label>
+      </div>
 
       <button className="btn-bottom"onClick={() => this.add()}>Click To Add</button>
       
