@@ -437,9 +437,7 @@ const SearchBox = () => {
           
           <div className="require-courses-input">
             <p>
-              Input your required courses to filter overlapping courses
-              Follow this exact format for filter to function
-              MTWRF 11:30-15:15 (means course occurs Monday, Tuesday, Wednesday, Thursday, Friday 11:30 AM to 3:15 PM)
+              Input your required courses/unavailable times to filter out courses that overlap with those intervals
             </p>
             <ScheduleFilter />
           </div>
@@ -499,36 +497,29 @@ function filterSchedule(data, schedule) {
   return arr
 }
 
-let dayDict = {
-  'M': 'Monday',
-  'T': 'Tuesday',
-  'W': 'Wednesday',
-  'R': 'Thursday',
-  'F': 'Friday',
-  'S': 'Saturday',
-  'U': 'Sunday'
-}
-let processVisualInput = (str) => {
-  let temp = str.split(" ")
-  let days = temp[0]
-
-  let result = ""
-  for (let i = 0; i < days.length; i++) {
-      let d = dayDict[days.charAt(i)]
-      result = result + " " + d
+let dayArr = ["M", "T", "W", "R", "F", "S", "U"]
+let visualDayArr = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+let processVisualInput = (weekdays, start, end) => {
+  let days = ""
+  for (let i = 0; i < weekdays.length; i++) {
+    if (weekdays[i] === true) {
+      days = days + " " + visualDayArr[i]
+    }
   }
-
-  result = result + " " + temp[1]
+  let result = days + " " + start + " " + end + " "
   return result
 }
 
-let processData = (str) => {
-  let arr = str.split(" ")
-  let days = arr[0]
-  let hours = arr[1].split("-")
-  let t1 = parseInt(hours[0].split(":")[0])*60 + parseInt(hours[0].split(":")[1])
-  let t2 = parseInt(hours[1].split(":")[0]*60) + parseInt(hours[1].split(":")[1])
-  return {"days": days, "start": t1, "end": t2}
+let processData = (weekdays, start, end) => {
+  let days = ""
+  for (let i = 0; i < weekdays.length; i++) {
+    if (weekdays[i] === true) {
+      days = days + dayArr[i]
+    }
+  }
+  let startInt = parseInt(start.split(":")[0]) * 60 + parseInt(start.split(":")[1])
+  let endInt = parseInt(end.split(":")[0]) * 60 + parseInt(end.split(":")[1])
+  return {"days": days, "start": startInt, "end": endInt}
 }
 
 class ScheduleFilter extends Component {
@@ -538,16 +529,12 @@ constructor() {
     // should be a list of dictionaries with key "start", "end", and "days"
     visualList: [],
     data: [],
-    itemName: '',
     weekdays: [false, false, false, false, false, false, false],
     startTime: '',
     endTime: ''
   };
 }
 
-setItemName = (event) => {
-  this.setState({itemName: event.target.value});
-}
 setStartTime = (event) => {
   this.setState({startTime: event.target.value});
 }
@@ -571,18 +558,15 @@ delete = (index) => {
 }
 
 add = () => {
-  console.log(this.state.startTime)
-  console.log(this.state.endTime)
-  console.log(this.state.weekdays)
   const visualList = [...this.state.visualList]
   const data = [...this.state.data]
-  visualList.push(processVisualInput(this.state.itemName));
-  data.push(processData(this.state.itemName))
-  currentSchedule = data
+  visualList.push(processVisualInput(this.state.weekdays, this.state.startTime, this.state.endTime));
+  data.push(processData(this.state.weekdays, this.state.startTime, this.state.endTime))
+  console.log(visualList)
   console.log(data)
+  currentSchedule = data
   this.setState({data: data})
   this.setState({visualList: visualList});
-  this.setState({itemName: ''})
   let weekdays = document.getElementsByClassName('weekdayCheck')
   for (var i = 0; i < weekdays.length; i++) {
     weekdays[i].checked = false;
@@ -605,12 +589,6 @@ render() {
   
   return (
     <div className="schedule">
-      <input
-        className="input-bottom"
-        type="text"
-        value={this.state.itemName}
-        onChange={this.setItemName}
-      />
 
       <label><input className="input-bottom" type="time" value={this.state.startTime} onChange={this.setStartTime}/>Start Time</label>
       <label><input className="input-bottom" type="time" value={this.state.endTime} onChange={this.setEndTime}/>End Time</label>
