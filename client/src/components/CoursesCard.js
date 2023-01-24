@@ -8,7 +8,7 @@ const CoursesCard =  ({ courses }) => {
                 <h3 className="course-name">{courses.name}</h3>
 
                 <div className="course-prereq">
-                <h5 >{courses.prereqs}</h5>
+                <h4 >{courses.prereqs}</h4>
                     {courses.hubs.map(hub => {
                         return ( <div key={hub.name}>
                                 <dt className="hubs">{hub}</dt>     
@@ -19,7 +19,6 @@ const CoursesCard =  ({ courses }) => {
                 </div >
                 <p className="course-desc">{courses.description}</p>
             </section>
-
 
             <section className="course-sections-container">
                 <h3 id="sections">Sections</h3>

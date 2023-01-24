@@ -539,6 +539,8 @@ html {
   height: auto;
   width: 80vw;
   margin-bottom: 3em;
+  border: 2px solid rgba(34, 34, 34, 0.598);
+  border-radius: 12px;
 }
 
 
@@ -549,16 +551,12 @@ html {
   flex-direction: column;
   gap: 1em;
   width: 80vw;
-
-  background-color: rgb(219, 227, 231);
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 3px );
-  border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );}
+}
 
 .course-id {
-  margin: 1em 0 0 1em;
+  margin: 1em 0 0 .6em;
   background: transparent;
+  font-size: 30px;
 }
 
 .course-name {
@@ -576,21 +574,13 @@ html {
 }
 
 .course-desc {
-  margin: 1em 0 1em 1em;
+  margin: 1em 0 0 1em;
   background: transparent;
 }
 
 
 
 /* SECTION INFORMATION */
-.course-sections-container {
-  margin-top: 3em;
-  background-color: rgb(219, 227, 231);
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 3px );
-  border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
-}
 
 .course-sections {
   margin: 1em;
@@ -598,7 +588,7 @@ html {
 }
 
 #sections {
-  margin: 1em;
+  margin: 0 0 1em 1em;
   font-size: 25px;
   background: transparent;
 }
