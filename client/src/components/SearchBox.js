@@ -440,6 +440,7 @@ const SearchBox = () => {
             <p>
               Input your required courses/unavailable times to filter out courses that overlap with those intervals
             </p>
+
             <ScheduleFilter />
           </div>
           
@@ -507,7 +508,7 @@ let processVisualInput = (weekdays, start, end) => {
       days = days + " " + visualDayArr[i]
     }
   }
-  let result = days + " " + start + " " + end + " "
+  let result = days + " " + start + "-" + end + " "
   return result
 }
 
@@ -559,15 +560,19 @@ delete = (index) => {
 }
 
 add = () => {
-  const visualList = [...this.state.visualList]
-  const data = [...this.state.data]
-  visualList.push(processVisualInput(this.state.weekdays, this.state.startTime, this.state.endTime));
-  data.push(processData(this.state.weekdays, this.state.startTime, this.state.endTime))
-  console.log(visualList)
-  console.log(data)
-  currentSchedule = data
-  this.setState({data: data})
-  this.setState({visualList: visualList});
+  if (this.state.weekdays.includes(true) && this.state.startTime !== "" && this.state.endTime !== "") {
+    const visualList = [...this.state.visualList]
+    const data = [...this.state.data]
+    console.log(this.state.startTime)
+    visualList.push(processVisualInput(this.state.weekdays, this.state.startTime, this.state.endTime));
+    data.push(processData(this.state.weekdays, this.state.startTime, this.state.endTime))
+    console.log(visualList)
+    console.log(data)
+    currentSchedule = data
+    this.setState({data: data})
+    this.setState({visualList: visualList});
+  }
+  
   let weekdays = document.getElementsByClassName('weekdayCheck')
   for (var i = 0; i < weekdays.length; i++) {
     weekdays[i].checked = false;
@@ -590,17 +595,17 @@ render() {
   
   return (
     <div className="schedule">
-
+      <br></br>
       <label><input className="input-bottom" type="time" value={this.state.startTime} onChange={this.setStartTime}/>Start Time</label>
       <label><input className="input-bottom" type="time" value={this.state.endTime} onChange={this.setEndTime}/>End Time</label>
-
-      <label><input type="checkbox" className="weekdayCheck" onClick={event => this.setWeekdays(0, event)} /> Monday</label>
-      <label><input type="checkbox" className="weekdayCheck" onClick={event => this.setWeekdays(1, event)} /> Tuesday</label>
-      <label><input type="checkbox" className="weekdayCheck" onClick={event => this.setWeekdays(2, event)} /> Wednesday</label>
-      <label><input type="checkbox" className="weekdayCheck" onClick={event => this.setWeekdays(3, event)} /> Thursday</label>
-      <label><input type="checkbox" className="weekdayCheck" onClick={event => this.setWeekdays(4, event)} /> Friday</label>
-      <label><input type="checkbox" className="weekdayCheck" onClick={event => this.setWeekdays(5, event)} /> Saturday</label>
-      <label><input type="checkbox" className="weekdayCheck" onClick={event => this.setWeekdays(6, event)} /> Sunday</label>
+      <br></br>
+      <label><input type="checkbox" className="weekdayCheck" onClick={event => this.setWeekdays(0, event)} /> Monday </label>
+      <label><input type="checkbox" className="weekdayCheck" onClick={event => this.setWeekdays(1, event)} /> Tuesday </label>
+      <label><input type="checkbox" className="weekdayCheck" onClick={event => this.setWeekdays(2, event)} /> Wednesday </label>
+      <label><input type="checkbox" className="weekdayCheck" onClick={event => this.setWeekdays(3, event)} /> Thursday </label>
+      <label><input type="checkbox" className="weekdayCheck" onClick={event => this.setWeekdays(4, event)} /> Friday </label>
+      <label><input type="checkbox" className="weekdayCheck" onClick={event => this.setWeekdays(5, event)} /> Saturday </label>
+      <label><input type="checkbox" className="weekdayCheck" onClick={event => this.setWeekdays(6, event)} /> Sunday </label>
 
       <button className="btn-bottom"onClick={() => this.add()}>Click To Add</button>
       
