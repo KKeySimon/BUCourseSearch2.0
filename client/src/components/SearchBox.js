@@ -331,15 +331,7 @@ const SearchBox = () => {
                   </select>
                 </label>
 
-                <label className="dropdown" >
-                All or Any
-                <select className="coursearch-searchfields-semester-select"
-                value={allOrAny}
-                onChange={(e) => setAllOrAny(e.target.value)}>
-                  <option value="All">All</option>
-                  <option value="Any">Any</option>
-                </select>
-              </label>
+                
               </section>
           </div>
         </div>
@@ -377,10 +369,19 @@ const SearchBox = () => {
             </section>
           </div>
 
-        
+          
           <div className="bu-hub-areas">
             {/* Hub Checkboxes */}
             <h2 className="bu-hub-title">BU HUB Areas</h2>
+            <label className="dropdown" >
+              All or Any
+                <select className="coursearch-searchfields-semester-select"
+                value={allOrAny}
+                onChange={(e) => setAllOrAny(e.target.value)}>
+                  <option value="All">All</option>
+                  <option value="Any">Any</option>
+                </select>
+            </label>
             <div className="bu-hub-areas-checkbox">
               <section className="first-row">
                 <div className="first-row-child">
