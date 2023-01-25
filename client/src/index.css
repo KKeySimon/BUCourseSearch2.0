@@ -144,7 +144,7 @@ html {
   cursor: pointer;
   border: none;
   border-radius: 4px;
-  padding: .5em;
+  padding: .6em 2em;
   color: white;
   background-color: #e95252;
   transition: 200ms;
@@ -154,17 +154,23 @@ html {
   cursor: pointer;
   border: none;
   border-radius: 4px;
-  padding: .5em;
+  padding: .6em 2em;
   color: white;
   background-color: #c73434;
 }
 
 @media (max-width: 700px) {
   .coursearch-searchfields {
-    display:block;
+    display: block;
+  }
+  .top-btn-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
   .search {
     width: 100%;
+    margin: 0 2.2em;
   }
 }
 
@@ -436,7 +442,7 @@ html {
 }
 
 .require-courses-input  p {
-  width: 60vw;
+  margin: 0 1em;
   background: transparent;
 }
 
@@ -450,7 +456,10 @@ html {
 
 
 .schedule {
-  background: transparent
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: transparent;
 }
 
 
@@ -458,7 +467,7 @@ html {
 .schedule button {
   margin-top: 1em;
   margin-bottom: 3em;
-  width: 50vw;
+  width: 40vw;
   color: white;
   background-color: #e95252;
   padding: .8em;
@@ -469,7 +478,6 @@ html {
 }
 
 .schedule button:hover {
-  width: 50vw;
   margin-top: 1em;
   color: white;
   background-color: #c73434;
@@ -480,11 +488,30 @@ html {
 
 .schedule-checkboxes {
   margin: 1em;
+  grid-gap: 1em;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: transparent;
+}
+
+.schedule-checkboxes label {
   background: transparent;
 }
 
 .schedule-inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background: transparent;
+}
+
+.schedule-inputs label {
+  background: transparent
+}
+
+.schedule-inputs input {
+  width: 30vw;
+  background: transparent
 }
 
 @media(max-width: 730px) {
@@ -496,19 +523,9 @@ html {
     display:block
   }
   .schedule button {
-    width: 80vw;
+    width: 100%;
   }
 }
-
-@media(max-width: 730px) {
-  .schedule-checkboxes {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 1em;
-    background: transparent;
-  }
-}
-
 
 
 

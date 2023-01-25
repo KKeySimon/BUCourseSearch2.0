@@ -282,9 +282,11 @@ const SearchBox = () => {
           </label>
         </div>
 
+        <div className="top-btn-container">
           <button type="button" className="search" onClick={handleSubmit}>
             Search
           </button>
+        </div>
       </div>
 
       <div className="additional-info">
