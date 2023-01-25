@@ -147,7 +147,7 @@ html {
   padding: .5em;
   color: white;
   background-color: #e95252;
-  transition: 300ms;
+  transition: 200ms;
 }
 
 .search:hover {
@@ -156,7 +156,7 @@ html {
   border-radius: 4px;
   padding: .5em;
   color: white;
-  background-color: rgb(219, 60, 60);
+  background-color: #c73434;
 }
 
 @media (max-width: 700px) {
@@ -185,21 +185,45 @@ html {
   flex-direction: column;
 }
 
-.additional-info button {
-  background-color: transparent;
+.additional-info-btn-container {
+  width: 80vw;
+  display: flex;
+  justify-content: center;
+  background: transparent;
+}
+
+.additional-info-btn {
+  padding: .6em 1em;
   border: none;
-  font-size: 1em;
-  color: rgb(211, 54, 54);
+  background-color: #e95252;
+  border-radius: 6px;
+  transition: 200ms;
   cursor: pointer;
-
 }
 
-.additional-info button:hover {
-  text-decoration: underline;
+.additional-info-btn:hover {
+  padding: .6em 1em;
+  border: none;
+  background-color: #c73434;
+  border-radius: 6px;
 }
 
-.additional-info strong {
-  background-color: transparent;
+.additional-info-btn-text {
+  display: flex;
+  gap: 6px;
+  color: white;
+  background: transparent
+}
+
+.symbol {
+  transform: rotate(0deg);
+  background: transparent
+}
+
+.upside-down {
+  transform: rotate(180deg);
+  transform-origin: topleft;
+  background: transparent
 }
 
 
@@ -433,13 +457,15 @@ html {
 
 .schedule button {
   margin-top: 1em;
+  margin-bottom: 3em;
   width: 50vw;
   color: white;
   background-color: #e95252;
   padding: .8em;
   border-radius: 4px;
-  transition: 300ms;
-  
+  transition: 200ms;
+  border: none;
+  cursor: pointer;
 }
 
 .schedule button:hover {

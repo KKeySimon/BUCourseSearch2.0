@@ -288,7 +288,19 @@ const SearchBox = () => {
       </div>
 
       <div className="additional-info">
-          <button type="button" onClick={() => setAdditional(!additional)} ><strong>^</strong> Additional Search Options </button>
+        <div className="additional-info-btn-container">
+          <button type="button" onClick={() => {
+              setAdditional(!additional);
+            }} 
+            className="additional-info-btn"
+            > 
+              <div className="additional-info-btn-text">
+                <div className= {!additional ? 'symbol' : 'upside-down'}> ^ </div> 
+                  Additional Search Options 
+              </div>
+            </button>
+        </div>
+
 
           
           { additional && <div className="hidden-dropdown-menu">
@@ -334,6 +346,14 @@ const SearchBox = () => {
                 
               </section>
           </div>
+        </div>
+
+        <div className="require-courses-input">
+            <p>
+              Input your required courses/unavailable times to filter out courses that overlap with those intervals
+            </p>
+
+            <ScheduleFilter />
         </div>
 
 
@@ -435,15 +455,6 @@ const SearchBox = () => {
               </section>
            </div>
           </div>
-          
-          <div className="require-courses-input">
-            <p>
-              Input your required courses/unavailable times to filter out courses that overlap with those intervals
-            </p>
-
-            <ScheduleFilter />
-          </div>
-          
           </div>}
       </div>
 
