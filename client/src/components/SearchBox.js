@@ -599,9 +599,13 @@ render() {
   const renderData = () => {
     return this.state.visualList.map((item, index) => {
       return (
-        <div key={item}>{item}  
-          <button onClick={() => this.delete(index)}>Remove</button>
-          </div>
+        <div
+          className="remove-container"
+          key={item}>{item}
+            <div className="remove-btn-container">
+              <button  onClick={() => this.delete(index)}>Remove</button>
+            </div>
+        </div>
       )
     })
   }
