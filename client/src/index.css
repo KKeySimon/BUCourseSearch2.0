@@ -620,7 +620,7 @@ html {
   flex-direction: column;
   gap: 2em;
   height: auto;
-  width: 80vw;
+  width: 75vw;
   margin-bottom: 3em;
   border: 2px solid rgba(34, 34, 34, 0.598);
   border-radius: 12px;
@@ -631,9 +631,9 @@ html {
 /* PRE-SECTION INFORMATION */
 .pre-section-info {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   gap: 1em;
-  width: 80vw;
 }
 
 .course-id {
@@ -657,7 +657,8 @@ html {
 }
 
 .course-desc {
-  margin: 1em 0 0 1em;
+  width: 68vw;
+  margin: 1em;
   background: transparent;
 }
 
