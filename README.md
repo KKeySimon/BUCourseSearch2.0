@@ -23,8 +23,8 @@
 
 ## Contact
 
-- [Linkedin](https://www.linkedin.com/in/matthew-iwane-0b65031b8/)
-- [Portfolio](https://matthewtiwane.web.app)
+- [Linkedin](https://www.linkedin.com/in/simon-kye-59904b200/)
+- [Portfolio](https://simonkye.com/)
 
 ## Acknowledgements
 
