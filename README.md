@@ -1,25 +1,35 @@
-# BUCourseSearch2.0
+# Boston University Course Search 2.0
 
-This project looks to implement many of the features lacking in BU's course search.
-This mainly comes in form of filters that will be added such as
-- Minimum RateMyProfessor score
-- Maximum RateMyProf difficulty
-- Whether or not class is full
-- Conflicts with current course schedule
+## Table of Contents
 
-For Project Members:
-run "pip3 install -r requirements.txt" for development
+- [Overview](#overview)
+- [Built With](#built-with)
+- [Contact](#contact)
 
-TODO:
-- [ ] Currently, if user collapses the additional search filters, every option is reset. Rather than disabling the div, we should render then not render the div depending on if button is pressed
-- [ ] Let code run until it scans last course and fix errors as we go (batch 816 done out of 816)
-- [ ] Stop site from making me think 'what a sad day to have eyes'
-- [ ] Adjust font-sizes using media queries
-- [ ] Background color issues for some divs
-- [ ] Change Favicon and Title
-------------------------------------------------------------------------------
-- [x] Figure out how to update the databases in batches automatically, with logs indicating which batches failed
-- [x] Put everything other than Keyword under Additional Search Options
-- [x] Add schedule/checkmark related filters
-- [x] Implement schedule overlapping algo
-- [x] Set default value of instructorDiff when webscraping to above 5 if RMP page doesn't exist for this person
+## Overview
+
+![Screen Shot 2023-02-05 at 11 13 14 PM](https://user-images.githubusercontent.com/78956743/216882253-b0893169-8b8e-446b-b83e-36b75c3ee7b6.png)
+![Screen Shot 2023-02-05 at 11 13 23 PM](https://user-images.githubusercontent.com/78956743/216882277-e0856bbb-735e-49bd-8adc-f2b05e068411.png)
+![Screen Shot 2023-02-05 at 11 13 31 PM](https://user-images.githubusercontent.com/78956743/216882280-06e0b5ab-a4b3-4329-90b6-f0995fb005ba.png)
+![Screen Shot 2023-02-05 at 11 13 45 PM](https://user-images.githubusercontent.com/78956743/216882269-d69223e9-923f-4885-98ee-8b200d41122a.png)
+
+### Built With
+
+- React
+- Python
+- Supabase
+- Firebase
+
+
+## Contact
+
+- [Linkedin](https://www.linkedin.com/in/matthew-iwane-0b65031b8/)
+- [Portfolio](https://matthewtiwane.web.app)
+
+## Acknowledgements
+
+- [React Icons](https://react-icons.github.io/react-icons/)
+- [Firebase Documention](https://firebase.google.com/docs/hosting)
+- [Youtube](https://youtube.com)
+- [Supabase Documentation](https://supabase.com/docs)
+- [Google Fonts](https://fonts.google.com/featured)
