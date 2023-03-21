@@ -19,7 +19,7 @@ numCourses = int(numCourses.text[numCourses.text.index("of ") + 3 : numCourses.t
 
 supabase: Client = create_client(supabase_url, supabase_key)
 # int(numCourses / 5)
-for i in range(646, int(numCourses / 5)):
+for i in range(0, 301):
     url = "https://www.bu.edu/phpbin/course-search/search.php?page=" + str(i) + "&pagesize=5&adv=1&nolog=&search_adv_all=&yearsem_adv=2023-SPRG&credits=*&pathway=&hub_match=all&pagesize=5"
     # url = "https://www.bu.edu/phpbin/course-search/search.php?page=w0&pagesize=5&adv=1&nolog=&search_adv_all=cas+cc+222&yearsem_adv=2023-SPRG&credits=*&pathway=&hub_match=all&pagesize=5"
     try:
@@ -36,12 +36,19 @@ for i in range(646, int(numCourses / 5)):
             # code runs into simplejson.decoder.JSONDecodeError after successfuly uploading to db
             # no idea why this occurs, but we need this try except for the 2nd method to run as well
             supabase.table("Courses").insert(data).execute()
-        except ValueError:
+        except Exception:
+            # for d in data:
+            #     print(d["course_id"])
+            #     course_id = d["course_id"]
+            #     del d["course_id"]
+            #     print(d)
+            #     supabase.table("Courses").update(d).eq("course_id", course_id).execute()
             pass
 
         try:
             supabase.table("Sections").insert(sections_list).execute()
-        except ValueError:
+        except Exception:
+            # supabase.table("Sections").update(sections_list).execute()
             pass
 
         

@@ -126,6 +126,7 @@ def grab_sections_data(course_df, course_id):
             dict = grab_rmp_data(section["instructor"])
             section["instructorDiff"] = dict["difficulty"]
             section["instructorRating"] = dict["rating"]
+            section["url"] = dict["url"]
 
         if pd.isna(course_df["Type"][ind]):
             section["type"] = "N/A"
@@ -200,11 +201,11 @@ def grab_rmp_data(prof):
         "/search/teachers?query=%s&sid=%s" % (prof.replace(" ", "%20"), base64.b64encode(("School-%s" % bu_school_id)
                                                                                  .encode('ascii')).decode('ascii'))
     doc = requests.get(url).text
-    print(doc)
+    # print(doc)
     data = {}
     rating = -1
     difficulty = -1
-    # print(url)
+    print(url)
     
     if '"avgRating":' in doc:
         i = doc.index('"avgRating":')
@@ -212,6 +213,9 @@ def grab_rmp_data(prof):
         if "," in ss:
             ss = ss[0:1]
         rating = float(ss)
+        data["url"] = url
+    else:
+        data["url"] = ""
     if '"avgDifficulty":' in doc: 
         i = doc.index('"avgDifficulty":')
         ss = doc[i+16:i+19]
