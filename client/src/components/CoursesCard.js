@@ -1,17 +1,15 @@
 import SectionsCard from "./SectionsCard"
 
 const CoursesCard =  ({ courses }) => {
-    console.log("HELLo")
     console.log(courses)
     return (
         <div className="course-card-container">
             <section className="pre-section-info">
                 <h2 className="course-id">{courses.course_id}</h2>
                 <h3 className="course-name">{courses.name}</h3>
-
                 <div className="course-prereq">
                 <h4 >{courses.prereqs}</h4>
-                    {courses.hubs.map(hub => {
+                    {courses.hubs && courses.hubs.map(hub => {
                         return ( <div key={hub.name}>
                                 <dt className="hubs">{hub}</dt>     
                                 </div>

@@ -50,7 +50,6 @@ function parseData(data) {
 //manually take the data out with this function
 function checkAvailable(data, available) {
   if (available === 'False') {
-    console.log("ASDJAISPIASD")
     return data
   }
 
@@ -59,14 +58,12 @@ function checkAvailable(data, available) {
   for (var course in data) {
     const result = data[course].sections.filter(sec => sec.availability === true)
     // data[course].sections = result
-    console.log(result)
 
     if (result.length !== 0) {
       newData[course] = { ...data[course] }
       newData[course].sections = result
     }
   }
-  console.log(newData)
   return newData
 }
 
@@ -107,17 +104,15 @@ let collegeToggleDict = {
 
 function changeClass(ind) {
   collegeToggle[ind] = !collegeToggle[ind]
-  console.log(collegeToggle)
+
 }
 
 function filterColleges(data, colleges, filterColleges) {
-  console.log(colleges)
   if (filterColleges) {
     var newData = {}
     for (var course in data) {
-      console.log(data[course].college)
+
       if (colleges.includes(data[course].college)) {
-        console.log("true")
         newData[course] = { ...data[course] }
       }
     }
@@ -158,12 +153,9 @@ for (let i = 0; i < hubToggle.length; i++) {
 
 function changeHub(i) {
   hubToggle[i] = !hubToggle[i]
-  console.log(hubToggle)
 }
 
 function filterHub(data, hubs, filter, allOrAny) {
-  console.log(hubs)
-  console.log(filter)
   if (filter) {
     var newData = {}
     for (var course in data) {
@@ -174,7 +166,6 @@ function filterHub(data, hubs, filter, allOrAny) {
         newData[course] = { ...data[course] }
       }
     }
-    console.log(newData)
     return newData
   } else {
     return data
@@ -214,14 +205,12 @@ function filterBasicSection(data, rating, diff, prof, input) {
       && (prof === "*" || (prof !== "*" && sec.instructor.toLowerCase().includes(prof.toLowerCase())))
       && (input === "*" || (input !== "*" && sec.course_id.toLowerCase().includes(input.toLowerCase()))))
     // data[course].sections = result
-    console.log(result)
 
     if (result.length !== 0) {
       newData[course] = { ...data[course] }
       newData[course].sections = result
     }
   }
-  console.log(newData)
   return newData
     // .ilike('course_id', input)
     // .gte('instructorRating', rating)
@@ -311,7 +300,6 @@ const SearchBox = () => {
 
     get(child(dbRef, `/data`)).then((snapshot) => {
       if (snapshot.exists()) {
-        console.log(snapshot.val());
         data = snapshot.val()
         setCourses(filterColleges(filterHub(
           filterBasicSection(
@@ -320,8 +308,6 @@ const SearchBox = () => {
             ), rating, diff, prof, input
           ), hubs, filterH, allOrAny), colleges, filterC)
         );
-      } else {
-        console.log("No data available");
       }
     })
 
@@ -356,6 +342,7 @@ const SearchBox = () => {
   function createCards(_courses) {
     var cards = [];
     Object.values(_courses).forEach((course) => {
+      console.log(course)
       cards.push(<CoursesCard courses={course}/>)
     })
     return cards;
@@ -570,8 +557,6 @@ const SearchBox = () => {
           
           <div>
             {fetchError && (<p>{fetchError}</p>)}
-            {console.log("DIRTY")}
-            {console.log(courses)}
             {courses && (
               <div className="course-info">
                 {
@@ -604,7 +589,6 @@ function filterSchedule(data, schedule) {
     'S': '2023-03-18',
     'U': '2023-03-19',
   }
-  console.log(schedule)
 
   var momentSchedule = []
   
@@ -617,11 +601,9 @@ function filterSchedule(data, schedule) {
         momentSchedule.push(moment.range(start, end))
       }
   }
-  console.log(momentSchedule)
 
 
   var newData = {};
-  console.log(data)
 
   
   for (var course in data) {
@@ -643,7 +625,6 @@ function filterSchedule(data, schedule) {
       }
       return true
     })
-    console.log(result)
 
     if (result.length !== 0) {
       newData[course] = { ...data[course] }
@@ -651,8 +632,6 @@ function filterSchedule(data, schedule) {
     }
   }
 
-  console.log(schedule)
-  console.log(newData)
   return newData
 
   // if (schedule.length === 0) {
@@ -741,19 +720,18 @@ delete = (index) => {
   this.setState({list: this.state.visualList})
   this.setState({data: this.state.data})
   currentSchedule = this.state.data
-  console.log(index);
+
 }
 
 add = () => {
-  console.log(this.state.startTime)
+
   if (this.state.weekdays.includes(true) && this.state.startTime !== "" && this.state.endTime !== "") {
     const visualList = [...this.state.visualList]
     const data = [...this.state.data]
-    console.log(this.state.startTime)
+
     visualList.push(processVisualInput(this.state.weekdays, this.state.startTime, this.state.endTime));
     data.push(processData(this.state.weekdays, this.state.startTime, this.state.endTime))
-    console.log(visualList)
-    console.log(data)
+
     currentSchedule = data
     this.setState({data: data})
     this.setState({visualList: visualList});
