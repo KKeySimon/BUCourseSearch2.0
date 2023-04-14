@@ -1,6 +1,8 @@
 import SectionsCard from "./SectionsCard"
 
 const CoursesCard =  ({ courses }) => {
+    console.log("HELLo")
+    console.log(courses)
     return (
         <div className="course-card-container">
             <section className="pre-section-info">
@@ -22,7 +24,7 @@ const CoursesCard =  ({ courses }) => {
 
             <section className="course-sections-container">
                 <h3 id="sections">Sections</h3>
-
+                
                 <div className="course-sections">
                     {courses.sections.map(sections => (
                         <SectionsCard key={sections.section_full_name} sections={sections}/>

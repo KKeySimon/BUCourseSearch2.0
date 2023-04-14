@@ -18,9 +18,15 @@ html {
   justify-content: center;
   align-items: center;
 }
+.pppp {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10px;
+}
 
 .coursearch-masthead-branding {
-  padding: 4em 2em;
+  padding: 4em 2em 0em 2em;
   margin: 0 8em 2em 8em;
   min-width: 80vw;
   font-size: 1.5em;

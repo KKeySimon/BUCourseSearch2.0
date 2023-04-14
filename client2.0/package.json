@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "react-app-polyfill": "^3.0.0"
+  }
+}

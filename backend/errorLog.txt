@@ -68,3 +68,53 @@ error occured in batch 0 of 810
 error for batch 0 is {'code': 'PGRST104', 'details': 'Failed to parse [("course_id","Filters.EQ.CAS AA 103")]', 'hint': None, 'message': 'Unexpected param or filter missing operator'}
 error occured in batch 0 of 810
 error for batch 0 is {'code': '21000', 'details': None, 'hint': None, 'message': 'UPDATE requires a WHERE clause'}
+error occured in batch 0 of 810
+error for batch 0 is the JSON object must be str, bytes or bytearray, not list
+error occured in batch 0 of 810
+error for batch 0 is the JSON object must be str, bytes or bytearray, not dict
+error occured in batch 0 of 810
+error for batch 0 is 'Courses'
+error occured in batch 0 of 810
+error for batch 0 is 'Courses'
+error occured in batch 0 of 810
+error for batch 0 is 'Courses'
+error occured in batch 0 of 810
+error for batch 0 is 'Courses'
+error occured in batch 0 of 810
+error for batch 0 is 'Courses'
+error occured in batch 0 of 810
+error for batch 0 is 'Courses'
+error occured in batch 0 of 810
+error for batch 0 is 'Courses'
+error occured in batch 0 of 810
+error for batch 0 is 'Courses'
+error occured in batch 0 of 810
+error for batch 0 is 'Courses'
+error occured in batch 0 of 810
+error for batch 0 is 'Courses'
+error occured in batch 0 of 810
+error for batch 0 is 'Courses'
+error occured in batch 0 of 810
+error for batch 0 is 'Courses'
+error occured in batch 0 of 810
+error for batch 0 is 'Courses'
+error occured in batch 0 of 810
+error for batch 0 is 'Courses'
+error occured in batch 0 of 810
+error for batch 0 is 'Courses'
+error occured in batch 0 of 810
+error for batch 0 is Value argument must be a non-empty dictionary.
+error occured in batch 0 of 810
+error for batch 0 is Value argument must be a non-empty dictionary.
+error occured in batch 0 of 810
+error for batch 0 is Value argument must be a non-empty dictionary.
+error occured in batch 0 of 810
+error for batch 0 is Value argument must be a non-empty dictionary.
+error occured in batch 0 of 810
+error for batch 0 is Unknown error while making a remote service call: Circular reference detected
+error occured in batch 0 of 810
+error for batch 0 is Unknown error while making a remote service call: Circular reference detected
+error occured in batch 0 of 810
+error for batch 0 is Reference.update() missing 1 required positional argument: 'value'
+error occured in batch 0 of 810
+error for batch 0 is Object of type datetime is not JSON serializable

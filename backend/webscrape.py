@@ -32,10 +32,10 @@ def grab_search_data(url):
     doc = BeautifulSoup(result.text, "html.parser")
 
     course_list = doc.find_all("li", {"class":"coursearch-result"})
-    data = []
+    data = {}
 
     for course in course_list:
-        data.append(grab_course_data(course))
+        data.update(grab_course_data(course))
     return data
 
 
@@ -78,23 +78,41 @@ def grab_course_data(course):
     parsed_id = course_id.split()
 
     return {
-        # CAS CS 112
-        "course_id": course_id,
-        # CAS
-        "college": parsed_id[0],
-        # CS
-        "department": parsed_id[1],
-        # 112
-        "course": parsed_id[2],
-        # Intro to Programming II
-        "name": course_name,
-        "description": course_description,
-        "prereqs": course_prereq,
-        "credits": course_credit,
-        "hubs": hub_list,
-        "sections": course_sections,
-        "professors": course_instructors
+        course_id:
+        {
+            # CAS CS 112
+            "course_id": course_id,
+            # CAS
+            "college": parsed_id[0],
+            # CS
+            "department": parsed_id[1],
+            # 112
+            "course": parsed_id[2],
+            # Intro to Programming II
+            "name": course_name,
+            "description": course_description,
+            "prereqs": course_prereq,
+            "credits": course_credit,
+            "hubs": hub_list,
+            "sections": course_sections,
+            "professors": course_instructors
+        }
     }
+
+#   for cs in course_sections:
+#         cs["Courses"] = {
+#             "course_id": course_id,
+#             "college": parsed_id[0],
+#             "department": parsed_id[1],
+#             "course": parsed_id[2],
+#             "name": course_name,
+#             "description": course_description,
+#             "credits": course_credit,
+#             "hubs": hub_list,
+#             "sections": course_sections,
+#             "professors": course_instructors,
+#             "prereqs": course_prereq
+#         }
 
 def grab_sections_data(course_df, course_id):
     course_sections = []

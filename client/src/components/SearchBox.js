@@ -1,6 +1,27 @@
 import React, { Component, useState } from "react"
 import supabase from "../config/supabaseClient"
 import CoursesCard from "./CoursesCard"
+import { initializeApp } from "firebase/app";
+import { getDatabase, ref, child, get } from "firebase/database"
+import Moment from 'moment'
+import { range, extendMoment } from 'moment-range'
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAWGesQWs4XJMfvSzmH7KWJh3Tne2pEj28",
+  authDomain: "bucoursesearch.firebaseapp.com",
+  projectId: "bucoursesearch",
+  storageBucket: "bucoursesearch.appspot.com",
+  messagingSenderId: "1072026572586",
+  appId: "1:1072026572586:web:1cdb57515636b266b1f053",
+  measurementId: "G-ZMHYPSV5E3",
+};
+
+// Initialize the app with a null auth variable, limiting the server's access
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+// const dbRef = ref("/")
+
+const dbRef = ref(db);
 
 //It's a forcst!
 //Our current data is Sections -> Courses
@@ -29,16 +50,24 @@ function parseData(data) {
 //manually take the data out with this function
 function checkAvailable(data, available) {
   if (available === 'False') {
+    console.log("ASDJAISPIASD")
     return data
-  } else {
-    let arr = []
-    for (let i = 0; i < data.length; i++) {
-      if (data[i].availability === true) {
-        arr.push(data[i])
-      }
-    }
-    return arr
   }
+
+  var newData = {}
+  
+  for (var course in data) {
+    const result = data[course].sections.filter(sec => sec.availability === true)
+    // data[course].sections = result
+    console.log(result)
+
+    if (result.length !== 0) {
+      newData[course] = { ...data[course] }
+      newData[course].sections = result
+    }
+  }
+  console.log(newData)
+  return newData
 }
 
 
@@ -82,15 +111,17 @@ function changeClass(ind) {
 }
 
 function filterColleges(data, colleges, filterColleges) {
+  console.log(colleges)
   if (filterColleges) {
-    let arr = []
-    for (let i = 0; i < data.length; i++) {
-      if (colleges.some(substring => data[i].course_id.includes(substring))){
-        arr.push(data[i])
+    var newData = {}
+    for (var course in data) {
+      console.log(data[course].college)
+      if (colleges.includes(data[course].college)) {
+        console.log("true")
+        newData[course] = { ...data[course] }
       }
     }
-    console.log(arr)
-    return arr;
+    return newData
   } else {
     return data
   }
@@ -131,29 +162,74 @@ function changeHub(i) {
 }
 
 function filterHub(data, hubs, filter, allOrAny) {
+  console.log(hubs)
+  console.log(filter)
   if (filter) {
-    let arr = []
-    if (allOrAny === 'All') {
-      for (let i = 0; i < data.length; i++) {
-        if (hubs.every(substring => data[i].hubs.includes(substring))){
-          arr.push(data[i])
-        }
+    var newData = {}
+    for (var course in data) {
+      if (allOrAny === 'All' && hubs.every(str => data[course].hubs.includes(str))) {
+        newData[course] = { ...data[course] }
       }
-    } else {
-      for (let i = 0; i < data.length; i++) {
-        if (hubs.some(substring => data[i].hubs.includes(substring))){
-          arr.push(data[i])
-        }
+      else if (allOrAny === 'Any' && hubs.some(str => data[course].hubs.includes(str))) {
+        newData[course] = { ...data[course] }
       }
     }
-    console.log(arr)
-    return arr;
+    console.log(newData)
+    return newData
   } else {
     return data
   }
 }
-
   
+  
+  // if (filter) {
+  //   let arr = []
+    
+  //   if (allOrAny === 'All') {
+  //     for (let i = 0; i < data.length; i++) {
+  //       if (hubs.every(substring => data[i].hubs.includes(substring))){
+  //         arr.push(data[i])
+  //       }
+  //     }
+  //   } else {
+  //     for (let i = 0; i < data.length; i++) {
+  //       if (hubs.some(substring => data[i].hubs.includes(substring))){
+  //         arr.push(data[i])
+  //       }
+  //     }
+  //   }
+  //   console.log(arr)
+  //   return arr;
+  // } else {
+  //   return data
+  // }
+
+
+function filterBasicSection(data, rating, diff, prof, input) {
+  var newData = {}
+  
+  for (var course in data) {
+    const result = data[course].sections.filter(sec => sec.instructorRating >= rating
+      && sec.instructorDiff <= diff
+      && (prof === "*" || (prof !== "*" && sec.instructor.toLowerCase().includes(prof.toLowerCase())))
+      && (input === "*" || (input !== "*" && sec.course_id.toLowerCase().includes(input.toLowerCase()))))
+    // data[course].sections = result
+    console.log(result)
+
+    if (result.length !== 0) {
+      newData[course] = { ...data[course] }
+      newData[course].sections = result
+    }
+  }
+  console.log(newData)
+  return newData
+    // .ilike('course_id', input)
+    // .gte('instructorRating', rating)
+    // .lte('instructorDiff', diff)
+    // .ilike('instructor', prof)
+}
+
+
 
 const SearchBox = () => {
   const [additional, setAdditional] = useState(false)
@@ -180,7 +256,7 @@ const SearchBox = () => {
     if (title === "") {
       input = "*"
     } else {
-      input = "%"+title+"%"
+      input = title
     }
 
     let rating = -1
@@ -197,7 +273,7 @@ const SearchBox = () => {
     if (includeProf === "") {
       prof = "*"
     } else {
-      prof = "%" + includeProf + "%"
+      prof = includeProf
     }
 
     let colleges = []
@@ -219,44 +295,72 @@ const SearchBox = () => {
     }
 
 
-    const { data, error } = await supabase
-    .from('Sections')
-    .select(`*,
-      Courses (
-        *
-      )
-    `)
-    .ilike('course_id', input)
-    .gte('instructorRating', rating)
-    .lte('instructorDiff', diff)
-    .ilike('instructor', prof)
+    // const { data, error } = await supabase
+    // .from('Sections')
+    // .select(`*,
+    //   Courses (
+    //     *
+    //   )
+    // `)
+    // .ilike('course_id', input)
+    // .gte('instructorRating', rating)
+    // .lte('instructorDiff', diff)
+    // .ilike('instructor', prof)
+
+    var data;
+
+    get(child(dbRef, `/data`)).then((snapshot) => {
+      if (snapshot.exists()) {
+        console.log(snapshot.val());
+        data = snapshot.val()
+        setCourses(filterColleges(filterHub(
+          filterBasicSection(
+            filterSchedule(
+              checkAvailable(data, available), currentSchedule
+            ), rating, diff, prof, input
+          ), hubs, filterH, allOrAny), colleges, filterC)
+        );
+      } else {
+        console.log("No data available");
+      }
+    })
+
+    // }).catch((error) => {
+    //   console.error(error);
+    // });
+    
+    
     //For some reason, the in command only filters the Courses portion
     //and still returns the sections and seems to have no wild card, so we will manually
     //filter on the client side
     //.in('course_id', colleges)
 
-    if (error) {
-      console.log(error)
-      setFetchError('Could not fetch the courses')
-      setCourses(null)
-    }
-    if (data) {
-      //Very strange bug (for some reason data.Courses when explicitly
-      //console logged, but when logging data
-      //only some sections will show its Courses. Don't assume it exists or not
-      //if you can't see the Courses attribute inside a Sections value)
-      console.log(data)
-      setCourses(
-        filterHub(
-          filterColleges(
-            parseData(filterSchedule(checkAvailable(data, available), currentSchedule)), 
-          colleges, filterC),
-        hubs, filterH, allOrAny)
-      )
-      setFetchError(null)
-      setFormError(null)
-    }
+    // if (data) {
+    //   //Very strange bug (for some reason data.Courses when explicitly
+    //   //console logged, but when logging data
+    //   //only some sections will show its Courses. Don't assume it exists or not
+    //   //if you can't see the Courses attribute inside a Sections value)
+      
+    //   setCourses(
+    //     filterHub(
+    //       filterColleges(
+    //         filterSchedule(checkAvailable(data, available), currentSchedule), 
+    //       colleges, filterC),
+    //     hubs, filterH, allOrAny)
+    //   )
+    //   setFetchError(null)
+    //   setFormError(null)
+    // }
   }
+
+  function createCards(_courses) {
+    var cards = [];
+    Object.values(_courses).forEach((course) => {
+      cards.push(<CoursesCard courses={course}/>)
+    })
+    return cards;
+  }
+  
 
   return (
     <div className="parent-container">
@@ -364,6 +468,7 @@ const SearchBox = () => {
           <div className="outter-checkbox-container">
             <h2 className="colleges">Colleges</h2>
             <section className="inner-checkbox-container">
+              <label><input type="checkbox" onClick={event => changeClass(0, event)} /> CAS</label>
               <label><input type="checkbox" onClick={event => changeClass(1, event)} /> CDS</label>
               <label><input type="checkbox" onClick={event => changeClass(2, event)} /> CFA</label>
               <label><input type="checkbox" onClick={event => changeClass(3, event)} /> CGS</label>
@@ -465,11 +570,13 @@ const SearchBox = () => {
           
           <div>
             {fetchError && (<p>{fetchError}</p>)}
+            {console.log("DIRTY")}
+            {console.log(courses)}
             {courses && (
               <div className="course-info">
-                {courses.map(courses => (
-                  <CoursesCard key={courses.course_id} courses={courses}/>
-                ))}
+                {
+                   createCards(courses)
+                }
               </div>
             )}
           </div>
@@ -483,33 +590,98 @@ let currentSchedule = []
 
 //Schedule filter related code
 function filterSchedule(data, schedule) {
-  if (schedule.length === 0) {
+  if (schedule.length == 0) {
     return data
   }
-  var arr = []
-  for (let i = 0; i < data.length; i++) {
-    arr.push(data[i])
-    
-    for (let j = 0; j < schedule.length; j++) {
-      //check for days first
-      let dayOverlap = false
-      for (let k = 0; k < schedule[j]["days"].length; k++) {
-        //if day found...
-        if (data[i].days.indexOf(schedule[j]["days"].charAt(k)) > -1) {
-          dayOverlap = true;
-          continue;
+
+  const moment = extendMoment(Moment);
+  var days_dict = {
+    'M': '2023-03-13',
+    'T': '2023-03-14',
+    'W': '2023-03-15',
+    'R': '2023-03-16',
+    'F': '2023-03-17',
+    'S': '2023-03-18',
+    'U': '2023-03-19',
+  }
+  console.log(schedule)
+
+  var momentSchedule = []
+  
+  for (var i = 0; i < schedule.length; i++) {
+      var interval = schedule[i];
+      for (var j = 0; j < interval.days.length; j++) {
+        var c = interval.days.charAt(j)
+        var start = moment(days_dict[c] + "T00:00:00").add(interval.start, 'minutes')
+        var end = moment(days_dict[c] + "T00:00:00").add(interval.end, 'minutes')
+        momentSchedule.push(moment.range(start, end))
+      }
+  }
+  console.log(momentSchedule)
+
+
+  var newData = {};
+  console.log(data)
+
+  
+  for (var course in data) {
+
+    const result = data[course].sections.filter((sec) => {
+      var courseMomentRanges = []
+      for (var i = 0; i < sec.days.length; i++) {
+        var c = interval.days.charAt(i)
+        var start = moment(days_dict[c] + "T00:00:00").add(sec.scheduleStart, 'minutes')
+        var end = moment(days_dict[c] + "T00:00:00").add(sec.scheduleEnd, 'minutes')
+        courseMomentRanges.push(moment.range(start, end))
+      }
+      for (var a in courseMomentRanges) {
+        for (var b in momentSchedule) {
+          if (courseMomentRanges[a].overlaps(momentSchedule[b])) {
+            return false
+          }
         }
       }
-      if (dayOverlap) {
-        //if overlapping, then pop and move on
-        if (data[i].scheduleStart <= schedule[j]["end"] && schedule[j]["start"] <= data[i].scheduleEnd) {
-          arr.pop()
-          continue
-        }
-      }
+      return true
+    })
+    console.log(result)
+
+    if (result.length !== 0) {
+      newData[course] = { ...data[course] }
+      newData[course].sections = result
     }
   }
-  return arr
+
+  console.log(schedule)
+  console.log(newData)
+  return newData
+
+  // if (schedule.length === 0) {
+  //   return data
+  // }
+  // var arr = []
+  // for (let i = 0; i < data.length; i++) {
+  //   arr.push(data[i])
+    
+  //   for (let j = 0; j < schedule.length; j++) {
+  //     //check for days first
+  //     let dayOverlap = false
+  //     for (let k = 0; k < schedule[j]["days"].length; k++) {
+  //       //if day found...
+  //       if (data[i].days.indexOf(schedule[j]["days"].charAt(k)) > -1) {
+  //         dayOverlap = true;
+  //         continue;
+  //       }
+  //     }
+  //     if (dayOverlap) {
+  //       //if overlapping, then pop and move on
+  //       if (data[i].scheduleStart <= schedule[j]["end"] && schedule[j]["start"] <= data[i].scheduleEnd) {
+  //         arr.pop()
+  //         continue
+  //       }
+  //     }
+  //   }
+  // }
+  // return arr
 }
 
 let dayArr = ["M", "T", "W", "R", "F", "S", "U"]
@@ -573,6 +745,7 @@ delete = (index) => {
 }
 
 add = () => {
+  console.log(this.state.startTime)
   if (this.state.weekdays.includes(true) && this.state.startTime !== "" && this.state.endTime !== "") {
     const visualList = [...this.state.visualList]
     const data = [...this.state.data]
