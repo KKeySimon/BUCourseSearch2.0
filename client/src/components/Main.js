@@ -12,7 +12,7 @@ const Main = () => {
       <div className="description">
         <p>Welcome to the new and improved Boston Universty Course Search. 
           This course search will provide additional information regarding any course that you choose. 
-          On top of the capabalities that the original BU Course Search displays, we provide a Rate My Professor Rating and Difficulty and can manage time-conflicts in your schedule.
+          On top of the capabalities that the original BU Course Search displays, we provide additional useful filters.
         </p>
         <p>To perform a more targeted search, select Additional Search Options</p>
       </div>

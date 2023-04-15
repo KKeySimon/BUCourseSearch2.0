@@ -159,12 +159,18 @@ function filterHub(data, hubs, filter, allOrAny) {
   if (filter) {
     var newData = {}
     for (var course in data) {
-      if (allOrAny === 'All' && hubs.every(str => data[course].hubs.includes(str))) {
-        newData[course] = { ...data[course] }
-      }
-      else if (allOrAny === 'Any' && hubs.some(str => data[course].hubs.includes(str))) {
-        newData[course] = { ...data[course] }
-      }
+      console.log(data[course].hubs)
+      console.log(hubs)
+      if (data[course].hubs != undefined) {
+        if (allOrAny === 'All' && hubs.every(str => data[course].hubs.includes(str))) {
+          console.log("Hello")
+          newData[course] = { ...data[course] }
+        }
+        else if (allOrAny === 'Any' && hubs.some(str => data[course].hubs.includes(str))) {
+          newData[course] = { ...data[course] }
+        }
+      } 
+      
     }
     return newData
   } else {
@@ -200,10 +206,11 @@ function filterBasicSection(data, rating, diff, prof, input) {
   var newData = {}
   
   for (var course in data) {
+   
     const result = data[course].sections.filter(sec => sec.instructorRating >= rating
       && sec.instructorDiff <= diff
       && (prof === "*" || (prof !== "*" && sec.instructor.toLowerCase().includes(prof.toLowerCase())))
-      && (input === "*" || (input !== "*" && sec.course_id.toLowerCase().includes(input.toLowerCase()))))
+      && (input === "*" || (input !== "*" && (sec.course_id.toLowerCase().includes(input.toLowerCase())))))
     // data[course].sections = result
 
     if (result.length !== 0) {
@@ -234,6 +241,89 @@ const SearchBox = () => {
   const [fetchError, setFetchError] = useState(null)
 
   const handleSubmit = async (e) => {
+    if (e.key !== "Enter") {
+      return
+    }
+    console.log("HELLo")
+    e.preventDefault()
+
+    // if (!title) {
+    //   setFormError('Please fill in all the fields correctly.')
+    //   return
+    // }
+
+    let input
+    if (title === "") {
+      input = "*"
+    } else {
+      input = title
+    }
+
+    let rating = -1
+    if (rmpRating !== "") {
+      rating = rmpRating
+    }
+
+    let diff = 5
+    if (rmpDiff !== "") {
+      diff = rmpDiff
+    }
+
+    let prof
+    if (includeProf === "") {
+      prof = "*"
+    } else {
+      prof = includeProf
+    }
+
+    let colleges = []
+    let filterC = false
+    for (let i = 0; i < collegeToggle.length; i++) {
+      if (collegeToggle[i] === true) {
+        colleges.push(collegeToggleDict[i])
+        filterC = true
+      }
+    }
+
+    let hubs = []
+    let filterH = false
+    for (let i = 0; i < hubToggle.length; i++) {
+      if (hubToggle[i] === true) {
+        hubs.push(hubToggleArr[i])
+        filterH = true
+      }
+    }
+
+
+    // const { data, error } = await supabase
+    // .from('Sections')
+    // .select(`*,
+    //   Courses (
+    //     *
+    //   )
+    // `)
+    // .ilike('course_id', input)
+    // .gte('instructorRating', rating)
+    // .lte('instructorDiff', diff)
+    // .ilike('instructor', prof)
+
+    var data;
+
+    get(child(dbRef, `/data`)).then((snapshot) => {
+      if (snapshot.exists()) {
+        data = snapshot.val()
+        setCourses(filterColleges(filterHub(
+          filterBasicSection(
+            filterSchedule(
+              checkAvailable(data, available), currentSchedule
+            ), rating, diff, prof, input
+          ), hubs, filterH, allOrAny), colleges, filterC)
+        );
+      }
+    })
+  }
+
+  const handleMouseSubmit = async (e) => {
     e.preventDefault()
 
     // if (!title) {
@@ -342,12 +432,11 @@ const SearchBox = () => {
   function createCards(_courses) {
     var cards = [];
     Object.values(_courses).forEach((course) => {
-      console.log(course)
       cards.push(<CoursesCard courses={course}/>)
     })
     return cards;
   }
-  
+
 
   return (
     <div className="parent-container">
@@ -359,6 +448,7 @@ const SearchBox = () => {
           className="coursesearch-searchfields-keyword-field"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
+          onKeyDown={handleSubmit}
           placeholder="CAS XX 123">
           </input>
         </div>
@@ -367,14 +457,13 @@ const SearchBox = () => {
           <label className="dropdown" >
             Semester
             <select className="coursearch-searchfields-semester-select">
-              <option value="2023-SPRG">Spring 2023</option>
-              <option value="Future-Semesters"  >Future Semesters</option>
+              <option value="2023-SPRG">Fall 2023</option>
             </select>
           </label>
         </div>
 
         <div className="top-btn-container">
-          <button type="button" className="search" onClick={handleSubmit}>
+          <button type="button" className="search" onClick={handleMouseSubmit}>
             Search
           </button>
         </div>

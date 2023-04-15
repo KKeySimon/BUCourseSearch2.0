@@ -1,7 +1,6 @@
 import SectionsCard from "./SectionsCard"
 
 const CoursesCard =  ({ courses }) => {
-    console.log(courses)
     return (
         <div className="course-card-container">
             <section className="pre-section-info">

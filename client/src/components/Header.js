@@ -40,6 +40,7 @@ export default function Header(){
         <a href="/phpbin/course-search/">Boston University <span>Course Search 2.0</span></a> 
       </div>
     </header>
+    <p className="pppp">By Simon Kye (BU '24), Matt Iwane (BU '24), Brandon Yang (GT '24)</p>
     <p className="pppp">Last Updated at {date}</p>
     </div>
   );
