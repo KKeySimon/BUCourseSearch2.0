@@ -14,7 +14,7 @@ export default function Footer() {
         </ul>
 
         <div className="coursearch-footer-copyright">
-          <p>© 2022 Boston University Course Search 2.0</p>
+          <p>© 2023 Boston University Course Search 2.0</p>
         </div>
       </div>
     </footer>

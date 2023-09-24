@@ -457,7 +457,7 @@ const SearchBox = () => {
           <label className="dropdown" >
             Semester
             <select className="coursearch-searchfields-semester-select">
-              <option value="2023-SPRG">Fall 2023</option>
+              <option value="2024-SPRG">Spring 2024</option>
             </select>
           </label>
         </div>
