@@ -18,7 +18,7 @@ def lambda_handler(event, context):
     date = {"gigaLit": datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S")}
     requests.patch("https://bucoursesearch-default-rtdb.firebaseio.com/date.json", params={"auth": "6DQipMJOMkUQ9bHY46BV3uzaO71HRs4dyMxy5qQT"}, data=json.dumps(date))
     for i in range(393, int(numCourses / 5)):
-        url = "https://www.bu.edu/phpbin/course-search/search.php?page=" + str(i) + "&pagesize=5&adv=1&nolog=&search_adv_all=&yearsem_adv=2023-FALL&credits=*&pathway=&hub_match=all&pagesize=5"
+        url = "https://www.bu.edu/phpbin/course-search/search.php?page=" + str(i) + "&pagesize=5&adv=1&nolog=&search_adv_all=&yearsem_adv=2024-SPRG&credits=*&pathway=&hub_match=all&pagesize=5"
         # url = "https://www.bu.edu/phpbin/course-search/search.php?page=w0&pagesize=5&adv=1&nolog=&search_adv_all=cas+cc+222&yearsem_adv=2023-SPRG&credits=*&pathway=&hub_match=all&pagesize=5"
         try:
             data = grab_search_data(url)     
